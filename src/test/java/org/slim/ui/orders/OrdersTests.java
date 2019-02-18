@@ -8,6 +8,8 @@ import org.slim.ui.BaseTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static com.codeborne.selenide.Selenide.sleep;
+
 public class OrdersTests extends BaseTest {
     DashboardPage dashboardPage = new DashboardPage();
     LoginPage loginPage = new LoginPage();
@@ -27,34 +29,63 @@ public class OrdersTests extends BaseTest {
                 .openDashBoard()
                 .clickOrdersButton();
         ordersPage
-                .clickOnNewOrderButton();
+                .clickNewOrderButton();
         newOrderPage
-                .clickOnCustomerSelectorField()
-                .clickOnFirstCustomerSelect()
-                .clickOnСargoSelectorField()
-                .clickOnFirstCargoItemSelect()
-                .clickOnCarrierSelectorField()
-                .clickOnCarrierFirstItemSelect()
+                .clickCustomerSelectorField()
+                .clickFirstCustomerSelect()
+                .clickСargoSelectorField()
+                .clickFirstCargoItemSelect()
+                .clickCarrierSelectorField()
+                .clickCarrierFirstItemSelect()
                 .inputDataToUnitsInputFields()
-                .clickOnPlangroupSelectorField()
-                .clickOnPlangroupItemSelect()
-                .clickOnOrderTypeSelectorField()
-                .clickOnOrderItemSelect()
+                .clickPlangroupSelectorField()
+                .clickPlangroupItemSelect()
+                .clickOrderTypeSelectorField()
+                .clickOrderItemSelect()
                 .clickNextButton()
-                .clickSearchAddressLsit1Button()
-                .clickOnFirstItemAddress()
-                .clickOnSelectButton()
-                .clickSearchAddressLsit2Button()
-                .clickOnSecondItemAddress()
-                .clickOnSelectButton()
+                .clickSearchAddressList1Button()
+                .clickFirstItemAddress()
+                .clickSelectButton()
+                .clickSearchAddressList2Button()
+                .clickSecondItemAddress()
+                .clickSelectButton()
                 .inputDataToTheFromInputList1Field()
-                .inputDataToThefromInputList2Field()
+                .inputDataToTheFromInputList2Field()
                 .inputDataToTheUntilInputList1Field()
                 .inputDataToTheUntilInputList2Field()
                 .clickNextButton()
-                .clickOnTransportTypeSelectorField()
-                .clickOnTransportTypeSelect()
+                .clickTransportTypeSelectorField()
+                .clickTransportTypeSelect()
                 .clickSaveButton();
     }
 
+    @Test
+    public void checkingFieldValidationOnTheOrdersDetailsStep(){
+        dashboardPage
+                .openDashBoard()
+                .clickOrdersButton();
+        ordersPage
+                .clickNewOrderButton();
+        newOrderPage
+                .clickNextButton()
+                .checkCustomerValidation()
+                .checkCargoValidation()
+                .checkOrderTypeValidation()
+                .checkPlanGroupValidation();
+    }
+    @Test
+    public void editOrder() {
+        dashboardPage
+                .openDashBoard()
+                .clickOrdersButton();
+        ordersPage
+                .clickEditItem1Button();
+        newOrderPage
+                .clickPlanGroupEditSelectorField()
+                .clickPlanGroupEditSelectorItem()
+                .clickSaveButtonOnEditOrderModalWindow();
+        sleep(3000);
+    }
+
 }
+

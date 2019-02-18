@@ -1,9 +1,11 @@
 package com.slim.ui.pageOblectClasses.orders;
 
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.sleep;
 
 public class NewOrderPage {
 
@@ -31,31 +33,36 @@ public class NewOrderPage {
     SelenideElement transportTypeSelectorField = $("[class*='form-group mx-name-referenceSelector13 align-label-left'] [class='form-control']");
     SelenideElement transportTypeSelect = $("[class*='form-group mx-name-referenceSelector13 align-label-left'] [class*='form-control'] [value='26458647810802267']");
     SelenideElement saveButton = $("[class='btn mx-button mx-name-actionButton4 btn-success']");
+    SelenideElement customerValidationMessage = $("[class='form-group mx-name-referenceSelector1 align-label-left has-error'] [class='alert alert-danger mx-validation-message']");
+    SelenideElement newOrderModalWindow = $("[class='modal-body mx-window-body']");
+    SelenideElement planGroupEditSelectorField = $("[class='tab-pane mx-tabcontainer-pane active'] [class='form-group mx-name-referenceSelector9 align-label-left'] [class*='form-control']");
+    SelenideElement planGroupEditSelectorItem = $("[class='tab-pane mx-tabcontainer-pane active'] [class='form-group mx-name-referenceSelector9 align-label-left'] [class*='form-control'] [value='27021597764223589']");
+    SelenideElement saveButtonOnEditOrderModalWindow = $("[class='modal-content mx-window-content'] [class='btn mx-button mx-name-actionButton3 btn-success']");
 
 
 
-    public NewOrderPage clickOnCustomerSelectorField(){
+    public NewOrderPage clickCustomerSelectorField(){
         customerSelectorField.click();
         return this;
     }
-    public NewOrderPage clickOnFirstCustomerSelect(){
+    public NewOrderPage clickFirstCustomerSelect(){
         firstCustomerSelect.click();
         return this;
     }
 
-    public NewOrderPage clickOnСargoSelectorField(){
+    public NewOrderPage clickСargoSelectorField(){
         cargoSelectorField.click();
         return this;
     }
-    public NewOrderPage clickOnFirstCargoItemSelect(){
+    public NewOrderPage clickFirstCargoItemSelect(){
         cargoFirstItemSelect.click();
         return this;
     }
-    public NewOrderPage clickOnCarrierSelectorField(){
+    public NewOrderPage clickCarrierSelectorField(){
         carrierSelectorField.click();
         return this;
     }
-    public NewOrderPage clickOnCarrierFirstItemSelect(){
+    public NewOrderPage clickCarrierFirstItemSelect(){
         carrierFirstItemSelect.click();
         return this;
     }
@@ -63,73 +70,111 @@ public class NewOrderPage {
         unitsInputFields.setValue("1");
         return this;
     }
-    public NewOrderPage clickOnPlangroupSelectorField(){
+    public NewOrderPage clickPlangroupSelectorField(){
         plangroupSelectorField.click();
         return this;
     }
-    public NewOrderPage clickOnPlangroupItemSelect(){
+    public NewOrderPage clickPlangroupItemSelect(){
         plangroupItemSelect.click();
         return this;
     }
-    public NewOrderPage clickOnOrderTypeSelectorField(){
+    public NewOrderPage clickOrderTypeSelectorField(){
         orderTypeSelectorField.click();
         return this;
     }
-    public NewOrderPage clickOnOrderItemSelect(){
+    public NewOrderPage clickOrderItemSelect(){
         orderItemSelect.click();
         return this;
     }
     public NewOrderPage clickNextButton(){
         nextButton.click();
+        sleep(5000);
         return this;
     }
-    public NewOrderPage clickSearchAddressLsit1Button(){
+    public NewOrderPage clickSearchAddressList1Button(){
         searchAddressList1Button.click();
         return this;
     }
-    public NewOrderPage clickSearchAddressLsit2Button(){
+    public NewOrderPage clickSearchAddressList2Button(){
         searchAddressList2Button.click();
         return this;
     }
-    public NewOrderPage clickOnFirstItemAddress(){
+    public NewOrderPage clickFirstItemAddress(){
         firstItemAddress.click();
         return this;
     }
-    public NewOrderPage clickOnSecondItemAddress(){
+    public NewOrderPage clickSecondItemAddress(){
         secondItemAddress.click();
         return this;
     }
-    public NewOrderPage clickOnSelectButton(){
+    public NewOrderPage clickSelectButton(){
         selectButton.click();
         return this;
     }
      public NewOrderPage inputDataToTheFromInputList1Field(){
-         fromInputList1Field.setValue("10000");
+         fromInputList1Field.setValue("10:00");
         return this;
     }
-    public NewOrderPage inputDataToThefromInputList2Field(){
-        fromInputList2Field.setValue("15000");
+    public NewOrderPage inputDataToTheFromInputList2Field(){
+        fromInputList2Field.setValue("15:00");
         return this;
     }
 
     public NewOrderPage inputDataToTheUntilInputList1Field(){
-        untilInputList1Field.setValue("11000");
+        untilInputList1Field.setValue("11:00");
         return this;
     }
     public NewOrderPage inputDataToTheUntilInputList2Field(){
-        untilInputList2Field.setValue("20000");
+        untilInputList2Field.setValue("20:00");
         return this;
     }
-    public NewOrderPage clickOnTransportTypeSelectorField(){
+    public NewOrderPage clickTransportTypeSelectorField(){
         transportTypeSelectorField.click();
         return this;
     }
-    public NewOrderPage clickOnTransportTypeSelect(){
+    public NewOrderPage clickTransportTypeSelect(){
         transportTypeSelect.click();
         return this;
     }
     public NewOrderPage clickSaveButton(){
         saveButton.click();
+        return this;
+    }
+    public NewOrderPage checkCustomerValidation(){
+        newOrderModalWindow.shouldHave(Condition.cssClass("[class*='form-group mx-name-referenceSelector1 align-label-left has-error'] [class='alert alert-danger mx-validation-message']"));
+        System.out.println("Customer validation passed");
+        sleep(5000);
+        return this;
+    }
+    public NewOrderPage checkCargoValidation(){
+        newOrderModalWindow.shouldHave(Condition.text("Please choose Customer."));
+        // newOrderModalWindow.shouldHave(Condition.cssClass("[class*='form-group mx-name-referenceSelector8 align-label-left has-error'] [class='alert alert-danger mx-validation-message']"));
+        System.out.println("Cargo validation passed");
+        sleep(5000);
+        return this;
+    }
+    public NewOrderPage checkPlanGroupValidation(){
+        newOrderModalWindow.shouldHave(Condition.cssClass("[class*='form-group mx-name-referenceSelector10 align-label-left has-error'] [class='alert alert-danger mx-validation-message']"));
+        System.out.println("PlanGroup validation passed");
+        sleep(5000);
+        return this;
+    }
+    public NewOrderPage checkOrderTypeValidation(){
+        newOrderModalWindow.shouldHave(Condition.cssClass("[class*='form-group mx-name-referenceSelector9 align-label-left has-error'] [class='alert alert-danger mx-validation-message']"));
+        System.out.println("Order type validation passed");
+        sleep(5000);
+        return this;
+    }
+    public NewOrderPage clickPlanGroupEditSelectorField(){
+        planGroupEditSelectorField.click();
+        return  this;
+    }
+    public NewOrderPage clickPlanGroupEditSelectorItem(){
+        planGroupEditSelectorItem.click();
+        return  this;
+    }
+    public NewOrderPage clickSaveButtonOnEditOrderModalWindow (){
+        saveButtonOnEditOrderModalWindow.click();
         return this;
     }
 }

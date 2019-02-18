@@ -15,10 +15,37 @@ SelenideElement infoItem2Button =$("[class='mx-listview-item mx-name-index-1'] [
 SelenideElement editItem1Button =$("[class='mx-listview-item mx-name-index-0'] [class*='btn mx-button mx-name-Edit10 buttonnonborder-image fa fa-edit btn-default']");
 SelenideElement editItem2Button =$("[class='mx-listview-item mx-name-index-1'] [class*='btn mx-button mx-name-Edit10 buttonnonborder-image fa fa-edit btn-default']");
 
-    public OrdersPage clickOnNewOrderButton(){
+    public OrdersPage clickNewOrderButton(){
         newOrderButton.click();
         return this;
+
     }
-
-
+    public OrdersPage clickOrderFromTemplateButton(){
+        orderFromTemplateButton.click();
+        return this;
+    }
+    public OrdersPage clickNewWorkOrderButton(){
+        newWorkOrderButton.click();
+        return this;
+    }
+    public OrdersPage inputDataToSearchField(){
+        searchField.click();
+        return this;
+    }
+    public OrdersPage clickInfoItem1Button(){
+        infoItem1Button.click();
+        return this;
+    }
+    public OrdersPage clickInfoItem2Button(){
+        infoItem2Button.click();
+        return this;
+    }
+    public OrdersPage clickEditItem1Button(){
+        editItem1Button.click();
+        return this;
+    }
+    public OrdersPage clickEditItem2Button(){
+        editItem2Button.click();
+        return this;
+    }
 }
