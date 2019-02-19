@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.sleep;
+import static com.slim.ui.dataGenerator.DataGenerator.getTime;
 
 public class OrdersTests extends BaseTest {
     DashboardPage dashboardPage = new DashboardPage();
@@ -49,8 +50,8 @@ public class OrdersTests extends BaseTest {
                 .clickSearchAddressList2Button()
                 .clickSecondItemAddress()
                 .clickSelectButton()
-                .inputDataToTheFromInputList1Field()
-                .inputDataToTheFromInputList2Field()
+                .inputDataToTheFromInputList1Field(getTime(10,12))
+                .inputDataToTheFromInputList2Field(getTime(12,14))
                 .inputDataToTheUntilInputList1Field()
                 .inputDataToTheUntilInputList2Field()
                 .clickNextButton()

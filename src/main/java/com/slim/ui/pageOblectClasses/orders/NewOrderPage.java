@@ -39,7 +39,7 @@ public class NewOrderPage {
     SelenideElement planGroupEditSelectorItem = $("[class='tab-pane mx-tabcontainer-pane active'] [class='form-group mx-name-referenceSelector9 align-label-left'] [class*='form-control'] [value='27021597764223589']");
     SelenideElement saveButtonOnEditOrderModalWindow = $("[class='modal-content mx-window-content'] [class='btn mx-button mx-name-actionButton3 btn-success']");
 
-
+    SelenideElement customersValidationError = $("[class*='form-group mx-name-referenceSelector1 align-label-left has-error'] [class='alert alert-danger mx-validation-message']");
 
     public NewOrderPage clickCustomerSelectorField(){
         customerSelectorField.click();
@@ -111,12 +111,13 @@ public class NewOrderPage {
         selectButton.click();
         return this;
     }
-     public NewOrderPage inputDataToTheFromInputList1Field(){
-         fromInputList1Field.setValue("10:00");
+     public NewOrderPage inputDataToTheFromInputList1Field(String time){
+        fromInputList1Field.clear();
+        fromInputList1Field.setValue(time);
         return this;
     }
-    public NewOrderPage inputDataToTheFromInputList2Field(){
-        fromInputList2Field.setValue("15:00");
+    public NewOrderPage inputDataToTheFromInputList2Field(String time){
+        fromInputList2Field.setValue(time);
         return this;
     }
 
@@ -141,7 +142,8 @@ public class NewOrderPage {
         return this;
     }
     public NewOrderPage checkCustomerValidation(){
-        newOrderModalWindow.shouldHave(Condition.cssClass("[class*='form-group mx-name-referenceSelector1 align-label-left has-error'] [class='alert alert-danger mx-validation-message']"));
+//        newOrderModalWindow.shouldHave(Condition.cssClass("[class*='form-group mx-name-referenceSelector1 align-label-left has-error'] [class='alert alert-danger mx-validation-message']"));
+        customersValidationError.shouldHave(Condition.visible);
         System.out.println("Customer validation passed");
         sleep(5000);
         return this;
