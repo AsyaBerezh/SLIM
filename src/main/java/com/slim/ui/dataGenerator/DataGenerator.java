@@ -12,6 +12,6 @@ public class DataGenerator {
 
     public static String getTime(int maxHours, int minHours) {
         return String.valueOf(faker.number().numberBetween(minHours, maxHours)) + ":"
-                + String.valueOf(faker.number().numberBetween(10, 59));
+                + String.valueOf(faker.number().numberBetween(11, 19));
     }
 }

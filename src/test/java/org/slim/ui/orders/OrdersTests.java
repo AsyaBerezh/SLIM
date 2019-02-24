@@ -2,7 +2,9 @@ package org.slim.ui.orders;
 
 import com.slim.ui.pageOblectClasses.DashboardPage;
 import com.slim.ui.pageOblectClasses.LoginPage;
+import com.slim.ui.pageOblectClasses.orders.NewOrderFromTemplatePage;
 import com.slim.ui.pageOblectClasses.orders.NewOrderPage;
+import com.slim.ui.pageOblectClasses.orders.NewWorkOrderPage;
 import com.slim.ui.pageOblectClasses.orders.OrdersPage;
 import org.slim.ui.BaseTest;
 import org.testng.annotations.BeforeClass;
@@ -16,6 +18,8 @@ public class OrdersTests extends BaseTest {
     LoginPage loginPage = new LoginPage();
     NewOrderPage newOrderPage = new NewOrderPage();
     OrdersPage ordersPage = new OrdersPage();
+    NewOrderFromTemplatePage newOrderFromTemplatePage = new NewOrderFromTemplatePage();
+    NewWorkOrderPage newWorkOrderPage = new NewWorkOrderPage();
 
     @BeforeClass
 
@@ -50,10 +54,10 @@ public class OrdersTests extends BaseTest {
                 .clickSearchAddressList2Button()
                 .clickSecondItemAddress()
                 .clickSelectButton()
-                .inputDataToTheFromInputList1Field(getTime(10,12))
-                .inputDataToTheFromInputList2Field(getTime(12,14))
-                .inputDataToTheUntilInputList1Field()
-                .inputDataToTheUntilInputList2Field()
+                .inputDataToTheFromInputList1Field(getTime(10,11))
+                .inputDataToTheFromInputList2Field(getTime(15,16))
+                .inputDataToTheUntilInputList1Field(getTime(12,13))
+                .inputDataToTheUntilInputList2Field(getTime(22,24))
                 .clickNextButton()
                 .clickTransportTypeSelectorField()
                 .clickTransportTypeSelect()
@@ -86,6 +90,52 @@ public class OrdersTests extends BaseTest {
                 .clickPlanGroupEditSelectorItem()
                 .clickSaveButtonOnEditOrderModalWindow();
         sleep(3000);
+    }
+    @Test
+    public void createOrderFromTemplate(){
+        dashboardPage
+                .openDashBoard()
+                .clickOrdersButton();
+        ordersPage
+                .clickOrderFromTemplateButton()
+                .clickTemplateSelector()
+                .clickTemplateItem()
+                .clickNewOrderButtonOnChooseTemplatePopUp();
+        newOrderFromTemplatePage
+                .clickNextButton()
+                .inputDataToTheFromInputList1Field(getTime(10,11))
+                .inputDataToTheFromInputList2Field(getTime(15,16))
+                .inputDataToTheUntilInputList1Field(getTime(12,13))
+                .inputDataToTheUntilInputList2Field(getTime(22,24))
+                .clickNextButton()
+                .clickSaveButton();
+        sleep(3000);
+    }
+    @Test
+    public void createNewWorkOrder(){
+        dashboardPage
+                .openDashBoard()
+                .clickOrdersButton();
+        ordersPage
+                .clickNewWorkOrderButton();
+        newWorkOrderPage
+                .clickCustomerField()
+                .clickCustomerItem()
+                .inputDataToPlannedStartTime(getTime(8,11))
+                .inputDataToPlannedEndTime(getTime(18,20))
+                .clickPlanGropField()
+                .clickPlanGroupItem()
+                .clickNextButton()
+                .clickAddDriverButton()
+                .clickFirstItemClaimButton()
+                .clickNextButton()
+                .clickFirstStopSelectorField()
+                .clickFirstStopItem()
+                .clickLastStopSelectorField()
+                .clickLastStopItem()
+                .clickNextButton()
+                .clickPublishTripButton();
+        sleep(2000);
     }
 
 }

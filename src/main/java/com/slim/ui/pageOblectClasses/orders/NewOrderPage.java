@@ -27,9 +27,9 @@ public class NewOrderPage {
     SelenideElement secondItemAddress = $("[class='table table-striped table-bordered mx-datagrid-body-table'] [class*='mx-name-index-1']");
     SelenideElement selectButton = $("[class='mx-layoutgrid mx-layoutgrid-fluid container-fluid mx-name-layoutGrid1'] [class='btn mx-button mx-name-actionButton1 btn-default']");
     SelenideElement fromInputList1Field = $(" [class*='mx-listview mx-listview-selectable mx-name-listView3'] [class*='mx-listview-item mx-name-index-0'] [class*='mx-name-textBox23'] [class*='form-control']");
-    SelenideElement fromInputList2Field = $(" [class='mx-listview mx-listview-selectable mx-name-listView3'] [class='mx-listview-item mx-name-index-1'] [class='mx-name-textBox23'] [class*='form-control']");
-    SelenideElement untilInputList1Field = $(" [class='mx-listview mx-listview-selectable mx-name-listView3'] [class='mx-listview-item mx-name-index-0'] [class='mx-name-textBox24'] [class*='form-control']");
-    SelenideElement untilInputList2Field = $(" [class='mx-listview mx-listview-selectable mx-name-listView3'] [class='mx-listview-item mx-name-index-1'] [class='mx-name-textBox24'] [class*='form-control']");
+    SelenideElement fromInputList2Field = $(" [class*='mx-listview mx-listview-selectable mx-name-listView3'] [class*='mx-listview-item mx-name-index-1'] [class*='mx-name-textBox23'] [class*='form-control']");
+    SelenideElement untilInputList1Field = $(" [class*='mx-listview mx-listview-selectable mx-name-listView3'] [class*='mx-listview-item mx-name-index-0'] [class*='mx-name-textBox24'] [class*='form-control']");
+    SelenideElement untilInputList2Field = $(" [class*='mx-listview mx-listview-selectable mx-name-listView3'] [class*='mx-listview-item mx-name-index-1'] [class*='mx-name-textBox24'] [class*='form-control']");
     SelenideElement transportTypeSelectorField = $("[class*='form-group mx-name-referenceSelector13 align-label-left'] [class='form-control']");
     SelenideElement transportTypeSelect = $("[class*='form-group mx-name-referenceSelector13 align-label-left'] [class*='form-control'] [value='26458647810802267']");
     SelenideElement saveButton = $("[class='btn mx-button mx-name-actionButton4 btn-success']");
@@ -40,6 +40,9 @@ public class NewOrderPage {
     SelenideElement saveButtonOnEditOrderModalWindow = $("[class='modal-content mx-window-content'] [class='btn mx-button mx-name-actionButton3 btn-success']");
 
     SelenideElement customersValidationError = $("[class*='form-group mx-name-referenceSelector1 align-label-left has-error'] [class='alert alert-danger mx-validation-message']");
+    SelenideElement cargoValidationError = $("[class*='form-group mx-name-referenceSelector8 align-label-left has-error'] [class='alert alert-danger mx-validation-message']");
+    SelenideElement planGroupValidationError = $("[class*='form-group mx-name-referenceSelector10 align-label-left has-error'] [class='alert alert-danger mx-validation-message']");
+    SelenideElement orderTypeValidationError = $("[class*='form-group mx-name-referenceSelector9 align-label-left has-error'] [class='alert alert-danger mx-validation-message']");
 
     public NewOrderPage clickCustomerSelectorField(){
         customerSelectorField.click();
@@ -112,59 +115,78 @@ public class NewOrderPage {
         return this;
     }
      public NewOrderPage inputDataToTheFromInputList1Field(String time){
+        fromInputList1Field.click();
         fromInputList1Field.clear();
+         sleep(300);
         fromInputList1Field.setValue(time);
+         sleep(300);
         return this;
     }
     public NewOrderPage inputDataToTheFromInputList2Field(String time){
-        fromInputList2Field.setValue(time);
+        fromInputList2Field.click();
+        fromInputList2Field.clear();
+        sleep(300);
+        fromInputList2Field.sendKeys(time);
+        sleep(300);
         return this;
     }
 
-    public NewOrderPage inputDataToTheUntilInputList1Field(){
-        untilInputList1Field.setValue("11:00");
+    public NewOrderPage inputDataToTheUntilInputList1Field(String time){
+        untilInputList1Field.click();
+        untilInputList1Field.clear();
+        sleep(300);
+        untilInputList1Field.setValue(time);
+        sleep(300);
         return this;
     }
-    public NewOrderPage inputDataToTheUntilInputList2Field(){
-        untilInputList2Field.setValue("20:00");
+    public NewOrderPage inputDataToTheUntilInputList2Field(String time){
+        untilInputList2Field.click();
+        untilInputList2Field.clear();
+        sleep(300);
+        untilInputList2Field.setValue(time);
+        sleep(300);
         return this;
     }
+
     public NewOrderPage clickTransportTypeSelectorField(){
         transportTypeSelectorField.click();
         return this;
     }
+
     public NewOrderPage clickTransportTypeSelect(){
         transportTypeSelect.click();
         return this;
     }
+
     public NewOrderPage clickSaveButton(){
         saveButton.click();
         return this;
     }
+
     public NewOrderPage checkCustomerValidation(){
-//        newOrderModalWindow.shouldHave(Condition.cssClass("[class*='form-group mx-name-referenceSelector1 align-label-left has-error'] [class='alert alert-danger mx-validation-message']"));
         customersValidationError.shouldHave(Condition.visible);
         System.out.println("Customer validation passed");
-        sleep(5000);
+        sleep(2000);
         return this;
     }
     public NewOrderPage checkCargoValidation(){
-        newOrderModalWindow.shouldHave(Condition.text("Please choose Customer."));
+        //newOrderModalWindow.shouldHave(Condition.text("Please choose Customer."));
         // newOrderModalWindow.shouldHave(Condition.cssClass("[class*='form-group mx-name-referenceSelector8 align-label-left has-error'] [class='alert alert-danger mx-validation-message']"));
+        cargoValidationError.shouldHave(Condition.visible);
         System.out.println("Cargo validation passed");
-        sleep(5000);
+        sleep(2000);
         return this;
     }
     public NewOrderPage checkPlanGroupValidation(){
-        newOrderModalWindow.shouldHave(Condition.cssClass("[class*='form-group mx-name-referenceSelector10 align-label-left has-error'] [class='alert alert-danger mx-validation-message']"));
+        planGroupValidationError.shouldHave(Condition.visible);
         System.out.println("PlanGroup validation passed");
-        sleep(5000);
+        sleep(2000);
         return this;
     }
     public NewOrderPage checkOrderTypeValidation(){
-        newOrderModalWindow.shouldHave(Condition.cssClass("[class*='form-group mx-name-referenceSelector9 align-label-left has-error'] [class='alert alert-danger mx-validation-message']"));
+        orderTypeValidationError.shouldHave(Condition.visible);
         System.out.println("Order type validation passed");
-        sleep(5000);
+        sleep(2000);
         return this;
     }
     public NewOrderPage clickPlanGroupEditSelectorField(){

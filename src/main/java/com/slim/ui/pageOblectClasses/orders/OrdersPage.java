@@ -6,14 +6,17 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class OrdersPage {
 
-SelenideElement newOrderButton =$("[class*='btn mx-button mx-name-actionButton2 btn-success']");
-SelenideElement orderFromTemplateButton =$("[class*='btn mx-button mx-name-actionButton3 btn-success']");
-SelenideElement newWorkOrderButton =$("[class*='btn mx-button mx-name-actionButton6 btn-success']");
-SelenideElement searchField =$("[class*='search-bar']");
-SelenideElement infoItem1Button =$("[class='mx-listview-item mx-name-index-0'] [class*='btn mx-button mx-name-actionButton18 buttonnonborder-image fa fa-info-circle btn-info']");
-SelenideElement infoItem2Button =$("[class='mx-listview-item mx-name-index-1'] [class*='btn mx-button mx-name-actionButton18 buttonnonborder-image fa fa-info-circle btn-info']");
-SelenideElement editItem1Button =$("[class='mx-listview-item mx-name-index-0'] [class*='btn mx-button mx-name-Edit10 buttonnonborder-image fa fa-edit btn-default']");
-SelenideElement editItem2Button =$("[class='mx-listview-item mx-name-index-1'] [class*='btn mx-button mx-name-Edit10 buttonnonborder-image fa fa-edit btn-default']");
+SelenideElement newOrderButton = $("[class*='btn mx-button mx-name-actionButton2 btn-success']");
+SelenideElement orderFromTemplateButton = $("[class*='btn mx-button mx-name-actionButton3 btn-success']");
+SelenideElement newWorkOrderButton = $("[class*='btn mx-button mx-name-actionButton6 btn-success']");
+SelenideElement searchField = $("[class*='search-bar']");
+SelenideElement infoItem1Button = $("[class='mx-listview-item mx-name-index-0'] [class*='btn mx-button mx-name-actionButton18 buttonnonborder-image fa fa-info-circle btn-info']");
+SelenideElement infoItem2Button = $("[class='mx-listview-item mx-name-index-1'] [class*='btn mx-button mx-name-actionButton18 buttonnonborder-image fa fa-info-circle btn-info']");
+SelenideElement editItem1Button = $("[class='mx-listview-item mx-name-index-0'] [class*='btn mx-button mx-name-Edit10 buttonnonborder-image fa fa-edit btn-default']");
+SelenideElement editItem2Button = $("[class='mx-listview-item mx-name-index-1'] [class*='btn mx-button mx-name-Edit10 buttonnonborder-image fa fa-edit btn-default']");
+SelenideElement templateSelector = $("[class='mx-referenceselector-input-wrapper'] [class*='form-control']");
+SelenideElement templateItem = $("[class='mx-referenceselector-input-wrapper'] [value='33776997205279321']");
+SelenideElement newOrderButtonOnChooseTemplatePopUp = $("[class='btn mx-button mx-name-actionButton1 btn-success'] ");
 
     public OrdersPage clickNewOrderButton(){
         newOrderButton.click();
@@ -46,6 +49,18 @@ SelenideElement editItem2Button =$("[class='mx-listview-item mx-name-index-1'] [
     }
     public OrdersPage clickEditItem2Button(){
         editItem2Button.click();
+        return this;
+    }
+    public OrdersPage clickTemplateSelector(){
+        templateSelector.click();
+        return this;
+    }
+    public OrdersPage clickTemplateItem(){
+        templateItem.click();
+        return this;
+    }
+    public OrdersPage clickNewOrderButtonOnChooseTemplatePopUp(){
+        newOrderButtonOnChooseTemplatePopUp.click();
         return this;
     }
 }
