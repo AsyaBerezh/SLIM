@@ -121,9 +121,9 @@ public class OrdersTests extends BaseTest {
         newWorkOrderPage
                 .clickCustomerField()
                 .clickCustomerItem()
-                .inputDataToPlannedStartTime(getTime(8,11))
-                .inputDataToPlannedEndTime(getTime(18,20))
-                .clickPlanGropField()
+                .inputDataToPlannedStartTime(getTime(10, 11))
+                .inputDataToPlannedEndTime()
+                .clickPlanGroupField()
                 .clickPlanGroupItem()
                 .clickNextButton()
                 .clickAddDriverButton()
@@ -135,7 +135,7 @@ public class OrdersTests extends BaseTest {
                 .clickLastStopItem()
                 .clickNextButton()
                 .clickPublishTripButton();
-        sleep(2000);
+        sleep(5000);
     }
 
 }

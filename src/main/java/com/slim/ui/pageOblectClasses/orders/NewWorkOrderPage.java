@@ -7,16 +7,16 @@ import static com.codeborne.selenide.Selenide.sleep;
 
 public class NewWorkOrderPage {
     SelenideElement customerField = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [class*='form-control']");
-    SelenideElement customerItem = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [class*='form-control'] [value='7036874417767002']");
-    SelenideElement plannedStartTime = $("[class='mx-name-textBox1']");
-    SelenideElement plannedEndTime = $("[class='mx-name-textBox2']");
+    SelenideElement customerItem = $("[class*='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [class*='form-control'] [value='7036874417767002']");
+    SelenideElement plannedStartTime = $("[class='mx-name-textBox1'] [class*='form-control']");
+    SelenideElement plannedEndTime = $("[class='mx-name-textBox2'] [class*='form-control']");
     SelenideElement planGroupField = $("[class='form-group mx-name-referenceSelector10 align-label-left'] [class='mx-referenceselector-input-wrapper'] [class*='form-control']");
     SelenideElement planGroupItem = $("[class='form-group mx-name-referenceSelector10 align-label-left'] [class='mx-referenceselector-input-wrapper'] [class*='form-control'] [value='27021597764223580']");
     SelenideElement nextButton = $("[class='btn mx-button mx-name-actionButton2 btnRight > img btn-default']");
     SelenideElement addDriverButton = $("[class*='btn mx-button mx-name-actionButton3 buttonnonbordergreen-image fa fa-plus-square btn-success']");
     SelenideElement addTractorLiceseButton = $("[class*='btn mx-button mx-name-actionButton6 buttonnonbordergreen-image fa fa-plus-square btn-success']");
     SelenideElement addTrailerLiceseButton = $("[class*='btn mx-button mx-name-actionButton7 buttonnonbordergreen-image fa fa-plus-square btn-success']");
-    SelenideElement firstItemClaimButton = $("[class='mx-listview-item mx-name-index-0'] [class='btn mx-button mx-name-actionButton17 btn-success']");
+    SelenideElement firstItemClaimButton = $("[class='mx-dataview mx-name-dataView2 form-horizontal'] [class='mx-listview-item mx-name-index-1'] [class='btn mx-button mx-name-actionButton17 btn-success']");
     SelenideElement firstStopSelectorField = $("[class='mx-listview-item mx-name-index-2'] [class='mx-referenceselector mx-name-referenceSelector8 h6'] [class*='form-control']");
     SelenideElement firstStopItem = $("[class='mx-listview-item mx-name-index-2'] [class='mx-referenceselector mx-name-referenceSelector8 h6'] [class*='form-control'] [value='21673573206724637']");
     SelenideElement lastStopSelectorField = $("[class='mx-listview-item mx-name-index-3'] [class='mx-referenceselector mx-name-referenceSelector8 h6'] [class*='form-control']");
@@ -32,20 +32,19 @@ public class NewWorkOrderPage {
         return this;
     }
     public NewWorkOrderPage inputDataToPlannedStartTime(String time){
-        plannedStartTime.click();
-        plannedStartTime.clear();
-        plannedStartTime.setValue(time);
+        plannedStartTime.setValue(time.replace(":", ""));
         sleep(2000);
         return this;
     }
-    public NewWorkOrderPage inputDataToPlannedEndTime(String time){
+    public NewWorkOrderPage inputDataToPlannedEndTime(){
         plannedEndTime.click();
+        sleep(2000);
         plannedEndTime.clear();
-        plannedEndTime.setValue(time);
+        plannedEndTime.setValue("2000");
         sleep(2000);
         return this;
     }
-    public NewWorkOrderPage clickPlanGropField(){
+    public NewWorkOrderPage clickPlanGroupField(){
         planGroupField.click();
         return this;
     }
@@ -62,7 +61,9 @@ public class NewWorkOrderPage {
         return this;
     }
     public NewWorkOrderPage clickFirstItemClaimButton(){
+        sleep(2000);
         firstItemClaimButton.click();
+        sleep(2000);
         return this;
     }
     public NewWorkOrderPage clickFirstStopSelectorField(){
