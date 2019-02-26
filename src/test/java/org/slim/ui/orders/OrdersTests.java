@@ -62,6 +62,7 @@ public class OrdersTests extends BaseTest {
                 .clickTransportTypeSelectorField()
                 .clickTransportTypeSelect()
                 .clickSaveButton();
+        sleep(3000);
     }
 
     @Test
@@ -77,6 +78,7 @@ public class OrdersTests extends BaseTest {
                 .checkCargoValidation()
                 .checkOrderTypeValidation()
                 .checkPlanGroupValidation();
+        sleep(3000);
     }
     @Test
     public void editOrder() {
@@ -136,6 +138,17 @@ public class OrdersTests extends BaseTest {
                 .clickNextButton()
                 .clickPublishTripButton();
         sleep(5000);
+    }
+    @Test
+    public void deleteOrder(){
+        dashboardPage
+                .openDashBoard()
+                .clickOrdersButton();
+        ordersPage
+                .clickEditItem1Button()
+                .clickDeleteOrderButton()
+                .clickProceedButton();
+        sleep(3000);
     }
 
 }
