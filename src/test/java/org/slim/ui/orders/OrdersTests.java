@@ -28,7 +28,7 @@ public class OrdersTests extends BaseTest {
                 .loginToDashboard("marharyta@fitsoft.nl", "QWEqwe123!@#");
     }
 
-    @Test
+    @Test//work
     public void createNewOrder(){
         dashboardPage
                 .openDashBoard()
@@ -54,18 +54,15 @@ public class OrdersTests extends BaseTest {
                 .clickSearchAddressList2Button()
                 .clickSecondItemAddress()
                 .clickSelectButton()
-                .inputDataToTheFromInputList1Field(getTime(10,11))
-                .inputDataToTheFromInputList2Field(getTime(15,16))
-                .inputDataToTheUntilInputList1Field(getTime(12,13))
-                .inputDataToTheUntilInputList2Field(getTime(22,24))
+                .inputDataToTheFromInputListField(getTime(10,11), getTime(14,15))
+                .inputDataToTheUntilInputList2Field(getTime(10,11), getTime(14,15))
                 .clickNextButton()
                 .clickTransportTypeSelectorField()
                 .clickTransportTypeSelect()
                 .clickSaveButton();
-        sleep(3000);
     }
 
-    @Test
+    @Test//work
     public void checkingFieldValidationOnTheOrdersDetailsStep(){
         dashboardPage
                 .openDashBoard()
@@ -78,9 +75,9 @@ public class OrdersTests extends BaseTest {
                 .checkCargoValidation()
                 .checkOrderTypeValidation()
                 .checkPlanGroupValidation();
-        sleep(3000);
     }
-    @Test
+
+    @Test//work
     public void editOrder() {
         dashboardPage
                 .openDashBoard()
@@ -91,9 +88,9 @@ public class OrdersTests extends BaseTest {
                 .clickPlanGroupEditSelectorField()
                 .clickPlanGroupEditSelectorItem()
                 .clickSaveButtonOnEditOrderModalWindow();
-        sleep(3000);
     }
-    @Test
+
+    @Test//work
     public void createOrderFromTemplate(){
         dashboardPage
                 .openDashBoard()
@@ -105,15 +102,13 @@ public class OrdersTests extends BaseTest {
                 .clickNewOrderButtonOnChooseTemplatePopUp();
         newOrderFromTemplatePage
                 .clickNextButton()
-                .inputDataToTheFromInputList1Field(getTime(10,11))
-                .inputDataToTheFromInputList2Field(getTime(15,16))
-                .inputDataToTheUntilInputList1Field(getTime(12,13))
-                .inputDataToTheUntilInputList2Field(getTime(22,24))
+                .inputDataToTheFromInputList1Field(getTime(10,11), getTime(14,15))
+                .inputDataToTheUntilInputList1Field(getTime(11,12), getTime(15,16))
                 .clickNextButton()
                 .clickSaveButton();
-        sleep(3000);
     }
-    @Test
+
+    @Test//work
     public void createNewWorkOrder(){
         dashboardPage
                 .openDashBoard()
@@ -124,7 +119,7 @@ public class OrdersTests extends BaseTest {
                 .clickCustomerField()
                 .clickCustomerItem()
                 .inputDataToPlannedStartTime(getTime(10, 11))
-                .inputDataToPlannedEndTime()
+                .inputDataToPlannedEndTime(getTime(12, 13))
                 .clickPlanGroupField()
                 .clickPlanGroupItem()
                 .clickNextButton()
@@ -137,9 +132,9 @@ public class OrdersTests extends BaseTest {
                 .clickLastStopItem()
                 .clickNextButton()
                 .clickPublishTripButton();
-        sleep(5000);
     }
-    @Test
+
+    @Test//work
     public void deleteOrder(){
         dashboardPage
                 .openDashBoard()
@@ -148,7 +143,6 @@ public class OrdersTests extends BaseTest {
                 .clickEditItem1Button()
                 .clickDeleteOrderButton()
                 .clickProceedButton();
-        sleep(3000);
     }
 
 }

@@ -2,10 +2,10 @@ package com.slim.ui.pageOblectClasses.orders;
 
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.sleep;
+import static com.codeborne.selenide.Selenide.*;
 
 public class NewOrderPage {
 
@@ -26,6 +26,10 @@ public class NewOrderPage {
     SelenideElement firstItemAddress = $("[class='table table-striped table-bordered mx-datagrid-body-table'] [class*='mx-name-index-0']");
     SelenideElement secondItemAddress = $("[class='table table-striped table-bordered mx-datagrid-body-table'] [class*='mx-name-index-1']");
     SelenideElement selectButton = $("[class='mx-layoutgrid mx-layoutgrid-fluid container-fluid mx-name-layoutGrid1'] [class='btn mx-button mx-name-actionButton1 btn-default']");
+
+    ElementsCollection fromInputListField = $$("[class*='mx-name-textBox23'] input");
+    ElementsCollection untilInputListField = $$("[class*='mx-name-textBox24'] input");
+
     SelenideElement fromInputList1Field = $(" [class*='mx-listview mx-listview-selectable mx-name-listView3'] [class*='mx-listview-item mx-name-index-0'] [class*='mx-name-textBox23'] [class*='form-control']");
     SelenideElement fromInputList2Field = $(" [class*='mx-listview mx-listview-selectable mx-name-listView3'] [class*='mx-listview-item mx-name-index-1'] [class*='mx-name-textBox23'] [class*='form-control']");
     SelenideElement untilInputList1Field = $(" [class*='mx-listview mx-listview-selectable mx-name-listView3'] [class*='mx-listview-item mx-name-index-0'] [class*='mx-name-textBox24'] [class*='form-control']");
@@ -114,41 +118,50 @@ public class NewOrderPage {
         selectButton.click();
         return this;
     }
-     public NewOrderPage inputDataToTheFromInputList1Field(String time){
-        fromInputList1Field.click();
-        fromInputList1Field.clear();
-         sleep(300);
-        fromInputList1Field.setValue(time);
-         sleep(300);
-        return this;
-    }
-    public NewOrderPage inputDataToTheFromInputList2Field(String time){
-        fromInputList2Field.click();
-        fromInputList2Field.clear();
-        sleep(300);
-        fromInputList2Field.sendKeys(time);
-        sleep(300);
+
+    public NewOrderPage inputDataToTheFromInputListField(String fromTime, String untilTime) {
+        fromInputListField.get(0).click();
+        sleep(250);
+        String timeWithoutDot = fromTime.replace(":", "");
+        for (int i = 0; i < timeWithoutDot.length(); i++) {
+            fromInputListField.get(0).sendKeys(String.valueOf(timeWithoutDot.charAt(i)));
+            sleep(150);
+        }
+
+        timeWithoutDot = untilTime.replace(":", "");
+        untilInputListField.get(0).click();
+        sleep(250);
+        untilInputListField.get(0).clear();
+        for (int i = 0; i < timeWithoutDot.length(); i++) {
+            untilInputListField.get(0).sendKeys(String.valueOf(timeWithoutDot.charAt(i)));
+            sleep(150);
+        }
+        untilInputListField.get(0).pressEnter();
         return this;
     }
 
-    public NewOrderPage inputDataToTheUntilInputList1Field(String time){
-        untilInputList1Field.click();
-        untilInputList1Field.clear();
-        sleep(300);
-        untilInputList1Field.setValue(time);
-        sleep(300);
-        return this;
-    }
-    public NewOrderPage inputDataToTheUntilInputList2Field(String time){
-        untilInputList2Field.click();
-        untilInputList2Field.clear();
-        sleep(300);
-        untilInputList2Field.setValue(time);
-        sleep(300);
+    public NewOrderPage inputDataToTheUntilInputList2Field(String fromTime, String untilTime) {
+        fromInputListField.get(1).click();
+        sleep(250);
+        String timeWithoutDot = fromTime.replace(":", "");
+        for (int i = 0; i < timeWithoutDot.length(); i++) {
+            fromInputListField.get(1).sendKeys(String.valueOf(timeWithoutDot.charAt(i)));
+            sleep(150);
+        }
+
+        timeWithoutDot = untilTime.replace(":", "");
+        untilInputListField.get(1).click();
+        sleep(250);
+        untilInputListField.get(1).clear();
+        for (int i = 0; i < timeWithoutDot.length(); i++) {
+            untilInputListField.get(1).sendKeys(String.valueOf(timeWithoutDot.charAt(i)));
+            sleep(150);
+        }
+        untilInputListField.get(1).pressEnter();
         return this;
     }
 
-    public NewOrderPage clickTransportTypeSelectorField(){
+     public NewOrderPage clickTransportTypeSelectorField(){
         transportTypeSelectorField.click();
         return this;
     }

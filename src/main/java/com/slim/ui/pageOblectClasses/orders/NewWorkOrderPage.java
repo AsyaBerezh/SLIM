@@ -32,16 +32,22 @@ public class NewWorkOrderPage {
         return this;
     }
     public NewWorkOrderPage inputDataToPlannedStartTime(String time){
-        plannedStartTime.setValue(time.replace(":", ""));
-        sleep(2000);
+//        plannedStartTime.setValue(time.replace(":", ""));
+        plannedStartTime.click();
+        sleep(250);
+        for (int i = 0; i < time.replace(":", "").length(); i++) {
+            plannedStartTime.sendKeys(String.valueOf(time.replace(":", "")));
+            sleep(150);
+        }
         return this;
     }
-    public NewWorkOrderPage inputDataToPlannedEndTime(){
+    public NewWorkOrderPage inputDataToPlannedEndTime(String time){
         plannedEndTime.click();
-        sleep(2000);
-        plannedEndTime.clear();
-        plannedEndTime.setValue("2000");
-        sleep(2000);
+        sleep(250);
+        for (int i = 0; i < time.replace(":", "").length(); i++) {
+            plannedEndTime.sendKeys(String.valueOf(time.replace(":", "")));
+            sleep(150);
+        }
         return this;
     }
     public NewWorkOrderPage clickPlanGroupField(){
