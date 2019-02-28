@@ -1,9 +1,9 @@
 package com.slim.ui.pageOblectClasses.orders;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.sleep;
+import static com.codeborne.selenide.Selenide.*;
 
 public class NewWorkOrderPage {
     SelenideElement customerField = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [class*='form-control']");
@@ -22,6 +22,9 @@ public class NewWorkOrderPage {
     SelenideElement lastStopSelectorField = $("[class='mx-listview-item mx-name-index-3'] [class='mx-referenceselector mx-name-referenceSelector8 h6'] [class*='form-control']");
     SelenideElement lastStopItem = $("[class='mx-listview-item mx-name-index-3'] [class='mx-referenceselector mx-name-referenceSelector8 h6'] [class*='form-control'] [value='21673573206725016']");
     SelenideElement publishTripButton = $("[class='btn mx-button mx-name-actionButton4 btn-success'] ");
+    ElementsCollection startAndEndDate = $$("[data-mendix-id=\"55_37\"] [class=\"mx-dateinput\"] input");
+
+    SelenideElement okButtonInModalWindow = $("[class='modal-dialog mx-dialog mx-dialog-error'] button");
 
     public NewWorkOrderPage clickCustomerField(){
         customerField.click();
@@ -31,22 +34,38 @@ public class NewWorkOrderPage {
         customerItem.click();
         return this;
     }
+
+    public NewWorkOrderPage setPlanedStartAndEndDate(String startDate, String endDate){
+        startAndEndDate.get(0).clear();
+        okButtonInModalWindow.click();
+        sleep(300);
+        startAndEndDate.get(0).setValue(startDate);
+
+        startAndEndDate.get(1).clear();
+        okButtonInModalWindow.click();
+        sleep(300);
+        startAndEndDate.get(1).setValue(endDate);
+        return this;
+    }
+
+
+
     public NewWorkOrderPage inputDataToPlannedStartTime(String time){
-//        plannedStartTime.setValue(time.replace(":", ""));
         plannedStartTime.click();
-        sleep(250);
+        sleep(200);
         for (int i = 0; i < time.replace(":", "").length(); i++) {
             plannedStartTime.sendKeys(String.valueOf(time.replace(":", "")));
-            sleep(150);
+            sleep(100);
         }
         return this;
     }
+
     public NewWorkOrderPage inputDataToPlannedEndTime(String time){
         plannedEndTime.click();
-        sleep(250);
+        sleep(200);
         for (int i = 0; i < time.replace(":", "").length(); i++) {
             plannedEndTime.sendKeys(String.valueOf(time.replace(":", "")));
-            sleep(150);
+            sleep(100);
         }
         return this;
     }

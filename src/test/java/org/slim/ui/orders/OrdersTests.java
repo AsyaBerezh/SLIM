@@ -11,7 +11,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.sleep;
-import static com.slim.ui.dataGenerator.DataGenerator.getTime;
+import static com.slim.ui.dataGenerator.DataGenerator.*;
 
 public class OrdersTests extends BaseTest {
     DashboardPage dashboardPage = new DashboardPage();
@@ -102,6 +102,8 @@ public class OrdersTests extends BaseTest {
                 .clickNewOrderButtonOnChooseTemplatePopUp();
         newOrderFromTemplatePage
                 .clickNextButton()
+                .setFromDate(getFutureDate(2))
+                .setUntilDate(getFutureDate(5))
                 .inputDataToTheFromInputList1Field(getTime(10,11), getTime(14,15))
                 .inputDataToTheUntilInputList1Field(getTime(11,12), getTime(15,16))
                 .clickNextButton()
@@ -118,6 +120,7 @@ public class OrdersTests extends BaseTest {
         newWorkOrderPage
                 .clickCustomerField()
                 .clickCustomerItem()
+                .setPlanedStartAndEndDate(getCurrentDate(), getFutureDate(7))
                 .inputDataToPlannedStartTime(getTime(10, 11))
                 .inputDataToPlannedEndTime(getTime(12, 13))
                 .clickPlanGroupField()

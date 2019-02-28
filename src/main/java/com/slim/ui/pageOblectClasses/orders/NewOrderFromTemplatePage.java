@@ -10,10 +10,41 @@ public class NewOrderFromTemplatePage {
     SelenideElement nextButton = $("[class*='btn mx-button mx-name-actionButton2 btnRight > img btn-default'] ");
     ElementsCollection fromInputList1Field = $$("[class*='mx-name-textBox23'] [class*='form-control']");
     ElementsCollection untilInputList1Field = $$("[class*='mx-name-textBox24'] [class*='form-control']");
+
+    ElementsCollection inputFromDate = $$("[class='mx-dateinput mx-name-datePicker3'] input");
+    ElementsCollection inputUntilDate = $$("[class='mx-dateinput mx-name-datePicker4'] input");
+
+    SelenideElement okButtonInModalWindow = $("[class='modal-dialog mx-dialog mx-dialog-error'] button");
     SelenideElement saveButton = $("[class*='btn mx-button mx-name-actionButton4 btn-success'] ");
 
     public NewOrderFromTemplatePage clickNextButton(){
         nextButton.click();
+        return this;
+    }
+
+    public NewOrderFromTemplatePage setFromDate(String fromDate){
+        inputFromDate.get(0).clear();
+        okButtonInModalWindow.click();
+        sleep(300);
+        inputFromDate.get(0).setValue(fromDate);
+
+        inputFromDate.get(1).clear();
+        okButtonInModalWindow.click();
+        sleep(300);
+        inputFromDate.get(1).setValue(fromDate);
+        return this;
+    }
+
+    public NewOrderFromTemplatePage setUntilDate(String untilDate){
+        inputUntilDate.get(0).clear();
+        okButtonInModalWindow.click();
+        sleep(300);
+        inputUntilDate.get(0).setValue(untilDate);
+
+        inputUntilDate.get(1).clear();
+        okButtonInModalWindow.click();
+        sleep(300);
+        inputUntilDate.get(1).setValue(untilDate);
         return this;
     }
 
