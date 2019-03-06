@@ -10,7 +10,6 @@ import org.slim.ui.BaseTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static com.codeborne.selenide.Selenide.sleep;
 import static com.slim.ui.dataGenerator.DataGenerator.*;
 
 public class OrdersTests extends BaseTest {
@@ -37,16 +36,16 @@ public class OrdersTests extends BaseTest {
                 .clickNewOrderButton();
         newOrderPage
                 .clickCustomerSelectorField()
-                .clickFirstCustomerSelect()
+                .clickGebrCustomerSelect()
                 .clickСargoSelectorField()
-                .clickFirstCargoItemSelect()
+                .clickBakkerijproductenCargoItemSelect()
                 .clickCarrierSelectorField()
-                .clickCarrierFirstItemSelect()
+                .clickCarrierBlockPalletItemSelect()
                 .inputDataToUnitsInputFields()
                 .clickPlangroupSelectorField()
-                .clickPlangroupItemSelect()
+                .clickBinnenlandPlangroupItemSelect()
                 .clickOrderTypeSelectorField()
-                .clickOrderItemSelect()
+                .clickAbRitOrderTypeSelect()
                 .clickNextButton()
                 .clickSearchAddressList1Button()
                 .clickFirstItemAddress()
@@ -58,7 +57,7 @@ public class OrdersTests extends BaseTest {
                 .inputDataToTheUntilInputList2Field(getTime(10,11), getTime(14,15))
                 .clickNextButton()
                 .clickTransportTypeSelectorField()
-                .clickTransportTypeSelect()
+                .clickTransportKmTarifTypeSelect()
                 .clickSaveButton();
     }
 
@@ -83,7 +82,7 @@ public class OrdersTests extends BaseTest {
                 .openDashBoard()
                 .clickOrdersButton();
         ordersPage
-                .clickEditItem1Button();
+                .clickEditItem2Button();
         newOrderPage
                 .clickPlanGroupEditSelectorField()
                 .clickPlanGroupEditSelectorItem()
@@ -119,20 +118,21 @@ public class OrdersTests extends BaseTest {
                 .clickNewWorkOrderButton();
         newWorkOrderPage
                 .clickCustomerField()
-                .clickCustomerItem()
+                .clickGebrCustomerSelect()
                 .setPlanedStartAndEndDate(getCurrentDate(), getFutureDate(7))
                 .inputDataToPlannedStartTime(getTime(10, 11))
                 .inputDataToPlannedEndTime(getTime(12, 13))
                 .clickPlanGroupField()
-                .clickPlanGroupItem()
+                .clickBinnenlandPlangroupItemSelect()
                 .clickNextButton()
                 .clickAddDriverButton()
                 .clickFirstItemClaimButton()
                 .clickNextButton()
-                .clickFirstStopSelectorField()
-                .clickFirstStopItem()
-                .clickLastStopSelectorField()
-                .clickLastStopItem()
+                .clickIUnderstandButtonOnWarningPopUp()
+                .clickFirstStopSelector()
+                .clickAbsTransUtrechtItemInFirstStopSelector()
+                .clickLastStopAddressSelector()
+                .clickVisserijstraatAmmestolItemInLastStopSelector()
                 .clickNextButton()
                 .clickPublishTripButton();
     }
