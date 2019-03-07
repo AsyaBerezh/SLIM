@@ -34,6 +34,7 @@ public class NewWorkOrderPage {
 
     SelenideElement startAddressSelector = $("[class='mx-listview-item mx-name-index-0'] [class='mx-listview-item mx-name-index-0'] [class='col-md-5']");
     SelenideElement absTransUtrechtItemInStartAddressSelector = $("[class='mx-listview-item mx-name-index-0'] [class='mx-listview-item mx-name-index-0'] [class='col-md-5'] [value='21673573206724637']");
+    SelenideElement visserijstraatAmmestolItemInStartAddressSelector = $("[class='mx-listview-item mx-name-index-0'] [class='mx-listview-item mx-name-index-0'] [class='col-md-5'] [value='21673573206725016']");
     SelenideElement visserijstraatAmmestolItemInFirstStopSelector = $("[class='mx-listview-item mx-name-index-0'] [class='mx-listview-item mx-name-index-0'] [class='col-md-5'] [value='21673573206725016']");
     SelenideElement attachingTrailerAddressSelector = $("[class='mx-listview-item mx-name-index-0'] [class='mx-listview-item mx-name-index-1'] [class='col-md-5']");
     SelenideElement absTransUtrechtItemInAttachingTrailerAddressSelector = $("[class='mx-listview-item mx-name-index-0'] [class='mx-listview-item mx-name-index-1'] [class='col-md-5'] [value='21673573206724637']");
@@ -165,6 +166,10 @@ public class NewWorkOrderPage {
 
     public NewWorkOrderPage clickAbsTransUtrechtItemInStartAddressSelector() {
         absTransUtrechtItemInStartAddressSelector.click();
+        return this;
+    }
+    public NewWorkOrderPage clickVisserijstraatAmmestolItemInStartAddressSelector(){
+        visserijstraatAmmestolItemInStartAddressSelector.click();
         return this;
     }
 
