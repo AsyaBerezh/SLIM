@@ -9,12 +9,31 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class NewWorkOrderPage {
     SelenideElement customerField = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [class*='form-control']");
-    SelenideElement gebrCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417767002']");
-    SelenideElement jansenCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417767001']");
+    SelenideElement abbinkVriezenveenCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417766605']");
+    SelenideElement actifoodCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417766606']");
+    SelenideElement anoeshGroningenCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417767504']");
+    SelenideElement basLogisticsEttenLeurCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417767505']");
+    SelenideElement boonstraTransportCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417766607']");
+    SelenideElement dickSchoonCallantsoogCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417766901']");
+    SelenideElement faDeNekkerZnCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417766603']");
+    SelenideElement hartmanTransportVeenoordCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417767503']");
+    SelenideElement hatzmannBettenCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417767503']");
+    SelenideElement kelderCoevordenCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417766904']");
+    SelenideElement kivitsDrunenCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417766701']");
+    SelenideElement koningTransportbemiddelingCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417767509']");
+    SelenideElement kosterEurotransportWolvegaCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417767502']");
+    SelenideElement landHarkemaCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417767501']");
+    SelenideElement netkoRaalteCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417766801']");
+    SelenideElement simonLoosCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417766604']");
+    SelenideElement smildeFoodsCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417766501']");
+    SelenideElement spiltrapcentrumCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417766903']");
+    SelenideElement thomMulderZnCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417767702']");
+    SelenideElement vanOersUnitedCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417767301']");
+    SelenideElement visserZoutkampCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417766802']");
     SelenideElement plannedStartTime = $("[class='mx-name-textBox1'] [class*='form-control']");
     SelenideElement plannedEndTime = $("[class='mx-name-textBox2'] [class*='form-control']");
     SelenideElement planGroupField = $("[class='form-group mx-name-referenceSelector10 align-label-left'] [class='mx-referenceselector-input-wrapper'] [class*='form-control']");
-    SelenideElement binnenlandPlangroupItemSelect = $("[class='form-group mx-name-referenceSelector10 align-label-left'] [class*='form-control'] [value='27021597764223580']");
+    SelenideElement standaardPlangroupItemSelect = $("[class='form-group mx-name-referenceSelector10 align-label-left'] [class*='form-control'] [value='27021597764223177']");
     SelenideElement сontainersPlangroupItemSelect = $("[class='form-group mx-name-referenceSelector10 align-label-left'] [class*='form-control'] [value='27021597764223589']");
     SelenideElement koeltransportPlangroupItemSelect = $("[class='form-group mx-name-referenceSelector10 align-label-left'] [class*='form-control'] [value='27021597764223578']");
     SelenideElement nextButton = $("[class='btn mx-button mx-name-actionButton2 btnRight > img btn-default']");
@@ -58,12 +77,88 @@ public class NewWorkOrderPage {
         return this;
     }
 
-    public NewWorkOrderPage clickGebrCustomerSelect() {
-        gebrCustomerSelect.click();
+    public NewWorkOrderPage clickAbbinkVriezenveenCustomerSelect() {
+        abbinkVriezenveenCustomerSelect.click();
         return this;
     }
-    public NewWorkOrderPage clickJansenCustomerSelect() {
-        jansenCustomerSelect.click();
+    public NewWorkOrderPage clickActifoodCustomerSelect() {
+        actifoodCustomerSelect.click();
+        return this;
+    }
+    public NewWorkOrderPage clickAnoeshGroningenCustomerSelect(){
+        anoeshGroningenCustomerSelect.click();
+        return this;
+    }
+    public NewWorkOrderPage clickBasLogisticsEttenLeurCustomerSelect(){
+        basLogisticsEttenLeurCustomerSelect.click();
+        return this;
+    }
+    public NewWorkOrderPage clickBoonstraTransportCustomerSelect(){
+        boonstraTransportCustomerSelect.click();
+        return this;
+    }
+    public NewWorkOrderPage clickDickSchoonCallantsoogCustomerSelect(){
+        dickSchoonCallantsoogCustomerSelect.click();
+        return this;
+    }
+    public NewWorkOrderPage clickFaDeNekkerZnCustomerSelect(){
+        faDeNekkerZnCustomerSelect.click();
+        return this;
+    }
+    public NewWorkOrderPage clickHartmanTransportVeenoordCustomerSelect(){
+        hartmanTransportVeenoordCustomerSelect.click();
+        return this;
+    }
+    public NewWorkOrderPage clickHatzmannBettenCustomerSelect(){
+        hatzmannBettenCustomerSelect.click();
+        return this;
+    }
+    public NewWorkOrderPage clickKelderCoevordenCustomerSelect(){
+        kelderCoevordenCustomerSelect.click();
+        return this;
+    }
+    public NewWorkOrderPage clickKivitsDrunenCustomerSelect(){
+        kivitsDrunenCustomerSelect.click();
+        return this;
+    }
+    public NewWorkOrderPage clickKoningTransportbemiddelingCustomerSelect(){
+        koningTransportbemiddelingCustomerSelect.click();
+        return this;
+    }
+    public NewWorkOrderPage clickKosterEurotransportWolvegaCustomerSelect(){
+        kosterEurotransportWolvegaCustomerSelect.click();
+        return this;
+    }
+    public NewWorkOrderPage clickLandHarkemaCustomerSelect(){
+        landHarkemaCustomerSelect.click();
+        return this;
+    }
+    public NewWorkOrderPage clickNetkoRaalteCustomerSelect(){
+        netkoRaalteCustomerSelect.click();
+        return this;
+    }
+    public NewWorkOrderPage clickSimonLoosCustomerSelect(){
+        simonLoosCustomerSelect.click();
+        return this;
+    }
+    public NewWorkOrderPage clickSmildeFoodsCustomerSelect(){
+        smildeFoodsCustomerSelect.click();
+        return this;
+    }
+    public NewWorkOrderPage clickSpiltrapcentrumCustomerSelect(){
+        spiltrapcentrumCustomerSelect.click();
+        return this;
+    }
+    public NewWorkOrderPage clickThomMulderZnCustomerSelect(){
+        thomMulderZnCustomerSelect.click();
+        return this;
+    }
+    public NewWorkOrderPage clickVanOersUnitedCustomerSelect(){
+        vanOersUnitedCustomerSelect.click();
+        return this;
+    }
+    public NewWorkOrderPage clickVisserZoutkampCustomerSelect(){
+        visserZoutkampCustomerSelect.click();
         return this;
     }
 
@@ -106,8 +201,8 @@ public class NewWorkOrderPage {
         return this;
     }
 
-    public NewWorkOrderPage clickBinnenlandPlangroupItemSelect() {
-        binnenlandPlangroupItemSelect.click();
+    public NewWorkOrderPage clickStandaardPlangroupItemSelect(){
+        standaardPlangroupItemSelect.click();
         return this;
     }
     public NewWorkOrderPage clickContainersPlangroupItemSelect() {

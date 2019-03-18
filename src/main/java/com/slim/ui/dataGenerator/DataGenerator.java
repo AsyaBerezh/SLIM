@@ -16,8 +16,8 @@ public class DataGenerator {
     public static String getUserName() {
         return faker.name().username();
     }
-    public static String getText() {
-        return faker.chuckNorris().fact();
+    public static String getText(String text) {
+        return String.valueOf(text) + String.valueOf(faker.number().randomNumber());
     }
 
     public static String getTime(int maxHours, int minHours) {

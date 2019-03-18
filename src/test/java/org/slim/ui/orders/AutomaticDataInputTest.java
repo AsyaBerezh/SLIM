@@ -30,7 +30,7 @@ public class AutomaticDataInputTest extends BaseTest {
                 .loginToDashboard("marharyta@fitsoft.nl", "QWEqwe123!@#");
     }
     @Test
-    public void generatingNewOrderWithGebrCustomerAndBakkerijproductenCargo(){
+    public void generatingNewOrderWithAbbinkVriezenveenCustomerAndBakkerijproductenCargo(){
         dashboardPage
                 .openDashBoard()
                 .clickOrdersButton();
@@ -38,16 +38,16 @@ public class AutomaticDataInputTest extends BaseTest {
                 .clickNewOrderButton();
         newOrderPage
                 .clickCustomerSelectorField()
-                .clickGebrCustomerSelect()
+                .clickAbbinkVriezenveenCustomerSelect()
                 .clickСargoSelectorField()
                 .clickBakkerijproductenCargoItemSelect()
-                .clickCarrierSelectorField()
-                .clickCarrierBlockPalletItemSelect()
+                //.clickCarrierSelectorField()
+                //.clickCarrierBlockPalletItemSelect()
                 .inputDataToUnitsInputFields()
                 .clickPlangroupSelectorField()
-                .clickBinnenlandPlangroupItemSelect()
+                .clickStandaardPlangroupItemSelect()
                 .clickOrderTypeSelectorField()
-                .clickAbRitOrderTypeSelect()
+                .clickEnkelLosAdresOrderTypeSelectOrderTypeSelect()
                 .clickNextButton()
                 .clickSearchAddressList1Button()
                 .clickFirstItemAddress()
@@ -59,12 +59,12 @@ public class AutomaticDataInputTest extends BaseTest {
                 .inputDataToTheUntilInputList2Field(getTime(10,11), getTime(14,15))
                 .clickNextButton()
                 .clickTransportTypeSelectorField()
-                .clickTransportKmTarifTypeSelect()
+                .clickTransportPalletprijsGekoeldPerUurTypeSelect()
                 .clickSaveButton();
         sleep(2000);
     }
     @Test
-    public void generatingNewOrderWithGebrCustomerAndFruitCargo(){
+    public void generatingNewOrderWithAbbinkVriezenveenCustomerAndBuffelmelkCargo(){
         dashboardPage
                 .openDashBoard()
                 .clickOrdersButton();
@@ -72,16 +72,16 @@ public class AutomaticDataInputTest extends BaseTest {
                 .clickNewOrderButton();
         newOrderPage
                 .clickCustomerSelectorField()
-                .clickGebrCustomerSelect()
+                .clickAbbinkVriezenveenCustomerSelect()
                 .clickСargoSelectorField()
-                .clickFruitItemCargoItemSelect()
+                .clickBuffelmelkCargoItemSelect()
                 .clickCarrierSelectorField()
-                .clickCarrierEuroPalletItemSelect()
+                .clickCarrierPalletBoxItemSelect()
                 .inputDataToUnitsInputFields()
                 .clickPlangroupSelectorField()
-                .clickContainersPlangroupItemSelect()
+                .clickStandaardPlangroupItemSelect()
                 .clickOrderTypeSelectorField()
-                .clickAbRitOrderTypeSelect()
+                .clickEnkelLosAdresOrderTypeSelectOrderTypeSelect()
                 .clickNextButton()
                 .clickSearchAddressList1Button()
                 .clickThirdItemAddress()
@@ -93,7 +93,7 @@ public class AutomaticDataInputTest extends BaseTest {
                 .inputDataToTheUntilInputList2Field(getTime(10,11), getTime(14,15))
                 .clickNextButton()
                 .clickTransportTypeSelectorField()
-                .clickTransportKmUurTarifTypeSelect()
+                .clickTransportPalletprijsOngekoeldPerUurTypeSelect()
                 .clickSaveButton();
         sleep(2000);
     }
@@ -106,16 +106,16 @@ public class AutomaticDataInputTest extends BaseTest {
                 .clickNewOrderButton();
         newOrderPage
                 .clickCustomerSelectorField()
-                .clickGebrCustomerSelect()
+                .clickAbbinkVriezenveenCustomerSelect()
                 .clickСargoSelectorField()
-                .clickTestjuCargoItemSelect()
+                .clickLeliesCargoItemSelect()
                 .clickCarrierSelectorField()
-                .clickCarrierRolcontainerItemSelect()
+                .clickCarrierLeliekistItemSelect()
                 .inputDataToUnitsInputFields()
                 .clickPlangroupSelectorField()
-                .clickKoeltransportPlangroupItemSelect()
+                .clickStandaardPlangroupItemSelect()
                 .clickOrderTypeSelectorField()
-                .clickAbRitOrderTypeSelect()
+                .clickEnkelLosAdresOrderTypeSelectOrderTypeSelect()
                 .clickNextButton()
                 .clickSearchAddressList1Button()
                 .clickFifthItemAddress()
@@ -127,7 +127,7 @@ public class AutomaticDataInputTest extends BaseTest {
                 .inputDataToTheUntilInputList2Field(getTime(10,11), getTime(14,15))
                 .clickNextButton()
                 .clickTransportTypeSelectorField()
-                .clickTransportUurTarifTypeSelect()
+                .clickTransportPalletprijsVriesPerUurTypeSelect()
                 .clickSaveButton();
         sleep(2000);
     }
@@ -140,16 +140,16 @@ public class AutomaticDataInputTest extends BaseTest {
                 .clickNewOrderButton();
         newOrderPage
                 .clickCustomerSelectorField()
-                .clickGebrCustomerSelect()
+                .clickAbbinkVriezenveenCustomerSelect()
                 .clickСargoSelectorField()
-                .clickVersproductenCargoItemSelect()
+                .clickGekoeldCargoItemSelect()
                 .clickCarrierSelectorField()
-                .clickCarrierRolcontainerItemSelect()
+                .clickCarrierH1PalletPlasticEuroItemSelect()
                 .inputDataToUnitsInputFields()
                 .clickPlangroupSelectorField()
-                .clickKoeltransportPlangroupItemSelect()
+                .clickStandaardPlangroupItemSelect()
                 .clickOrderTypeSelectorField()
-                .clickAbRitOrderTypeSelect()
+                .clickEnkelLosAdresOrderTypeSelectOrderTypeSelect()
                 .clickNextButton()
                 .clickSearchAddressList1Button()
                 .clickFifthItemAddress()
@@ -161,15 +161,15 @@ public class AutomaticDataInputTest extends BaseTest {
                 .inputDataToTheUntilInputList2Field(getTime(10,11), getTime(14,15))
                 .clickNextButton()
                 .clickTransportTypeSelectorField()
-                .clickTransportUurTarifTypeSelect()
+                .clickTransportPalletprijsVriesPerUurTypeSelect()
                 .clickSaveAsTemplateButton()
-                .inputTemplateNameOnTheNewOrderTemplateModalWindow(getText())
+                .inputTemplateNameOnTheNewOrderTemplateModalWindow(getText("test"))
                 .clickSaveButtonOnTheNewOrderTemplateModalWindow()
                 .clickSaveButton();
         sleep(2000);
     }
     @Test
-    public void generatingNewOrderWithJansenCustomerAndBakkerijproductenCargo(){
+    public void generatingNewOrderWithActifoodCustomerAndBakkerijproductenCargo(){
         dashboardPage
                 .openDashBoard()
                 .clickOrdersButton();
@@ -177,16 +177,16 @@ public class AutomaticDataInputTest extends BaseTest {
                 .clickNewOrderButton();
         newOrderPage
                 .clickCustomerSelectorField()
-                .clickJansenCustomerSelect()
+                .clickActifoodCustomerSelectCustomerSelect()
                 .clickСargoSelectorField()
                 .clickBakkerijproductenCargoItemSelect()
-                .clickCarrierSelectorField()
-                .clickCarrierBlockPalletItemSelect()
+                //.clickCarrierSelectorField()
+                //.clickCarrierBlockPalletItemSelect()
                 .inputDataToUnitsInputFields()
                 .clickPlangroupSelectorField()
-                .clickBinnenlandPlangroupItemSelect()
+                .clickStandaardPlangroupItemSelect()
                 .clickOrderTypeSelectorField()
-                .clickAbRitOrderTypeSelect()
+                .clickEnkelLosAdresOrderTypeSelectOrderTypeSelect()
                 .clickNextButton()
                 .clickSearchAddressList1Button()
                 .clickFirstItemAddress()
@@ -198,12 +198,12 @@ public class AutomaticDataInputTest extends BaseTest {
                 .inputDataToTheUntilInputList2Field(getTime(10,11), getTime(14,15))
                 .clickNextButton()
                 .clickTransportTypeSelectorField()
-                .clickTransportKmTarifTypeSelect()
+                .clickTransportPalletprijsGekoeldPerUurTypeSelect()
                 .clickSaveButton();
         sleep(2000);
     }
     @Test
-    public void generatingNewOrderWithJansenCustomerAndFruitCargo(){
+    public void generatingNewOrderWithBoonstraTransportCustomerAndBuffelmelkCargo(){
         dashboardPage
                 .openDashBoard()
                 .clickOrdersButton();
@@ -211,16 +211,16 @@ public class AutomaticDataInputTest extends BaseTest {
                 .clickNewOrderButton();
         newOrderPage
                 .clickCustomerSelectorField()
-                .clickGebrCustomerSelect()
+                .clickBoonstraTransportCustomerSelect()
                 .clickСargoSelectorField()
-                .clickFruitItemCargoItemSelect()
+                .clickBuffelmelkCargoItemSelect()
                 .clickCarrierSelectorField()
-                .clickCarrierEuroPalletItemSelect()
+                .clickCarrierPalletBoxItemSelect()
                 .inputDataToUnitsInputFields()
                 .clickPlangroupSelectorField()
-                .clickContainersPlangroupItemSelect()
+                .clickStandaardPlangroupItemSelect()
                 .clickOrderTypeSelectorField()
-                .clickAbRitOrderTypeSelect()
+                .clickEnkelLosAdresOrderTypeSelectOrderTypeSelect()
                 .clickNextButton()
                 .clickSearchAddressList1Button()
                 .clickThirdItemAddress()
@@ -232,12 +232,12 @@ public class AutomaticDataInputTest extends BaseTest {
                 .inputDataToTheUntilInputList2Field(getTime(10,11), getTime(14,15))
                 .clickNextButton()
                 .clickTransportTypeSelectorField()
-                .clickTransportKmUurTarifTypeSelect()
+                .clickTransportPalletprijsOngekoeldPerUurTypeSelect()
                 .clickSaveButton();
         sleep(2000);
     }
     @Test
-    public void generatingNewOrderWithJansenCustomerAndTetjuCargo(){
+    public void generatingNewOrderWithAbbinkVriezenveenCustomerAndLeliesCargo(){
         dashboardPage
                 .openDashBoard()
                 .clickOrdersButton();
@@ -245,16 +245,16 @@ public class AutomaticDataInputTest extends BaseTest {
                 .clickNewOrderButton();
         newOrderPage
                 .clickCustomerSelectorField()
-                .clickGebrCustomerSelect()
+                .clickAbbinkVriezenveenCustomerSelect()
                 .clickСargoSelectorField()
-                .clickTestjuCargoItemSelect()
+                .clickLeliesCargoItemSelect()
                 .clickCarrierSelectorField()
-                .clickCarrierRolcontainerItemSelect()
+                .clickCarrierLeliekistItemSelect()
                 .inputDataToUnitsInputFields()
                 .clickPlangroupSelectorField()
-                .clickKoeltransportPlangroupItemSelect()
+                .clickStandaardPlangroupItemSelect()
                 .clickOrderTypeSelectorField()
-                .clickAbRitOrderTypeSelect()
+                .clickEnkelLosAdresOrderTypeSelectOrderTypeSelect()
                 .clickNextButton()
                 .clickSearchAddressList1Button()
                 .clickFifthItemAddress()
@@ -266,12 +266,12 @@ public class AutomaticDataInputTest extends BaseTest {
                 .inputDataToTheUntilInputList2Field(getTime(10,11), getTime(14,15))
                 .clickNextButton()
                 .clickTransportTypeSelectorField()
-                .clickTransportUurTarifTypeSelect()
+                .clickTransportPalletprijsVriesPerUurTypeSelect()
                 .clickSaveButton();
         sleep(2000);
     }
     @Test
-    public void generatingNewOrderWithJansenCustomerAndVersproductenCargoAndSavingAsTemplate(){
+    public void generatingNewOrderWithAbbinkVriezenveenCustomerAndGekoeldCargoAndSavingAsTemplate(){
         dashboardPage
                 .openDashBoard()
                 .clickOrdersButton();
@@ -279,16 +279,16 @@ public class AutomaticDataInputTest extends BaseTest {
                 .clickNewOrderButton();
         newOrderPage
                 .clickCustomerSelectorField()
-                .clickGebrCustomerSelect()
+                .clickAbbinkVriezenveenCustomerSelect()
                 .clickСargoSelectorField()
-                .clickVersproductenCargoItemSelect()
+                .clickGekoeldCargoItemSelect()
                 .clickCarrierSelectorField()
-                .clickCarrierRolcontainerItemSelect()
+                .clickCarrierH1PalletPlasticEuroItemSelect()
                 .inputDataToUnitsInputFields()
                 .clickPlangroupSelectorField()
-                .clickKoeltransportPlangroupItemSelect()
+                .clickStandaardPlangroupItemSelect()
                 .clickOrderTypeSelectorField()
-                .clickAbRitOrderTypeSelect()
+                .clickEnkelLosAdresOrderTypeSelectOrderTypeSelect()
                 .clickNextButton()
                 .clickSearchAddressList1Button()
                 .clickFifthItemAddress()
@@ -300,9 +300,9 @@ public class AutomaticDataInputTest extends BaseTest {
                 .inputDataToTheUntilInputList2Field(getTime(10,11), getTime(14,15))
                 .clickNextButton()
                 .clickTransportTypeSelectorField()
-                .clickTransportUurTarifTypeSelect()
+                .clickTransportPalletprijsVriesPerUurTypeSelect()
                 .clickSaveAsTemplateButton()
-                .inputTemplateNameOnTheNewOrderTemplateModalWindow(getText())
+                .inputTemplateNameOnTheNewOrderTemplateModalWindow(getText("text"))
                 .clickSaveButtonOnTheNewOrderTemplateModalWindow()
                 .clickSaveButton();
         sleep(2000);
@@ -327,7 +327,7 @@ public class AutomaticDataInputTest extends BaseTest {
                 .clickSaveButton();
     }
     @Test
-    public void generatingNewWorkOrderWithGebrCustomer(){
+    public void generatingNewWorkOrderWithAbbinkVriezenveenCustomer(){
         dashboardPage
                 .openDashBoard()
                 .clickOrdersButton();
@@ -335,15 +335,15 @@ public class AutomaticDataInputTest extends BaseTest {
                 .clickNewWorkOrderButton();
         newWorkOrderPage
                 .clickCustomerField()
-                .clickGebrCustomerSelect()
+                .clickAbbinkVriezenveenCustomerSelect()
                 .setPlanedStartAndEndDate(getCurrentDate(), getFutureDate(7))
                 .inputDataToPlannedStartTime(getTime(10, 11))
                 .inputDataToPlannedEndTime(getTime(12, 13))
                 .clickPlanGroupField()
-                .clickBinnenlandPlangroupItemSelect()
+                .clickStandaardPlangroupItemSelect()
                 .clickNextButton()
                 .clickAddDriverButton()
-                .clickFirstItemClaimButton()
+                .clickSecondItemClaimButton()
                 .clickNextButton()
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickStartAddressSelector()
@@ -365,7 +365,7 @@ public class AutomaticDataInputTest extends BaseTest {
         sleep(1000);
     }
     @Test
-    public void generatingNewWorkOrderWithJansenCustomer(){
+    public void generatingNewWorkOrderWithActifoodCustomer(){
         dashboardPage
                 .openDashBoard()
                 .clickOrdersButton();
@@ -373,15 +373,15 @@ public class AutomaticDataInputTest extends BaseTest {
                 .clickNewWorkOrderButton();
         newWorkOrderPage
                 .clickCustomerField()
-                .clickJansenCustomerSelect()
+                .clickActifoodCustomerSelect()
                 .setPlanedStartAndEndDate(getCurrentDate(), getFutureDate(7))
                 .inputDataToPlannedStartTime(getTime(10, 11))
                 .inputDataToPlannedEndTime(getTime(12, 13))
                 .clickPlanGroupField()
-                .clickContainersPlangroupItemSelect()
+                .clickStandaardPlangroupItemSelect()
                 .clickNextButton()
                 .clickAddDriverButton()
-                .clickFirstItemClaimButton()
+                .clickSecondItemClaimButton()
                 .clickNextButton()
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickStartAddressSelector()

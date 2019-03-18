@@ -15,7 +15,7 @@ SelenideElement infoItem2Button = $("[class='mx-listview-item mx-name-index-1'] 
 SelenideElement editItem1Button = $("[class='mx-listview-item mx-name-index-0'] [class*='btn mx-button mx-name-Edit10 buttonnonborder-image fa fa-edit btn-default']");
 SelenideElement editItem2Button = $("[class='mx-listview-item mx-name-index-1'] [class*='btn mx-button mx-name-Edit10 buttonnonborder-image fa fa-edit btn-default']");
 SelenideElement templateSelector = $("[class='mx-referenceselector-input-wrapper'] [class*='form-control']");
-SelenideElement templateItem = $("[class='mx-referenceselector-input-wrapper'] [value='33776997205279321']");
+SelenideElement templateItem = $("[class*='mx-referenceselector-input-wrapper'] [class*='form-control'] [value='33776997205278836']");
 SelenideElement newOrderButtonOnChooseTemplatePopUp = $("[class='btn mx-button mx-name-actionButton1 btn-success'] ");
 SelenideElement deleteOrderButton = $("[class*='btn mx-button mx-name-actionButton7 btnRight > img btn-danger']");
 SelenideElement proceedConfirmationButton = $("[class*='btn btn-primary']");

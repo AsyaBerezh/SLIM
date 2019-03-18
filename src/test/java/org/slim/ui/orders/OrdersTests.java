@@ -2,7 +2,6 @@ package org.slim.ui.orders;
 
 import com.slim.ui.pageOblectClasses.DashboardPage;
 import com.slim.ui.pageOblectClasses.LoginPage;
-import com.slim.ui.pageOblectClasses.office.OfficePage;
 import com.slim.ui.pageOblectClasses.orders.NewOrderFromTemplatePage;
 import com.slim.ui.pageOblectClasses.orders.NewOrderPage;
 import com.slim.ui.pageOblectClasses.orders.NewWorkOrderPage;
@@ -38,16 +37,16 @@ public class OrdersTests extends BaseTest {
                 .clickNewOrderButton();
         newOrderPage
                 .clickCustomerSelectorField()
-                .clickGebrCustomerSelect()
+                .clickAbbinkVriezenveenCustomerSelect()
                 .clickСargoSelectorField()
                 .clickBakkerijproductenCargoItemSelect()
                 .clickCarrierSelectorField()
                 .clickCarrierBlockPalletItemSelect()
                 .inputDataToUnitsInputFields()
                 .clickPlangroupSelectorField()
-                .clickBinnenlandPlangroupItemSelect()
+                .clickStandaardPlangroupItemSelect()
                 .clickOrderTypeSelectorField()
-                .clickAbRitOrderTypeSelect()
+                .clickEnkelLosAdresOrderTypeSelectOrderTypeSelect()
                 .clickNextButton()
                 .clickSearchAddressList1Button()
                 .clickFirstItemAddress()
@@ -59,7 +58,7 @@ public class OrdersTests extends BaseTest {
                 .inputDataToTheUntilInputList2Field(getTime(10,11), getTime(14,15))
                 .clickNextButton()
                 .clickTransportTypeSelectorField()
-                .clickTransportKmTarifTypeSelect()
+                .clickTransportPalletprijsGekoeldPerUurTypeSelect()
                 .clickSaveButton();
     }
 
@@ -120,12 +119,12 @@ public class OrdersTests extends BaseTest {
                 .clickNewWorkOrderButton();
         newWorkOrderPage
                 .clickCustomerField()
-                .clickGebrCustomerSelect()
+                .clickAbbinkVriezenveenCustomerSelect()
                 .setPlanedStartAndEndDate(getCurrentDate(), getFutureDate(7))
                 .inputDataToPlannedStartTime(getTime(10, 11))
                 .inputDataToPlannedEndTime(getTime(12, 13))
                 .clickPlanGroupField()
-                .clickBinnenlandPlangroupItemSelect()
+                .clickStandaardPlangroupItemSelect()
                 .clickNextButton()
                 .clickAddDriverButton()
                 .clickFirstItemClaimButton()

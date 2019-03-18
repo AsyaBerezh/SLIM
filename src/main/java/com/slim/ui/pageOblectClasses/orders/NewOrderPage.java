@@ -10,25 +10,55 @@ import static com.codeborne.selenide.Selenide.*;
 public class NewOrderPage {
 
     SelenideElement customerSelectorField = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper']");
-    SelenideElement gebrCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417767002']");
-    SelenideElement jansenCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417767001']");
+    SelenideElement abbinkVriezenveenCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417766605']");
+    SelenideElement actifoodCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417766606']");
+    SelenideElement anoeshGroningenCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417767504']");
+    SelenideElement basLogisticsEttenLeurCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417767505']");
+    SelenideElement boonstraTransportCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417766607']");
+    SelenideElement dickSchoonCallantsoogCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417766901']");
+    SelenideElement faDeNekkerZnCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417766603']");
+    SelenideElement hartmanTransportVeenoordCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417767503']");
+    SelenideElement hatzmannBettenCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417767503']");
+    SelenideElement kelderCoevordenCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417766904']");
+    SelenideElement kivitsDrunenCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417766701']");
+    SelenideElement koningTransportbemiddelingCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417767509']");
+    SelenideElement kosterEurotransportWolvegaCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417767502']");
+    SelenideElement landHarkemaCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417767501']");
+    SelenideElement netkoRaalteCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417766801']");
+    SelenideElement simonLoosCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417766604']");
+    SelenideElement smildeFoodsCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417766501']");
+    SelenideElement spiltrapcentrumCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417766903']");
+    SelenideElement thomMulderZnCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417767702']");
+    SelenideElement vanOersUnitedCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417767301']");
+    SelenideElement visserZoutkampCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417766802']");
     SelenideElement cargoSelectorField = $("[class='form-group mx-name-referenceSelector8 align-label-left'] [class*='mx-referenceselector-input-wrapper']");
-    SelenideElement cargoBakkerijproductenItemSelect = $("[class='form-group mx-name-referenceSelector8 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='13792273858822745']");
-    SelenideElement cargoGroenteFruitItemSelect = $("[class='form-group mx-name-referenceSelector8 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='13792273858822850']");
-    SelenideElement cargoVersproductenItemSelect = $("[class='form-group mx-name-referenceSelector8 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='13792273858822847']");
-    SelenideElement cargoTestjuItemSelect = $("[class='form-group mx-name-referenceSelector8 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='13792273858822945']");
+    SelenideElement cargoAardappelenSelect = $("[class='form-group mx-name-referenceSelector8 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='13792273858822549']");
+    SelenideElement cargoBuffelmelkSelect = $("[class='form-group mx-name-referenceSelector8 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='13792273858822547']");
+    SelenideElement cargoGekoeldSelect = $("[class='form-group mx-name-referenceSelector8 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='13792273858822245']");
+    SelenideElement cargoLeliesSelect = $("[class='form-group mx-name-referenceSelector8 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='13792273858822545']");
+    SelenideElement cargoOngekoeldSelect = $("[class='form-group mx-name-referenceSelector8 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='13792273858822446']");
+    SelenideElement cargoTrappenSelect = $("[class='form-group mx-name-referenceSelector8 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='13792273858822546']");
+    SelenideElement cargoVerwarmenSelect = $("[class='form-group mx-name-referenceSelector8 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='13792273858822748']");
     SelenideElement carrierSelectorField = $("[class='form-group mx-name-referenceSelector2 align-label-left'] [class*='mx-referenceselector-input-wrapper']");
-    SelenideElement carrierBlockPalletItemSelect = $("[class='form-group mx-name-referenceSelector2 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='20266198323167333']");
-    SelenideElement carrierEuroPalletItemSelect = $("[class='form-group mx-name-referenceSelector2 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='20266198323167335']");
+    SelenideElement carrierGekoeldEuroCHEPItemSelect = $("[class='form-group mx-name-referenceSelector2 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='20266198323167235']");
+    SelenideElement carrierEuropalletItemSelect = $("[class='form-group mx-name-referenceSelector2 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='20266198323167236']");
+    SelenideElement carrierH1PalletPlasticEuroItemSelect = $("[class='form-group mx-name-referenceSelector2 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='20266198323167237']");
+    SelenideElement carrierBlokCHEPItemSelect = $("[class='form-group mx-name-referenceSelector2 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='20266198323167239']");
+    SelenideElement carrierLeliekistItemSelect = $("[class='form-group mx-name-referenceSelector2 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='20266198323167333']");
+
+    SelenideElement carrierPalletboxItemSelect = $("[class='form-group mx-name-referenceSelector2 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='20266198323167335']");
     SelenideElement carrierRolcontainerItemSelect = $("[class='form-group mx-name-referenceSelector2 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='20266198323167334']");
     SelenideElement unitsInputFields = $("[class='form-group mx-name-textBox4 align-label-left'] [class='form-control'] ");
     SelenideElement plangroupSelectorField = $("[class='form-group mx-name-referenceSelector10 align-label-left'] [class*='form-control'] ");
-    SelenideElement binnenlandPlangroupItemSelect = $("[class='form-group mx-name-referenceSelector10 align-label-left'] [class*='form-control'] [value='27021597764223580']");
+    SelenideElement standaardPlangroupItemSelect = $("[class='form-group mx-name-referenceSelector10 align-label-left'] [class*='form-control'] [value='27021597764223177']");
     SelenideElement сontainersPlangroupItemSelect = $("[class='form-group mx-name-referenceSelector10 align-label-left'] [class*='form-control'] [value='27021597764223589']");
     SelenideElement koeltransportPlangroupItemSelect = $("[class='form-group mx-name-referenceSelector10 align-label-left'] [class*='form-control'] [value='27021597764223578']");
     SelenideElement orderTypeSelectorField = $("[class='form-group mx-name-referenceSelector9 align-label-left'] [class*='form-control']");
-    SelenideElement abRitOrderTypeSelect = $("[class='form-group mx-name-referenceSelector9 align-label-left'] [class*='form-control'] [value='2533274790396405']");
-    SelenideElement distributieOrderTypeSelect = $("[class='form-group mx-name-referenceSelector9 align-label-left'] [class*='form-control'] [value='2533274790396606']");
+    SelenideElement enkelLosAdresOrderTypeSelect = $("[class='form-group mx-name-referenceSelector9 align-label-left'] [class*='form-control'] [value='2533274790396305']");
+    SelenideElement voorgeplandeRitMet2LosadressenOrderTypeSelect = $("[class='form-group mx-name-referenceSelector9 align-label-left'] [class*='form-control'] [value='2533274790396006']");
+    SelenideElement voorgeplandeRitMet3LosadressenOrderTypeSelect = $("[class='form-group mx-name-referenceSelector9 align-label-left'] [class*='form-control'] [value='2533274790396105']");
+    SelenideElement voorgeplandeRitMet4LosadressenOrderTypeSelect = $("[class='form-group mx-name-referenceSelector9 align-label-left'] [class*='form-control'] [value='2533274790396106']");
+    SelenideElement voorlaadRitOrderTypeSelect = $("[class='form-group mx-name-referenceSelector9 align-label-left'] [class*='form-control'] [value='2533274790396209']");
     SelenideElement nextButton = $("[class*='btn mx-button mx-name-actionButton2 btnRight > img btn-default']");
     SelenideElement searchAddressList1Button = $("[class='mx-listview mx-listview-selectable mx-name-listView3'] [class='mx-listview-item mx-name-index-0'] [class='btn btn-default']");
     SelenideElement searchAddressList2Button = $("[class='mx-listview mx-listview-selectable mx-name-listView3'] [class='mx-listview-item mx-name-index-1'] [class='btn btn-default']");
@@ -46,14 +76,16 @@ public class NewOrderPage {
     ElementsCollection fromInputListField = $$("[class*='mx-name-textBox23'] input");
     ElementsCollection untilInputListField = $$("[class*='mx-name-textBox24'] input");
 
-    SelenideElement fromInputList1Field = $(" [class*='mx-listview mx-listview-selectable mx-name-listView3'] [class*='mx-listview-item mx-name-index-0'] [class*='mx-name-textBox23'] [class*='form-control']");
-    SelenideElement fromInputList2Field = $(" [class*='mx-listview mx-listview-selectable mx-name-listView3'] [class*='mx-listview-item mx-name-index-1'] [class*='mx-name-textBox23'] [class*='form-control']");
-    SelenideElement untilInputList1Field = $(" [class*='mx-listview mx-listview-selectable mx-name-listView3'] [class*='mx-listview-item mx-name-index-0'] [class*='mx-name-textBox24'] [class*='form-control']");
-    SelenideElement untilInputList2Field = $(" [class*='mx-listview mx-listview-selectable mx-name-listView3'] [class*='mx-listview-item mx-name-index-1'] [class*='mx-name-textBox24'] [class*='form-control']");
+
     SelenideElement transportTypeSelectorField = $("[class*='form-group mx-name-referenceSelector13 align-label-left'] [class='form-control']");
-    SelenideElement transportKmTarifTypeSelect = $("[class*='form-group mx-name-referenceSelector13 align-label-left'] [class*='form-control'] [value='26458647810802267']");
-    SelenideElement transportKmUurTarifTypeSelect = $("[class*='form-group mx-name-referenceSelector13 align-label-left'] [class*='form-control'] [value='26458647810802268']");
-    SelenideElement transportUurTarifTypeSelect = $("[class*='form-group mx-name-referenceSelector13 align-label-left'] [class*='form-control'] [value='26458647810802266']");
+    SelenideElement transportPalletprijsGekoeldPerUurTypeSelect = $("[class*='form-group mx-name-referenceSelector13 align-label-left'] [class*='form-control'] [value='26458647810801866']");
+    SelenideElement transportPalletprijsOngekoeldPerUurTypeSelect = $("[class*='form-group mx-name-referenceSelector13 align-label-left'] [class*='form-control'] [value='26458647810801765']");
+    SelenideElement transportPalletprijsVriesPerUurTypeSelect = $("[class*='form-group mx-name-referenceSelector13 align-label-left'] [class*='form-control'] [value='26458647810801867']");
+    SelenideElement transportPrijsGekoeldPerKmUurTypeSelect = $("[class*='form-group mx-name-referenceSelector13 align-label-left'] [class*='form-control'] [value='26458647810801869']");
+    SelenideElement transportPrijsGekoeldPerUurTypeSelect = $("[class*='form-group mx-name-referenceSelector13 align-label-left'] [class*='form-control'] [value='26458647810801865']");
+    SelenideElement transportPrijsOngekoeldPerUurTypeSelect = $("[class*='form-group mx-name-referenceSelector13 align-label-left'] [class*='form-control'] [value='26458647810801766']");
+    SelenideElement transportPrijsVriesPerUurTypeSelect = $("[class*='form-group mx-name-referenceSelector13 align-label-left'] [class*='form-control'] [value='26458647810801868']");
+
     SelenideElement saveButton = $("[class='btn mx-button mx-name-actionButton4 btn-success']");
     SelenideElement saveAsTemplate = $("[class*='btn mx-button mx-name-actionButton7 btn-success']");
     SelenideElement saveButtonOnTheNewOrderTemplateModalWindow = $("[class='mx-dataview mx-name-dataView1'] [class*='btn mx-button mx-name-actionButton2 btn-success']");
@@ -71,13 +103,89 @@ public class NewOrderPage {
         customerSelectorField.click();
         return this;
     }
-    public NewOrderPage clickGebrCustomerSelect(){
-        gebrCustomerSelect.click();
+    public NewOrderPage clickAbbinkVriezenveenCustomerSelect(){
+        abbinkVriezenveenCustomerSelect.click();
         return this;
     }
 
-    public NewOrderPage clickJansenCustomerSelect(){
-        jansenCustomerSelect.click();
+    public NewOrderPage clickActifoodCustomerSelectCustomerSelect(){
+        actifoodCustomerSelect.click();
+        return this;
+    }
+    public NewOrderPage clickAnoeshGroningenCustomerSelect(){
+        anoeshGroningenCustomerSelect.click();
+        return this;
+    }
+    public NewOrderPage clickBasLogisticsEttenLeurCustomerSelect(){
+        basLogisticsEttenLeurCustomerSelect.click();
+        return this;
+    }
+    public NewOrderPage clickBoonstraTransportCustomerSelect(){
+        boonstraTransportCustomerSelect.click();
+        return this;
+    }
+    public NewOrderPage clickDickSchoonCallantsoogCustomerSelect(){
+        dickSchoonCallantsoogCustomerSelect.click();
+        return this;
+    }
+    public NewOrderPage clickFaDeNekkerZnCustomerSelect(){
+        faDeNekkerZnCustomerSelect.click();
+        return this;
+    }
+    public NewOrderPage clickHartmanTransportVeenoordCustomerSelect(){
+        hartmanTransportVeenoordCustomerSelect.click();
+        return this;
+    }
+    public NewOrderPage clickHatzmannBettenCustomerSelect(){
+        hatzmannBettenCustomerSelect.click();
+        return this;
+    }
+    public NewOrderPage clickKelderCoevordenCustomerSelect(){
+        kelderCoevordenCustomerSelect.click();
+        return this;
+    }
+    public NewOrderPage clickKivitsDrunenCustomerSelect(){
+        kivitsDrunenCustomerSelect.click();
+        return this;
+    }
+    public NewOrderPage clickKoningTransportbemiddelingCustomerSelect(){
+        koningTransportbemiddelingCustomerSelect.click();
+        return this;
+    }
+    public NewOrderPage clickKosterEurotransportWolvegaCustomerSelect(){
+        kosterEurotransportWolvegaCustomerSelect.click();
+        return this;
+    }
+    public NewOrderPage clickLandHarkemaCustomerSelect(){
+        landHarkemaCustomerSelect.click();
+        return this;
+    }
+    public NewOrderPage clickNetkoRaalteCustomerSelect(){
+        netkoRaalteCustomerSelect.click();
+        return this;
+    }
+    public NewOrderPage clickSimonLoosCustomerSelect(){
+        simonLoosCustomerSelect.click();
+        return this;
+    }
+    public NewOrderPage clickSmildeFoodsCustomerSelect(){
+        smildeFoodsCustomerSelect.click();
+        return this;
+    }
+    public NewOrderPage clickSpiltrapcentrumCustomerSelect(){
+        spiltrapcentrumCustomerSelect.click();
+        return this;
+    }
+    public NewOrderPage clickThomMulderZnCustomerSelect(){
+        thomMulderZnCustomerSelect.click();
+        return this;
+    }
+    public NewOrderPage clickVanOersUnitedCustomerSelect(){
+        vanOersUnitedCustomerSelect.click();
+        return this;
+    }
+    public NewOrderPage clickVisserZoutkampCustomerSelect(){
+        visserZoutkampCustomerSelect.click();
         return this;
     }
 
@@ -86,38 +194,64 @@ public class NewOrderPage {
         return this;
     }
     public NewOrderPage clickBakkerijproductenCargoItemSelect(){
-        cargoBakkerijproductenItemSelect.click();
+        cargoAardappelenSelect.click();
         return this;
     }
-    public NewOrderPage clickFruitItemCargoItemSelect(){
-        cargoGroenteFruitItemSelect.click();
+    public NewOrderPage clickBuffelmelkCargoItemSelect(){
+        cargoBuffelmelkSelect.click();
         return this;
     }
-    public NewOrderPage clickTestjuCargoItemSelect(){
-        cargoTestjuItemSelect.click();
+    public NewOrderPage clickLeliesCargoItemSelect(){
+        cargoLeliesSelect.click();
         return this;
     }
-    public NewOrderPage clickVersproductenCargoItemSelect(){
-        cargoVersproductenItemSelect.click();
+    public NewOrderPage clickGekoeldCargoItemSelect(){
+        cargoGekoeldSelect.click();
         return this;
     }
-
-
-
-
+    public NewOrderPage clickCargoOngekoeldSelect(){
+        cargoOngekoeldSelect.click();
+        return this;
+    }
+    public NewOrderPage clickCargoTrappenSelect(){
+        cargoTrappenSelect.click();
+        return this;
+    }
+    public NewOrderPage clickCargoVerwarmenSelect(){
+        cargoVerwarmenSelect.click();
+        return this;
+    }
     public NewOrderPage clickCarrierSelectorField(){
         carrierSelectorField.click();
         return this;
     }
+    public NewOrderPage clickCarrierLeliekistItemSelect(){
+        carrierLeliekistItemSelect.click();
+        return this;
+    }
     public NewOrderPage clickCarrierBlockPalletItemSelect(){
-        carrierBlockPalletItemSelect.click();
+        carrierGekoeldEuroCHEPItemSelect.click();
         return this;
     }
 
-    public NewOrderPage clickCarrierEuroPalletItemSelect(){
-        carrierEuroPalletItemSelect.click();
+    public NewOrderPage clickCarrierPalletBoxItemSelect(){
+        carrierPalletboxItemSelect.click();
         return this;
     }
+    public NewOrderPage clickCarrierEuropalletItemSelect(){
+        carrierEuropalletItemSelect.click();
+        return this;
+    }
+    public NewOrderPage clickCarrierH1PalletPlasticEuroItemSelect(){
+        carrierH1PalletPlasticEuroItemSelect.click();
+        return this;
+    }
+    public NewOrderPage clickcarrierBlokCHEPItemSelect(){
+        carrierBlokCHEPItemSelect.click();
+        return this;
+    }
+
+
     public NewOrderPage clickCarrierRolcontainerItemSelect(){
         carrierRolcontainerItemSelect.click();
         return this;
@@ -131,28 +265,40 @@ public class NewOrderPage {
         plangroupSelectorField.click();
         return this;
     }
-    public NewOrderPage clickBinnenlandPlangroupItemSelect(){
-        binnenlandPlangroupItemSelect.click();
+    public NewOrderPage clickStandaardPlangroupItemSelect(){
+        standaardPlangroupItemSelect.click();
         return this;
     }
-    public NewOrderPage clickContainersPlangroupItemSelect(){
-        сontainersPlangroupItemSelect.click();
-        return this;
-    }
-    public NewOrderPage clickKoeltransportPlangroupItemSelect(){
-        koeltransportPlangroupItemSelect.click();
-        return this;
-    }
+//    public NewOrderPage clickContainersPlangroupItemSelect(){
+//        сontainersPlangroupItemSelect.click();
+//        return this;
+//    }
+//    public NewOrderPage clickKoeltransportPlangroupItemSelect(){
+//        koeltransportPlangroupItemSelect.click();
+//        return this;
+//    }
     public NewOrderPage clickOrderTypeSelectorField(){
         orderTypeSelectorField.click();
         return this;
     }
-    public NewOrderPage clickAbRitOrderTypeSelect(){
-        abRitOrderTypeSelect.click();
+    public NewOrderPage clickEnkelLosAdresOrderTypeSelectOrderTypeSelect(){
+        enkelLosAdresOrderTypeSelect.click();
         return this;
     }
-    public NewOrderPage clickDistributieOrderTypeSelectSelect(){
-        distributieOrderTypeSelect.click();
+    public NewOrderPage clickVoorgeplandeRitMet2LosadressenOrderTypeSelecteOrderTypeSelectSelect(){
+        voorgeplandeRitMet2LosadressenOrderTypeSelect.click();
+        return this;
+    }
+    public NewOrderPage clickVoorgeplandeRitMet3LosadressenOrderTypeSelect(){
+        voorgeplandeRitMet3LosadressenOrderTypeSelect.click();
+        return this;
+    }
+    public NewOrderPage clickVoorgeplandeRitMet4LosadressenOrderTypeSelect(){
+        voorgeplandeRitMet4LosadressenOrderTypeSelect.click();
+        return this;
+    }
+    public NewOrderPage clickVoorlaadRitOrderTypeSelect(){
+        voorlaadRitOrderTypeSelect.click();
         return this;
     }
     public NewOrderPage clickNextButton(){
@@ -258,18 +404,35 @@ public class NewOrderPage {
         return this;
     }
 
-    public NewOrderPage clickTransportKmTarifTypeSelect(){
-        transportKmTarifTypeSelect.click();
+    public NewOrderPage clickTransportPalletprijsGekoeldPerUurTypeSelect(){
+        transportPalletprijsGekoeldPerUurTypeSelect.click();
         return this;
     }
 
-    public NewOrderPage clickTransportKmUurTarifTypeSelect(){
-        transportKmUurTarifTypeSelect.click();
+    public NewOrderPage clickTransportPalletprijsOngekoeldPerUurTypeSelect(){
+        transportPalletprijsOngekoeldPerUurTypeSelect.click();
         return this;
     }
 
-    public NewOrderPage clickTransportUurTarifTypeSelect(){
-        transportUurTarifTypeSelect.click();
+    public NewOrderPage clickTransportPalletprijsVriesPerUurTypeSelect(){
+        transportPalletprijsVriesPerUurTypeSelect.click();
+        return this;
+    }
+
+    public NewOrderPage clickTransportPrijsGekoeldPerKmUurTypeSelect(){
+        transportPrijsGekoeldPerKmUurTypeSelect.click();
+        return this;
+    }
+    public NewOrderPage clickTransportPrijsGekoeldPerUurTypeSelect(){
+        transportPrijsGekoeldPerUurTypeSelect.click();
+        return this;
+    }
+    public NewOrderPage clickTransportPrijsOngekoeldPerUurTypeSelect(){
+        transportPrijsOngekoeldPerUurTypeSelect.click();
+        return this;
+    }
+    public NewOrderPage clickTransportPrijsVriesPerUurTypeSelect(){
+        transportPrijsVriesPerUurTypeSelect.click();
         return this;
     }
 
@@ -333,7 +496,5 @@ public NewOrderPage clickSaveButtonOnTheNewOrderTemplateModalWindow(){
         saveButtonOnEditOrderModalWindow.click();
         return this;
     }
-    public void testMethod(){
 
-    }
 }
