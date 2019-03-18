@@ -333,4 +333,7 @@ public NewOrderPage clickSaveButtonOnTheNewOrderTemplateModalWindow(){
         saveButtonOnEditOrderModalWindow.click();
         return this;
     }
+    public void testMethod(){
+
+    }
 }

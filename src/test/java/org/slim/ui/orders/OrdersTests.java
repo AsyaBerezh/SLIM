@@ -2,6 +2,7 @@ package org.slim.ui.orders;
 
 import com.slim.ui.pageOblectClasses.DashboardPage;
 import com.slim.ui.pageOblectClasses.LoginPage;
+import com.slim.ui.pageOblectClasses.office.OfficePage;
 import com.slim.ui.pageOblectClasses.orders.NewOrderFromTemplatePage;
 import com.slim.ui.pageOblectClasses.orders.NewOrderPage;
 import com.slim.ui.pageOblectClasses.orders.NewWorkOrderPage;
@@ -19,6 +20,7 @@ public class OrdersTests extends BaseTest {
     OrdersPage ordersPage = new OrdersPage();
     NewOrderFromTemplatePage newOrderFromTemplatePage = new NewOrderFromTemplatePage();
     NewWorkOrderPage newWorkOrderPage = new NewWorkOrderPage();
+
 
     @BeforeClass
 
