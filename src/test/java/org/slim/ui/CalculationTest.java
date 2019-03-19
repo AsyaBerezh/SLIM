@@ -7,7 +7,9 @@ import com.slim.ui.pageOblectClasses.planning.PlanningPage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class CalculationTest extends BaseTest{
+import static com.codeborne.selenide.Selenide.sleep;
+
+public class CalculationTest extends BaseTest {
 
     DashboardPage dashboardPage = new DashboardPage();
     LoginPage loginPage = new LoginPage();
@@ -16,12 +18,13 @@ public class CalculationTest extends BaseTest{
 
     @BeforeClass
 
-    private void preClass (){
+    private void preClass() {
         loginPage
                 .loginToDashboard("marharyta@fitsoft.nl", "QWEqwe123!@#");
     }
+
     @Test
-    public void creatingOrderInPlanning(){
+    public void creatingOrderInPlanning() {
         dashboardPage
                 .openDashBoard()
                 .clickMenuButton()
@@ -34,5 +37,33 @@ public class CalculationTest extends BaseTest{
                 .clickDeleteFirstActivityButton();
 
 
+    }
+    @Test
+    public void plansheetEdit(){
+        dashboardPage
+                .openDashBoard()
+                .clickMenuButton()
+                .clickPlanningButton();
+        planningPage
+                .clickPlansheetSelector()
+                .clickPlansheetItem()
+                .clickEditPlansheetButton()
+                .clickFirstNewTripButton()
+                .clickChangelastTractorbutton()
+                .clickTractorClaimButton()
+                .clickChangelastTrailerbutton()
+                .clickTrailerClaimButton()
+                .clickGoToPlanningButton()
+                .clickStartAddress()
+                .clickChooseStartAddress()
+                .clickAttachingTrailerAddress()
+                .clickChooseAttachingTrailerAddress()
+                .clickDetachingTrailerAddress()
+                .clickChooseDetachingTrailerAddress()
+                .clickEndAddress()
+                .clickChooseEndAddress();
+//                .dragable()
+  //              .clickRemoveShipmentFromTripButton();
+        sleep(2000);
     }
 }
