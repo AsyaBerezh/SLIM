@@ -15,7 +15,7 @@ public class OverviewPage {
     SelenideElement iUnderstandButtonOnWarningPopUp = $("[class*='btn mx-button mx-name-actionButton1 btn-success']");
     SelenideElement publishTripButton = $("[class*='btn mx-button mx-name-actionButton2 btnRight > img btn-success']");
     SelenideElement okButton = $("[class='modal-footer mx-dialog-footer'] [class*='btn btn-primary']");
-
+  //  SelenideElement
     public OverviewPage clickTrip(){
         sleep(6000);
         trip.find(Condition.text("14-BDB-2")).contextClick();
