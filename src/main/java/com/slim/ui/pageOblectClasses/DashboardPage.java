@@ -10,6 +10,7 @@ public class DashboardPage {
     SelenideElement officeButton = $("[class*='btn mx-button mx-name-actionButton8 bigbuttonwhite-image fa fa-briefcase btn-default']");
     SelenideElement menuButton = $("[class*='btn mx-button mx-name-sidebarToggle3 bigbuttonwhite-image fa fa-bars btn-primary']");
     SelenideElement planningButton = $("[class*='mx-name-container25 menuimagebox'] button");
+    SelenideElement overviewButton = $ ("[class*='btn mx-button mx-name-actionButton11 fa fa-calendar btn-default']");
 
     public DashboardPage openDashBoard(){
         open("https://slim-accp.mendixcloud.com");
@@ -30,6 +31,10 @@ public class DashboardPage {
     }
     public DashboardPage clickPlanningButton(){
         planningButton.click();
+        return this;
+    }
+    public DashboardPage clickOverviewButton(){
+        overviewButton.click();
         return this;
     }
 }

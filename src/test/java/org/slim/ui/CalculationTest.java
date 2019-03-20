@@ -61,9 +61,19 @@ public class CalculationTest extends BaseTest {
                 .clickDetachingTrailerAddress()
                 .clickChooseDetachingTrailerAddress()
                 .clickEndAddress()
-                .clickChooseEndAddress();
-//                .dragable()
-  //              .clickRemoveShipmentFromTripButton();
+                .clickChooseEndAddress()
+/*                .clickDeleteAttachingTrailerButton()
+                .clickYesButton()
+                .clickDeleteDetachingTrailerButton()
+                .clickYesButton()*/
+                .dragable()
+                .dragable()
+                .clickRemoveFirstShipmentFromTripButton()
+                .clickCalculateTripButton()
+                .clickIUnderstandButtonOnWarningPopUp()
+                .clickPublishTripButton()
+                .clickIUnderstandButtonOnWarningPopUp()
+                .clickYesButton();
         sleep(2000);
     }
 }
