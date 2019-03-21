@@ -1,15 +1,15 @@
 package com.slim.ui.pageOblectClasses.planning;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
+import com.slim.ui.pageOblectClasses.Overview.OverviewPage;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class PlanningPage {
 
+public class PlanningPage {
     SelenideElement plansheetSelector = $("[class*='mx-referenceselector'] [class*='form-control']");
     SelenideElement plansheetItem = $("[class*='mx-referenceselector'] [class*='form-control'] [value='27303072740934839']");
     SelenideElement backToEditingButton = $("[class*='btn mx-button mx-name-actionButton3 btnRight > img btn-inverse']");
@@ -30,13 +30,17 @@ public class PlanningPage {
     SelenideElement chooseStartAddress = $("[class*='mx-listview-item mx-name-index-0'] [class*='mx-referenceselector mx-name-referenceSelector9 h6'] [value='21673573206722155']");
     SelenideElement startAddress = $("[class*='mx-listview-item mx-name-index-0'] [class*='mx-referenceselector mx-name-referenceSelector9 h6']");
     SelenideElement chooseAttachingTrailerAddress = $("[class='mx-listview-item mx-name-index-1'] [class='mx-referenceselector mx-name-referenceSelector9 h6'] [value='21673573206722451']");
-    SelenideElement AttachingTrailerAddress = $("[class='mx-listview-item mx-name-index-1'] [class='mx-referenceselector mx-name-referenceSelector9 h6']");
-    SelenideElement DetachingTrailerAddress = $("[class='mx-listview-item mx-name-index-2'] [class='mx-referenceselector mx-name-referenceSelector9 h6']");
+    SelenideElement attachingTrailerAddress = $("[class='mx-listview-item mx-name-index-1'] [class='mx-referenceselector mx-name-referenceSelector9 h6']");
+    SelenideElement detachingTrailerAddress = $("[class='mx-listview-item mx-name-index-2'] [class='mx-referenceselector mx-name-referenceSelector9 h6']");
     SelenideElement chooseDetachingTrailerAddress = $("[class='mx-listview-item mx-name-index-2'] [class='mx-referenceselector mx-name-referenceSelector9 h6'] [value='21673573206720839']");
     SelenideElement endAddress = $("[class='mx-listview-item mx-name-index-3'] [class='mx-referenceselector mx-name-referenceSelector9 h6']");
     SelenideElement chooseEndAddress = $("[class='mx-listview-item mx-name-index-3'] [class='mx-referenceselector mx-name-referenceSelector9 h6'] [value='21673573206722117']");
     SelenideElement publishTripButton = $("[class='btn mx-button mx-name-actionButton2 btnRight > img btn-success']");
     SelenideElement iUnderstandButtonOnWarningPopUp = $("[class*='btn mx-button mx-name-actionButton1 btn-success']");
+    //static SelenideElement  tranctorLicense = $("[class='mx-dataview mx-name-dataView2 form-horizontal'] [class='mx-listview-item mx-name-index-0'] [class='mx-name-textBox9 h6']");
+    SelenideElement tripDetailsButton = $("[class='btn mx-button mx-name-actionButton16 buttonnonborder-image fa fa-info-circle btn-info']");
+    SelenideElement resultsTab = $("[class='mx-name-tabPage1']");
+    SelenideElement closeButton = $("[class='close']");
 
 
     public PlanningPage clickPlansheetSelector() {
@@ -49,6 +53,21 @@ public class PlanningPage {
         return this;
     }
     public PlanningPage clickBackToEditingButton() {
+        backToEditingButton.click();
+        return this;
+    }
+    public PlanningPage clickTripDetailsButton(){
+        tripDetailsButton.click();
+        sleep(2000);
+        return this;
+    }
+    public PlanningPage clickCloseButton(){
+        closeButton.click();
+        return this;
+    }
+    public PlanningPage clickresultsTab(){
+        resultsTab.click();
+        sleep(10000);
         return this;
     }
     public PlanningPage clickDeleteFirstActivityButton() {
@@ -59,6 +78,10 @@ public class PlanningPage {
         editPlansheetButton.click();
         return this;
     }
+//    public static OverviewPage getValuetranctorLicense(String x){
+//        tranctorLicense.getValue(x);
+//        return new OverviewPage(x);
+//    }
     public PlanningPage clickFirstNewTripButton() {
         firstNewTripButton.first().click();
         sleep(1000);
@@ -78,6 +101,7 @@ public class PlanningPage {
         return this;
     }
     public PlanningPage clickTractorClaimButton() {
+
         firstTractorClaimButton.first().click();
         sleep(1000);
         return this;
@@ -122,7 +146,7 @@ public class PlanningPage {
         return this;
     }
     public PlanningPage clickAttachingTrailerAddress() {
-        AttachingTrailerAddress.click();
+        attachingTrailerAddress.click();
         return this;
     }
     public PlanningPage clickYesButton(){
@@ -134,7 +158,7 @@ public class PlanningPage {
         return this;
     }
     public PlanningPage clickDetachingTrailerAddress() {
-        DetachingTrailerAddress.click();
+        detachingTrailerAddress.click();
         return this;
     }
     public PlanningPage clickChooseDetachingTrailerAddress() {

@@ -36,5 +36,37 @@ public class UpdateTest extends BaseTest {
                 .clickOKButton();
         sleep(10000);
     }
-
+    @Test
+    public void updateDeleteShipmentFromTrip() {
+        dashboardPage
+                .openDashBoard()
+                .clickOverviewButton();
+        overviewPage
+                .clickTrip()
+                .clickTripUpdate()
+                .clickRemoveFirstShipmentFromTrip()
+                .clickRecalculateTripButton()
+                .clickIUnderstandButtonOnWarningPopUp()
+                .clickPublishTripButton()
+                .clickIUnderstandButtonOnWarningPopUp()
+                .clickOKButton();
+        sleep(10000);
+    }
+    @Test
+    public void updateDeleteFirstShipmentFromTripAddShipment() {
+        dashboardPage
+                .openDashBoard()
+                .clickOverviewButton();
+        overviewPage
+                .clickTrip()
+                .clickTripUpdate()
+                .clickRemoveFirstShipmentFromTrip()
+                .dragableUpdate()
+                .clickRecalculateTripButton()
+                .clickIUnderstandButtonOnWarningPopUp()
+                .clickPublishTripButton()
+                .clickIUnderstandButtonOnWarningPopUp()
+                .clickOKButton();
+        sleep(10000);
+    }
 }

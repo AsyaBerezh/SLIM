@@ -67,10 +67,12 @@ public class CalculationTest extends BaseTest {
                 .clickDeleteDetachingTrailerButton()
                 .clickYesButton()*/
                 .dragable()
-                .dragable()
-                .clickRemoveFirstShipmentFromTripButton()
+     //           .clickRemoveFirstShipmentFromTripButton()
                 .clickCalculateTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
+                .clickTripDetailsButton()
+                .clickresultsTab()
+                .clickCloseButton()
                 .clickPublishTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();

@@ -15,10 +15,11 @@ public class OverviewPage {
     SelenideElement iUnderstandButtonOnWarningPopUp = $("[class*='btn mx-button mx-name-actionButton1 btn-success']");
     SelenideElement publishTripButton = $("[class*='btn mx-button mx-name-actionButton2 btnRight > img btn-success']");
     SelenideElement okButton = $("[class='modal-footer mx-dialog-footer'] [class*='btn btn-primary']");
-  //  SelenideElement
+    ElementsCollection removeFirstShipmentFromTrip = $$("[class='btn mx-button mx-name-actionButton7 listview-content buttonnonborderred-image fa fa-times-circle btn-danger']");
+
     public OverviewPage clickTrip(){
         sleep(6000);
-        trip.find(Condition.text("14-BDB-2")).contextClick();
+        trip.last().contextClick();
         return this;
     }
     public OverviewPage clickTripDetails(){
@@ -41,6 +42,7 @@ public class OverviewPage {
         sleep(1000);
         return this;
     }
+
     public OverviewPage dragableUpdate(){
         sleep(2000);
         lastShipment.last().dragAndDropTo(tripActivitiesField);
@@ -49,6 +51,10 @@ public class OverviewPage {
     public OverviewPage clickRecalculateTripButton(){
         sleep(1000);
         recalculateTripButton.click();
+        return this;
+    }
+    public OverviewPage clickRemoveFirstShipmentFromTrip(){
+        removeFirstShipmentFromTrip.first().click();
         return this;
     }
     public OverviewPage clickIUnderstandButtonOnWarningPopUp(){
