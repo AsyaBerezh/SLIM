@@ -39,7 +39,7 @@ public class CalculationTest extends BaseTest {
 
     }
     @Test
-    public void plansheetEdit(){
+    public void calculateOneShipmentOpenInfo(){
         dashboardPage
                 .openDashBoard()
                 .clickMenuButton()
@@ -78,4 +78,155 @@ public class CalculationTest extends BaseTest {
                 .clickYesButton();
         sleep(2000);
     }
+    @Test
+    public void calculateOneShipment(){
+        dashboardPage
+                .openDashBoard()
+                .clickMenuButton()
+                .clickPlanningButton();
+        planningPage
+                .clickPlansheetSelector()
+                .clickPlansheetItem()
+                .clickEditPlansheetButton()
+                .clickFirstNewTripButton()
+                .clickChangelastTractorbutton()
+                .clickTractorClaimButton()
+                .clickChangelastTrailerbutton()
+                .clickTrailerClaimButton()
+                .clickGoToPlanningButton()
+                .clickStartAddress()
+                .clickChooseStartAddress()
+                .clickAttachingTrailerAddress()
+                .clickChooseAttachingTrailerAddress()
+                .clickDetachingTrailerAddress()
+                .clickChooseDetachingTrailerAddress()
+                .clickEndAddress()
+                .clickChooseEndAddress()
+/*                .clickDeleteAttachingTrailerButton()
+                .clickYesButton()
+                .clickDeleteDetachingTrailerButton()
+                .clickYesButton()*/
+                .dragable()
+                //           .clickRemoveFirstShipmentFromTripButton()
+                .clickCalculateTripButton()
+                .clickIUnderstandButtonOnWarningPopUp()
+                .clickPublishTripButton()
+                .clickIUnderstandButtonOnWarningPopUp()
+                .clickYesButton();
+        sleep(2000);
+    }
+    @Test
+    public void calculateTwoShipments(){
+        dashboardPage
+                .openDashBoard()
+                .clickMenuButton()
+                .clickPlanningButton();
+        planningPage
+                .clickPlansheetSelector()
+                .clickPlansheetItem()
+                .clickEditPlansheetButton()
+                .clickFirstNewTripButton()
+                .clickChangelastTractorbutton()
+                .clickTractorClaimButton()
+                .clickChangelastTrailerbutton()
+                .clickTrailerClaimButton()
+                .clickGoToPlanningButton()
+                .clickStartAddress()
+                .clickChooseStartAddress()
+                .clickAttachingTrailerAddress()
+                .clickChooseAttachingTrailerAddress()
+                .clickDetachingTrailerAddress()
+                .clickChooseDetachingTrailerAddress()
+                .clickEndAddress()
+                .clickChooseEndAddress()
+/*                .clickDeleteAttachingTrailerButton()
+                .clickYesButton()
+                .clickDeleteDetachingTrailerButton()
+                .clickYesButton()*/
+                .dragable()
+                .dragable()
+                //           .clickRemoveFirstShipmentFromTripButton()
+                .clickCalculateTripButton()
+                .clickIUnderstandButtonOnWarningPopUp()
+                .clickPublishTripButton()
+                .clickIUnderstandButtonOnWarningPopUp()
+                .clickYesButton();
+        sleep(2000);
+    }
+    @Test
+    public void calculateAddTwoShipmentsDeleteFirst(){
+        dashboardPage
+                .openDashBoard()
+                .clickMenuButton()
+                .clickPlanningButton();
+        planningPage
+                .clickPlansheetSelector()
+                .clickPlansheetItem()
+                .clickEditPlansheetButton()
+                .clickFirstNewTripButton()
+                .clickChangelastTractorbutton()
+                .clickTractorClaimButton()
+                .clickChangelastTrailerbutton()
+                .clickTrailerClaimButton()
+                .clickGoToPlanningButton()
+                .clickStartAddress()
+                .clickChooseStartAddress()
+                .clickAttachingTrailerAddress()
+                .clickChooseAttachingTrailerAddress()
+                .clickDetachingTrailerAddress()
+                .clickChooseDetachingTrailerAddress()
+                .clickEndAddress()
+                .clickChooseEndAddress()
+/*                .clickDeleteAttachingTrailerButton()
+                .clickYesButton()
+                .clickDeleteDetachingTrailerButton()
+                .clickYesButton()*/
+                .dragable()
+                .dragable()
+                .clickRemoveFirstShipmentFromTripButton()
+                .clickCalculateTripButton()
+                .clickIUnderstandButtonOnWarningPopUp()
+                .clickPublishTripButton()
+                .clickIUnderstandButtonOnWarningPopUp()
+                .clickYesButton();
+        sleep(2000);
+    }
+    @Test
+    public void calculateOneShipmentDeleteTrailerActivities(){
+        dashboardPage
+                .openDashBoard()
+                .clickMenuButton()
+                .clickPlanningButton();
+        planningPage
+                .clickPlansheetSelector()
+                .clickPlansheetItem()
+                .clickEditPlansheetButton()
+                .clickFirstNewTripButton()
+                .clickChangelastTractorbutton()
+                .clickTractorClaimButton()
+                .clickChangelastTrailerbutton()
+                .clickTrailerClaimButton()
+                .clickGoToPlanningButton()
+                .clickStartAddress()
+                .clickChooseStartAddress()
+                .clickAttachingTrailerAddress()
+                .clickChooseAttachingTrailerAddress()
+                .clickDetachingTrailerAddress()
+                .clickChooseDetachingTrailerAddress()
+                .clickEndAddress()
+                .clickChooseEndAddress()
+                .clickDeleteAttachingTrailerButton()
+                .clickYesButton()
+                .clickDeleteDetachingTrailerButton()
+                .clickYesButton()
+                .dragable()
+                //           .clickRemoveFirstShipmentFromTripButton()
+                .clickCalculateTripButton()
+                .clickIUnderstandButtonOnWarningPopUp()
+                .clickPublishTripButton()
+                .clickIUnderstandButtonOnWarningPopUp()
+                .clickYesButton();
+        sleep(2000);
+    }
 }
+
