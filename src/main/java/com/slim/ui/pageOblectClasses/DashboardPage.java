@@ -1,16 +1,16 @@
 package com.slim.ui.pageOblectClasses;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class DashboardPage {
-    SelenideElement ordersButton = $("[class='btn mx-button mx-name-actionButton3 fa fa-handshake-o btn-default']");
+    ElementsCollection ordersButton = $$("[class*='mx-link mx-name-actionButton19 far fa-handshake']");
     SelenideElement officeButton = $("[class*='btn mx-button mx-name-actionButton8 bigbuttonwhite-image fa fa-briefcase btn-default']");
     SelenideElement menuButton = $("[class*='btn mx-button mx-name-sidebarToggle3 bigbuttonwhite-image fa fa-bars btn-primary']");
-    SelenideElement planningButton = $("[class*='mx-name-container25 menuimagebox'] button");
     SelenideElement overviewButton = $ ("[class*='btn mx-button mx-name-actionButton11 fa fa-calendar btn-default']");
+    ElementsCollection planningButton = $$("[class*='mx-link mx-name-actionButton20 far fa-calendar-plus']");
 
     public DashboardPage openDashBoard(){
         open("https://slim-accp.mendixcloud.com");
@@ -18,7 +18,7 @@ public class DashboardPage {
     }
 
     public DashboardPage clickOrdersButton (){
-        ordersButton.click();
+        ordersButton.get(1).click();
         return this;
     }
     public DashboardPage clickOfficeButton(){
@@ -30,7 +30,7 @@ public class DashboardPage {
         return this;
     }
     public DashboardPage clickPlanningButton(){
-        planningButton.click();
+        planningButton.get(1).click();
         return this;
     }
     public DashboardPage clickOverviewButton(){
