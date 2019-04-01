@@ -11,7 +11,7 @@ public class DashboardPage {
     SelenideElement menuButton = $("[class*='btn mx-button mx-name-sidebarToggle3 bigbuttonwhite-image fa fa-bars btn-primary']");
     SelenideElement overviewButton = $ ("[class*='btn mx-button mx-name-actionButton11 fa fa-calendar btn-default']");
     ElementsCollection planningButton = $$("[class*='mx-link mx-name-actionButton20 far fa-calendar-plus']");
-
+    //need to be change in order of a new slim
     public DashboardPage openDashBoard(){
         open("https://slim-accp.mendixcloud.com");
         return new DashboardPage();
