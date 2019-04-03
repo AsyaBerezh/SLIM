@@ -25,7 +25,7 @@ public class CalculationTest extends BaseTest {
                 .loginToDashboard("anastasia@fitsoft.nl", "QWEqwe123!@#");
     }
     @Test
-    private void ChoseResources() {
+    private void ChooseResources() {
         dashboardPage
                 .openDashBoard()
                 .clickPlanningButton();

@@ -7,10 +7,13 @@ import java.util.List;
 import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.*;
 import static com.slim.ui.pageOblectClasses.planning.PlanningPage.TractorLicense;
+import static com.slim.ui.pageOblectClasses.planning.PlanningPage.TripNumber;
 
 public class OverviewPage {
     ElementsCollection tripWithDriverLicence = $$("[class*='trip-status']");
     ElementsCollection tripWithoutDriverLicence = $$("[class*='trip-main trip-flex expandable']");
+    ElementsCollection plannedTrips = $$("[chartertrip='false']");
+    ElementsCollection charterTrips = $$("[chartertrip='true']");
     ElementsCollection tripOptions = $$("[class*='menu-option']");
     SelenideElement cancelUpdateButton = $("[class*='btn mx-button mx-name-actionButton2 btnRight > img btn-danger']");
     SelenideElement proceedButton = $("[class='modal-footer mx-dialog-footer'] [class*='btn btn-primary']");
@@ -30,7 +33,7 @@ public class OverviewPage {
     SelenideElement revenueTotal = $("[class='mx-name-textBox3']");
     SelenideElement costTotal = $("[class='mx-name-textBox6']");
     SelenideElement profitTotal = $("[class='mx-name-textBox7']");
-    ElementsCollection tripActivities = $$("[class='timeline-item timeline-range timeline-selected timeline-readonly'][class='activities-row activities-plan']");
+    // ElementsCollection tripActivities = $$("[class='timeline-item timeline-range timeline-selected timeline-readonly'][class='activities-row activities-plan']");
     double FinalSumPlannedPrice = 0;
     double FinalSumPlannedCost = 0;
     double FinalSumPlannedProfit = 0;
@@ -51,6 +54,36 @@ public class OverviewPage {
         }
         return this;
     }
+    public OverviewPage clickPlannedTripTN(){
+        sleep(5000);
+        List<Integer> StartTimeAll = new ArrayList<Integer>();
+        if (TripNumber == null) {
+            sleep(1000);
+            for (int i=0; i < plannedTrips.size(); i++) {
+                String StartTimeS = plannedTrips.get(i).getCssValue("startdatetime");
+                int StartTimeI = Integer.parseInt(StartTimeS);
+                StartTimeAll.add(StartTimeI);
+                System.out.println("StartTimeI" + StartTimeI);
+            }
+            System.out.println("Start Time not sorted " + StartTimeAll);
+            Collections.sort(StartTimeAll);
+            System.out.println("Start Time sorted " + StartTimeAll);
+            int StarTimeFirst = StartTimeAll.get(0);
+            sleep(1000);
+        }
+        else {
+            sleep(1000);
+            for (int i=0; i < plannedTrips.size(); i++) {
+                String StartTimeS = plannedTrips.get(i).getCssValue("tripnumber");
+                    if (StartTimeS == TripNumber) {
+                        plannedTrips.get(i).contextClick();
+                        System.out.println("StartTimeS" + StartTimeS);
+                        System.out.println("TripNumber" + TripNumber);
+                    }
+            }
+        return this;
+    }
+
     public OverviewPage clickCompleteTrip(){
         sleep(4000);
         if (TractorLicense == null) {
@@ -65,8 +98,8 @@ public class OverviewPage {
             System.out.println("Find Last Trip " + TractorLicense);
             sleep(1000);
         }
-        tripActivities.last().click();
-        System.out.println("tripActivities " + tripActivities);
+        tripOptions.findBy(Condition.exactText("Rit Voltooien")).click();
+      //  System.out.println("Rit Voltooien");
         return this;
     }
     public OverviewPage clickCloseButton(){
@@ -77,14 +110,14 @@ public class OverviewPage {
     public OverviewPage clickTripDetails(){
         sleep(1000);
         tripOptions.findBy(Condition.exactText("Rit Details")).click();
-        System.out.println("Rit Details");
+      //  System.out.println("Rit Details");
         sleep(1000);
         return this;
     }
     public OverviewPage clickTripUpdate(){
         sleep(1000);
         tripOptions.findBy(Condition.exactText("Rit Updaten")).click();
-        System.out.println("Rit Updaten");
+       // System.out.println("Rit Updaten");
         sleep(1000);
         return this;
     }

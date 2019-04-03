@@ -16,22 +16,22 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class PlanningPage {
     SelenideElement plansheetSelector = $("[class*='mx-referenceselector'] [class*='form-control']");
-    SelenideElement plansheetItem = $("[class*='mx-referenceselector'] [class*='form-control'] [value='27303072740934935']");
+    SelenideElement plansheetItem = $("[class*='mx-referenceselector'] [class*='form-control'] [value='27303072740935138']");
     SelenideElement backToEditingButton = $("[class*='btn mx-button mx-name-actionButton3 btnRight > img btn-inverse']");
     SelenideElement deleteFirstActivityButton = $("[class='mx-listview-item mx-name-index-2'] [class*='btn mx-button mx-name-actionButton18 buttonnonborderred-image fa fa-times-circle btn-danger']");
-    SelenideElement editPlansheetButton = $("[class='btn mx-button mx-name-actionButton7 btnRight > img btn-inverse']");
-    ElementsCollection newTripButton = $$("[class='btn mx-button mx-name-actionButton15 btn-success']");
-    ElementsCollection changeTractorButton = $$("[class='mx-listview mx-listview-selectable mx-name-listView1 compact-listview'] [class='btn mx-button mx-name-actionButton17 buttonnonbordergreen-image fa fa-share-square btn-success']");
-    ElementsCollection tractorClaimButton = $$("[class='btn mx-button mx-name-actionButton16 btn-success']");
-    ElementsCollection changeTrailerButton = $$("[class='mx-listview mx-listview-selectable mx-name-listView1 compact-listview'] [class='btn mx-button mx-name-actionButton19 buttonnonbordergreen-image fa fa-share-square btn-success']");
-    ElementsCollection trailerClaimButton = $$("[class='btn mx-button mx-name-actionButton13 btn-success']");
-    SelenideElement goToPlanningButton = $("[class='btn mx-button mx-name-actionButton1 btn-success']");
+    SelenideElement editPlansheetButton = $("[class='btn mx-button mx-name-actionButton7 fa-right fas fa-edit btn-default']");
+    ElementsCollection newTripButton = $$("[class='btn mx-button mx-name-actionButton15 fa-right fas fa-plus btn-success']");
+    ElementsCollection changeTractorButton = $$("[class='btn mx-button mx-name-actionButton17 buttonnonborder-image fas fa-external-link-alt btn-info']");
+    ElementsCollection tractorClaimButton = $$("[class='btn mx-button mx-name-actionButton16 fa-right fas fa-chevron-right btn-default']");
+    ElementsCollection changeTrailerButton = $$("[class='btn mx-button mx-name-actionButton19 buttonnonborder-image fas fa-external-link-alt btn-info']");
+    ElementsCollection trailerClaimButton = $$("[class='btn mx-button mx-name-actionButton13 fa-right fas fa-chevron-right btn-default']");
+    SelenideElement goToPlanningButton = $("[class='btn mx-button mx-name-actionButton1 fas fa-chevron-left btn-default']");
     ElementsCollection deleteTrailerButton = $$("[class='btn mx-button mx-name-actionButton6 buttonnonborderred-image fa fa-times-circle btn-danger']");
     ElementsCollection ShipmentList = $$("[class='mx-layoutgrid mx-layoutgrid-fluid mx-name-layoutGrid33 center-align-childs']");
     SelenideElement tripActivitiesField = $("[class='mx-listview-item mx-name-index-1']");
     SelenideElement yesButton = $("[class*='btn btn-primary']");
     ElementsCollection removeShipmentFromTripButton = $$(" [class='btn mx-button mx-name-actionButton18 buttonnonborderred-image fa fa-times-circle btn-danger']");
-    SelenideElement calculateTripButton = $("[class='btn mx-button mx-name-actionButton1 btnRight > img btn-success']");
+    SelenideElement calculateTripButton = $("[class='btn mx-button mx-name-actionButton1 fa-right fas fa-clock btn-success']");
     SelenideElement chooseStartAddress = $("[class*='mx-listview-item mx-name-index-0'] [class*='mx-referenceselector mx-name-referenceSelector9 h6'] [value='21673573206722155']");
     SelenideElement startAddress = $("[class*='mx-listview-item mx-name-index-0'] [class*='mx-referenceselector mx-name-referenceSelector9 h6'] [class='form-control']");
     SelenideElement chooseAttachingTrailerAddress = $("[class='mx-listview-item mx-name-index-1'] [class='mx-referenceselector mx-name-referenceSelector9 h6'] [value='21673573206722451']");
@@ -44,13 +44,14 @@ public class PlanningPage {
     ElementsCollection fromInputListField = $$("[class*='mx-name-textBox23'] input");
     ElementsCollection untilInputListField = $$("[class*='mx-name-textBox24'] input");
 
-    SelenideElement publishTripButton = $("[class='btn mx-button mx-name-actionButton2 btnRight > img btn-success']");
-    SelenideElement iUnderstandButtonOnWarningPopUp = $("[class*='btn mx-button mx-name-actionButton1 btn-success']");
+    SelenideElement publishTripButton = $("[class='btn mx-button mx-name-actionButton2 fa-right fas fa-road btn-success']");
+    SelenideElement iUnderstandButtonOnWarningPopUp = $("[class*='btn mx-button mx-name-actionButton1 fa-right fas fa-chevron-right btn-default']");
     ElementsCollection tranctorLicense = $$("[class='mx-name-textBox3 listview-content']");
     ElementsCollection trailerLicense = $$("[class='mx-name-textBox4 listview-content']");
     SelenideElement tripDetailsButton = $("[class='btn mx-button mx-name-actionButton16 buttonnonborder-image fa fa-info-circle btn-info']");
     SelenideElement resultsTab = $("[class='mx-name-tabPage1']");
     SelenideElement closeButton = $("[class='close']");
+    SelenideElement tripNumber = $("[class='modal-body mx-dialog-body']");
     ElementsCollection plannedPriceValue = $$("[class='mx-name-textBox35']");
     ElementsCollection plannedCostValue = $$("[class='mx-name-textBox16']");
     ElementsCollection plannedProfitValue = $$("[class='mx-name-textBox17']");
@@ -62,6 +63,15 @@ public class PlanningPage {
     double FinalSumPlannedProfit = 0;
     static public String TractorLicense; // с большой, что бы отличалось от селектора
     static public String TrailerLicense; // с большой, что бы отличалось от селектора
+    static public String TripNumber;
+
+
+    public String getTripNumber(String tNumber){
+
+        TripNumber = tripNumber.getText().substring(26, 40);
+        System.out.println(TripNumber);
+        return TripNumber;
+    }
 
     public PlanningPage inputDataToTheFromInputListField(String fromTime, String untilTime) {
         fromInputListField.first().click();
@@ -251,7 +261,7 @@ public class PlanningPage {
     }
 
     public PlanningPage clickRandomNewTripButton() {
-        sleep(1000);
+        sleep(2000);
         Collection resourceButtons;
         resourceButtons = newTripButton;
         int size = resourceButtons.size();
@@ -307,6 +317,7 @@ public class PlanningPage {
         }
         return this;
     }
+
     public String getValueTractorLicense(String Tractor){
 
         TractorLicense = tranctorLicense.last().getText();
@@ -399,6 +410,7 @@ public class PlanningPage {
         return this;
     }
     public PlanningPage clickYesButton(){
+        getTripNumber(TripNumber);
         yesButton.click();
         return this;
     }
@@ -454,7 +466,7 @@ public class PlanningPage {
     public Boolean isWarningPopUpPresent() {
         try {
             sleep(2000);
-            return WebDriverRunner.getWebDriver().findElement(By.cssSelector("[class*='btn mx-button mx-name-actionButton1 btn-success']")).isDisplayed();
+            return WebDriverRunner.getWebDriver().findElement(By.cssSelector("[class*='btn mx-button mx-name-actionButton1 fa-right fas fa-chevron-right btn-default']")).isDisplayed();
         } catch (org.openqa.selenium.NoSuchElementException e) {
             return false;
         }
