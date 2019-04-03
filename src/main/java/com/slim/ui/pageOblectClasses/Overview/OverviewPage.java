@@ -8,6 +8,10 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.*;
 import static com.slim.ui.pageOblectClasses.planning.PlanningPage.TractorLicense;
 import static com.slim.ui.pageOblectClasses.planning.PlanningPage.TripNumber;
+import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.WebDriverRunner;
+
 
 public class OverviewPage {
     ElementsCollection tripWithDriverLicence = $$("[class*='trip-status']");
@@ -20,7 +24,6 @@ public class OverviewPage {
     ElementsCollection lastShipment = $$("[class='mx-layoutgrid mx-layoutgrid-fluid mx-name-layoutGrid2 center-align-childs']");
     SelenideElement tripActivitiesField = $("[class='mx-layoutgrid mx-layoutgrid-fluid mx-name-layoutGrid18 center-align-childs']");
     SelenideElement recalculateTripButton = $("[class='btn mx-button mx-name-actionButton3 btnRight > img btn-success']");
-    SelenideElement iUnderstandButtonOnWarningPopUp = $("[class*='btn mx-button mx-name-actionButton1 btn-success']");
     SelenideElement publishTripButton = $("[class*='glyphicon glyphicon-road']");
     SelenideElement okButton = $("[class='modal-footer mx-dialog-footer'] [class*='btn btn-primary']");
     ElementsCollection removeFirstShipmentFromTrip = $$("[class='btn mx-button mx-name-actionButton7 listview-content buttonnonborderred-image fa fa-times-circle btn-danger']");
@@ -33,6 +36,7 @@ public class OverviewPage {
     SelenideElement revenueTotal = $("[class='mx-name-textBox3']");
     SelenideElement costTotal = $("[class='mx-name-textBox6']");
     SelenideElement profitTotal = $("[class='mx-name-textBox7']");
+    SelenideElement iUnderstandButtonOnWarningPopUp = $("[class*='btn mx-button mx-name-actionButton1 fa-right fas fa-chevron-right btn-default']");
     // ElementsCollection tripActivities = $$("[class='timeline-item timeline-range timeline-selected timeline-readonly'][class='activities-row activities-plan']");
     double FinalSumPlannedPrice = 0;
     double FinalSumPlannedCost = 0;
@@ -54,12 +58,13 @@ public class OverviewPage {
         }
         return this;
     }
-    public OverviewPage clickPlannedTripTN(){
+
+    public OverviewPage clickPlannedTripTN() {
         sleep(5000);
         List<Integer> StartTimeAll = new ArrayList<Integer>();
         if (TripNumber == null) {
             sleep(1000);
-            for (int i=0; i < plannedTrips.size(); i++) {
+            for (int i = 0; i < plannedTrips.size(); i++) {
                 String StartTimeS = plannedTrips.get(i).getCssValue("startdatetime");
                 int StartTimeI = Integer.parseInt(StartTimeS);
                 StartTimeAll.add(StartTimeI);
@@ -70,17 +75,17 @@ public class OverviewPage {
             System.out.println("Start Time sorted " + StartTimeAll);
             int StarTimeFirst = StartTimeAll.get(0);
             sleep(1000);
-        }
-        else {
+        } else {
             sleep(1000);
-            for (int i=0; i < plannedTrips.size(); i++) {
+            for (int i = 0; i < plannedTrips.size(); i++) {
                 String StartTimeS = plannedTrips.get(i).getCssValue("tripnumber");
-                    if (StartTimeS == TripNumber) {
-                        plannedTrips.get(i).contextClick();
-                        System.out.println("StartTimeS" + StartTimeS);
-                        System.out.println("TripNumber" + TripNumber);
-                    }
+                if (StartTimeS == TripNumber) {
+                    plannedTrips.get(i).contextClick();
+                    System.out.println("StartTimeS" + StartTimeS);
+                    System.out.println("TripNumber" + TripNumber);
+                }
             }
+        }
         return this;
     }
 
@@ -241,11 +246,13 @@ public class OverviewPage {
         sleep(1000);
         return this;
     }
+
     public OverviewPage clickCancelUpdateButton(){
         sleep(8000);
         cancelUpdateButton.click();
         return this;
     }
+
     public OverviewPage clickProceedButton(){
         proceedButton.click();
         sleep(1000);
@@ -276,7 +283,7 @@ public class OverviewPage {
     public Boolean isWarningPopUpPresent() {
         try {
             sleep(2000);
-            return WebDriverRunner.getWebDriver().findElement(By.cssSelector("[class*='btn mx-button mx-name-actionButton1 btn-success']")).isDisplayed();
+            return WebDriverRunner.getWebDriver().findElement(By.cssSelector("[class*='btn mx-button mx-name-actionButton1 fa-right fas fa-chevron-right btn-default']")).isDisplayed();
         } catch (org.openqa.selenium.NoSuchElementException e) {
             return false;
         }
