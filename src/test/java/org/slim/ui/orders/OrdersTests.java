@@ -10,6 +10,7 @@ import org.slim.ui.BaseTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static com.codeborne.selenide.Selenide.sleep;
 import static com.slim.ui.dataGenerator.DataGenerator.*;
 
 public class OrdersTests extends BaseTest {
@@ -25,9 +26,8 @@ public class OrdersTests extends BaseTest {
 
     private void preClass (){
         loginPage
-                .loginToDashboard("marharyta@fitsoft.nl", "QWEqwe123!@#");
+                .loginToDashboard("anastasia@fitsoft.nl", "QWEqwe123!@#");
     }
-
     @Test//work
     public void createNewOrder(){
         dashboardPage
@@ -89,27 +89,38 @@ public class OrdersTests extends BaseTest {
                 .clickPlanGroupEditSelectorItem()
                 .clickSaveButtonOnEditOrderModalWindow();
     }
-
+    public void createPlannedOrderFromTemplate(){
+        ordersPage
+                .clickOrderFromTemplateButton()
+                .clickTemplateSelector()
+                .clickTemplateItem()
+                .clickCreateNewOrderButton();
+        newOrderFromTemplatePage
+                .clickNextButton()
+                //  .setFromDate(getFutureDate(2))
+                //   .setUntilDate(getFutureDate(5))
+                .inputDataToTheFromInputList1Field(getTime(10,11), getTime(14,15))
+               // .inputDataToTheUntilInputList1Field(getTime(11,12), getTime(15,16))
+                .clickNextButton()
+                .clickSaveButton();
+    }
     @Test//work
     public void createOrderFromTemplate(){
         dashboardPage
                 .openDashBoard()
                 .clickOrdersButton();
-        ordersPage
-                .clickOrderFromTemplateButton()
-                .clickTemplateSelector()
-                .clickTemplateItem()
-                .clickNewOrderButtonOnChooseTemplatePopUp();
-        newOrderFromTemplatePage
-                .clickNextButton()
-                .setFromDate(getFutureDate(2))
-                .setUntilDate(getFutureDate(5))
-                .inputDataToTheFromInputList1Field(getTime(10,11), getTime(14,15))
-                .inputDataToTheUntilInputList1Field(getTime(11,12), getTime(15,16))
-                .clickNextButton()
-                .clickSaveButton();
+        for(int i=0; i < 5; i++) {
+            createPlannedOrderFromTemplate();
+        }
     }
-
+    @Test//work
+    public void changeDateOrders(){
+        dashboardPage
+                .openDashBoard()
+                .clickOrdersButton();
+        ordersPage
+                .clickEveryChangeButton();
+    }
     @Test//work
     public void createNewWorkOrder(){
         dashboardPage

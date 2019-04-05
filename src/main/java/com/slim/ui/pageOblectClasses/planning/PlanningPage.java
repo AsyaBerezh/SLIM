@@ -25,7 +25,7 @@ public class PlanningPage {
     ElementsCollection tractorClaimButton = $$("[class='btn mx-button mx-name-actionButton16 fa-right fas fa-chevron-right btn-default']");
     ElementsCollection changeTrailerButton = $$("[class='btn mx-button mx-name-actionButton19 buttonnonborder-image fas fa-external-link-alt btn-info']");
     ElementsCollection trailerClaimButton = $$("[class='btn mx-button mx-name-actionButton13 fa-right fas fa-chevron-right btn-default']");
-    SelenideElement goToPlanningButton = $("[class='btn mx-button mx-name-actionButton1 fas fa-chevron-left btn-default']");
+    SelenideElement goToPlanningButton = $("[class='btn mx-button mx-name-actionButton1 fa-right fas fa-chevron-right btn-default']");
     ElementsCollection deleteTrailerButton = $$("[class='btn mx-button mx-name-actionButton6 buttonnonborderred-image fa fa-times-circle btn-danger']");
     ElementsCollection ShipmentList = $$("[class='mx-layoutgrid mx-layoutgrid-fluid mx-name-layoutGrid33 center-align-childs']");
     SelenideElement tripActivitiesField = $("[class='mx-listview-item mx-name-index-1']");
@@ -40,7 +40,7 @@ public class PlanningPage {
     SelenideElement chooseDetachingTrailerAddress = $("[class='mx-listview-item mx-name-index-2'] [class='mx-referenceselector mx-name-referenceSelector9 h6'] [value='21673573206720839']");
     SelenideElement endAddress = $("[class='mx-listview-item mx-name-index-3'] [class='mx-referenceselector mx-name-referenceSelector9 h6'] [class='form-control']");
     SelenideElement chooseEndAddress = $("[class='mx-listview-item mx-name-index-3'] [class='mx-referenceselector mx-name-referenceSelector9 h6'] [value='21673573206722117']");
-
+    SelenideElement overviewButton = $("[class*='mx-link mx-name-actionButton21 far fa-list-alt']");
     ElementsCollection fromInputListField = $$("[class*='mx-name-textBox23'] input");
     ElementsCollection untilInputListField = $$("[class*='mx-name-textBox24'] input");
 
@@ -72,47 +72,42 @@ public class PlanningPage {
         System.out.println(TripNumber);
         return TripNumber;
     }
+    public PlanningPage inputTimeToEveryField(String fromTime, String untilTime){
+        String timeWithoutDotFrom = fromTime.replace(":", "");
+        String timeWithoutDotUntil = untilTime.replace(":", "");
+        for (int i = 0; i <fromInputListField.size(); i++) {
+            sleep(250);
+            fromInputListField.get(i).click();
+            fromInputListField.get(i).clear();
+            sleep(550);
+            fromInputListField.get(i).setValue(timeWithoutDotFrom);
+            sleep(250);
+            untilInputListField.get(i).click();
+            untilInputListField.get(i).clear();
+            sleep(550);
+            untilInputListField.get(i).setValue(timeWithoutDotUntil);
+        }
+        return this;
+    }
 
-    public PlanningPage inputDataToTheFromInputListField(String fromTime, String untilTime) {
+    public PlanningPage clickOverviewButton(){
+        overviewButton.click();
+        return this;
+    }
+    public PlanningPage inputTimeToFirstFromUntilTime(String fromTime, String untilTime) {
         fromInputListField.first().click();
         sleep(550);
         String timeWithoutDotFrom = fromTime.replace(":", "");
-        for (int i = 0; i < timeWithoutDotFrom.length(); i++) {
-            fromInputListField.first().sendKeys(String.valueOf(timeWithoutDotFrom.charAt(i)));
-            sleep(250);
-        }
+        fromInputListField.first().setValue(timeWithoutDotFrom);
 
         String timeWithoutDotUntil = untilTime.replace(":", "");
         untilInputListField.first().click();
         sleep(550);
         untilInputListField.first().clear();
-        for (int i = 0; i < timeWithoutDotUntil.length(); i++) {
-            untilInputListField.first().sendKeys(String.valueOf(timeWithoutDotUntil.charAt(i)));
-            sleep(150);
-        }
-        untilInputListField.first().pressEnter();
+        untilInputListField.first().setValue(timeWithoutDotUntil).pressEnter();
         return this;
     }
-    public PlanningPage inputDataToTheUntilInputList2Field(String fromTime, String untilTime) {
-        fromInputListField.last().click();
-        sleep(250);
-        String timeWithoutDotFrom = fromTime.replace(":", "");
-        for (int i = 0; i < timeWithoutDotFrom.length(); i++) {
-            fromInputListField.last().sendKeys(String.valueOf(timeWithoutDotFrom.charAt(i)));
-            sleep(150);
-        }
 
-        String timeWithoutDotUntil = untilTime.replace(":", "");
-        untilInputListField.last().click();
-        sleep(250);
-        untilInputListField.last().clear();
-        for (int i = 0; i < timeWithoutDotUntil.length(); i++) {
-            untilInputListField.last().sendKeys(String.valueOf(timeWithoutDotUntil.charAt(i)));
-            sleep(150);
-        }
-        untilInputListField.last().pressEnter();
-        return this;
-    }
     public PlanningPage clickPlansheetSelector() {
         plansheetSelector.click();
         return this;
@@ -267,7 +262,6 @@ public class PlanningPage {
         int size = resourceButtons.size();
         int rand = new Random().nextInt(size);
         ((ElementsCollection) resourceButtons).get(rand).click();
-        sleep(1000);
         //System.out.println("ResourceButtons rand " + rand);
         return this;
     }
@@ -291,22 +285,22 @@ public class PlanningPage {
         if (TractorLicense != null && TractorLicense.trim().isEmpty())
         {
             // if Tractor License is empty
-            sleep(1000);
+            sleep(500);
             clickChangelastTractorbutton();
-            sleep(1000);
-            tractorClaimButton.last().click();
-           // clickTractorClaimButton();
+            sleep(500);
+           // tractorClaimButton.last().click();
+            clickTractorClaimButton();
         }
-        sleep(1000);
+        sleep(500);
 
         getValueTrailerLicense(TrailerLicense);
         if (TrailerLicense  != null && TrailerLicense.trim().isEmpty()){
             //if Trailer License is empty
-            sleep(1000);
+            sleep(500);
             getValueTractorLicense(TractorLicense);
-            sleep(1000);
+            //sleep(500);
             clickChangelastTrailerbutton();
-            sleep(1000);
+            sleep(500);
             clickRandomTrailerClaimButton();
         }
         else
@@ -329,13 +323,13 @@ public class PlanningPage {
         return TrailerLicense;
     }
     public PlanningPage clickTractorClaimButton() {
-        sleep(1000);
+        sleep(500);
         Collection tractorButtons;
         tractorButtons = tractorClaimButton;
         int size = tractorButtons.size();
         int rand = new Random().nextInt(size);
         ((ElementsCollection) tractorButtons).get(rand).click();
-        sleep(1000);
+        sleep(500);
         //System.out.println("Tractor rand: " + rand);
         return this;
     }
@@ -387,7 +381,7 @@ public class PlanningPage {
     public PlanningPage clickStartAddress() {
 
         String StartAddress = startAddress.getSelectedText();
-        System.out.println("Start Address"+StartAddress+"||");
+     //   System.out.println("Start Address"+StartAddress+"||");
         if (StartAddress != null && StartAddress.isEmpty())
         {
             startAddress.click();
@@ -401,7 +395,7 @@ public class PlanningPage {
     }
     public PlanningPage clickAttachingTrailerAddress() {
         String AttachingTrailerAddress = attachingTrailerAddress.getSelectedText();
-        System.out.println("Attaching Trailer Address"+AttachingTrailerAddress+"||");
+      //  System.out.println("Attaching Trailer Address"+AttachingTrailerAddress+"||");
         if (AttachingTrailerAddress != null && AttachingTrailerAddress.trim().isEmpty())
         {
             attachingTrailerAddress.click();
@@ -409,6 +403,7 @@ public class PlanningPage {
         }
         return this;
     }
+
     public PlanningPage clickYesButton(){
         getTripNumber(TripNumber);
         yesButton.click();
@@ -420,7 +415,7 @@ public class PlanningPage {
     }
     public PlanningPage clickDetachingTrailerAddress() {
         String DetachingTrailerAddress = detachingTrailerAddress.getSelectedText();
-        System.out.println("Detaching Trailer Address"+DetachingTrailerAddress+"||");
+      //  System.out.println("Detaching Trailer Address"+DetachingTrailerAddress+"||");
         if (DetachingTrailerAddress != null && DetachingTrailerAddress.trim().isEmpty())
         {
             detachingTrailerAddress.click();
@@ -435,7 +430,7 @@ public class PlanningPage {
     }
     public PlanningPage clickEndAddress() {
         String EndAddress = endAddress.getSelectedText();
-        System.out.println("End Address"+EndAddress+"||");
+   //     System.out.println("End Address"+EndAddress+"||");
         if (EndAddress != null && EndAddress.trim().isEmpty())
         {
             endAddress.click();

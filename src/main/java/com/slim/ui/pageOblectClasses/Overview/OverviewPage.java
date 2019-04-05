@@ -23,12 +23,13 @@ public class OverviewPage {
     SelenideElement proceedButton = $("[class='modal-footer mx-dialog-footer'] [class*='btn btn-primary']");
     ElementsCollection lastShipment = $$("[class='mx-layoutgrid mx-layoutgrid-fluid mx-name-layoutGrid2 center-align-childs']");
     SelenideElement tripActivitiesField = $("[class='mx-layoutgrid mx-layoutgrid-fluid mx-name-layoutGrid18 center-align-childs']");
-    SelenideElement recalculateTripButton = $("[class='btn mx-button mx-name-actionButton3 btnRight > img btn-success']");
-    SelenideElement publishTripButton = $("[class*='glyphicon glyphicon-road']");
+    SelenideElement recalculateTripButton = $("[class='btn mx-button mx-name-actionButton3 fa-right fas fa-clock btn-success']");
+    SelenideElement publishTripButton = $("[class*='btn mx-button mx-name-actionButton2 fa-right fas fa-road btn-success']");
     SelenideElement okButton = $("[class='modal-footer mx-dialog-footer'] [class*='btn btn-primary']");
     ElementsCollection removeFirstShipmentFromTrip = $$("[class='btn mx-button mx-name-actionButton7 listview-content buttonnonborderred-image fa fa-times-circle btn-danger']");
-    SelenideElement closeButton = $("[class='modal-dialog mx-window mx-window-active'] [class*='close']");
-    SelenideElement tripDetailsButton = $("[class='btn mx-button mx-name-actionButton17 buttonnonborder-image fa fa-info-circle btn-info']");
+    SelenideElement closeButtonSecondWindow = $("[class='modal-dialog mx-window mx-window-active'] [class*='close']");
+    SelenideElement closeButtonFirstWindow = $("[class*='close']");
+    SelenideElement tripDetailsButton = $("[class*='btn mx-button mx-name-actionButton17 buttonnonborder-image fas fa-info-circle btn-info']");
     SelenideElement resultsTab = $("[class='mx-name-tabPage1']");
     ElementsCollection plannedPriceValue = $$("[class='mx-name-textBox35']");
     ElementsCollection plannedCostValue = $$("[class='mx-name-textBox16']");
@@ -36,6 +37,7 @@ public class OverviewPage {
     SelenideElement revenueTotal = $("[class='mx-name-textBox3']");
     SelenideElement costTotal = $("[class='mx-name-textBox6']");
     SelenideElement profitTotal = $("[class='mx-name-textBox7']");
+    SelenideElement iUnderstandButtonOnWarningPopUpWrong = $("[class*='btn mx-button mx-name-actionButton1 fas fa-chevron-left btn-default']");
     SelenideElement iUnderstandButtonOnWarningPopUp = $("[class*='btn mx-button mx-name-actionButton1 fa-right fas fa-chevron-right btn-default']");
     // ElementsCollection tripActivities = $$("[class='timeline-item timeline-range timeline-selected timeline-readonly'][class='activities-row activities-plan']");
     double FinalSumPlannedPrice = 0;
@@ -61,36 +63,76 @@ public class OverviewPage {
 
     public OverviewPage clickPlannedTripTN() {
         sleep(5000);
-        List<Integer> StartTimeAll = new ArrayList<Integer>();
+        List<Long> StartTimeAll = new ArrayList<Long>();
         if (TripNumber == null) {
             sleep(1000);
             for (int i = 0; i < plannedTrips.size(); i++) {
-                String StartTimeS = plannedTrips.get(i).getCssValue("startdatetime");
-                int StartTimeI = Integer.parseInt(StartTimeS);
+                System.out.println("plannedTrips size =" + plannedTrips.size());
+                String StartTimeS = plannedTrips.get(i).getAttribute("startdatetime");
+                long StartTimeI = Long.parseLong(StartTimeS);
                 StartTimeAll.add(StartTimeI);
-                System.out.println("StartTimeI" + StartTimeI);
+                System.out.println("StartTimeI=" + StartTimeI);
+                System.out.println("StartTimeS=" + StartTimeS);
             }
             System.out.println("Start Time not sorted " + StartTimeAll);
-            Collections.sort(StartTimeAll);
+            Collections.sort(StartTimeAll,Collections.reverseOrder());
             System.out.println("Start Time sorted " + StartTimeAll);
-            int StarTimeFirst = StartTimeAll.get(0);
+            String StarTimeFirst = StartTimeAll.get(0).toString();
+            System.out.println("StarTimeFirst" + StarTimeFirst);
+            for (int i = 0; i < plannedTrips.size(); i++) {
+                if (plannedTrips.get(i).getAttribute("startdatetime").contentEquals(StarTimeFirst))
+                    plannedTrips.get(i).contextClick();
+            }
             sleep(1000);
         } else {
             sleep(1000);
             for (int i = 0; i < plannedTrips.size(); i++) {
-                String StartTimeS = plannedTrips.get(i).getCssValue("tripnumber");
-                if (StartTimeS == TripNumber) {
+                if (plannedTrips.get(i).getAttribute("tripnumber").contentEquals(TripNumber)) {
                     plannedTrips.get(i).contextClick();
-                    System.out.println("StartTimeS" + StartTimeS);
+                    System.out.println("tripnumber" + plannedTrips.get(i).getAttribute("tripnumber"));
                     System.out.println("TripNumber" + TripNumber);
                 }
             }
         }
         return this;
     }
-
+    public OverviewPage clickCharterTrip() {
+        sleep(5000);
+        List<Long> StartTimeAll = new ArrayList<Long>();
+        if (TripNumber == null) {
+            sleep(1000);
+            for (int i = 0; i < charterTrips.size(); i++) {
+                System.out.println("charterTrips size =" + charterTrips.size());
+                String StartTimeS = charterTrips.get(i).getAttribute("startdatetime");
+                long StartTimeI = Long.parseLong(StartTimeS);
+                StartTimeAll.add(StartTimeI);
+                System.out.println("StartTimeI=" + StartTimeI);
+                System.out.println("StartTimeS=" + StartTimeS);
+            }
+            System.out.println("Start Time not sorted " + StartTimeAll);
+            Collections.sort(StartTimeAll,Collections.reverseOrder());
+            System.out.println("Start Time sorted " + StartTimeAll);
+            String StarTimeFirst = StartTimeAll.get(0).toString();
+            System.out.println("StarTimeFirst" + StarTimeFirst);
+            for (int i = 0; i < charterTrips.size(); i++) {
+                if (charterTrips.get(i).getAttribute("startdatetime").contentEquals(StarTimeFirst))
+                    charterTrips.get(i).contextClick();
+            }
+            sleep(1000);
+        } else {
+            sleep(1000);
+            for (int i = 0; i < charterTrips.size(); i++) {
+                if (charterTrips.get(i).getAttribute("tripnumber").contentEquals(TripNumber)) {
+                    charterTrips.get(i).contextClick();
+                    System.out.println("tripnumber" + charterTrips.get(i).getAttribute("tripnumber"));
+                    System.out.println("TripNumber" + TripNumber);
+                }
+            }
+        }
+        return this;
+    }
     public OverviewPage clickCompleteTrip(){
-        sleep(4000);
+ /*       sleep(4000);
         if (TractorLicense == null) {
             sleep(1000);
             tripWithoutDriverLicence.first().click();
@@ -102,14 +144,19 @@ public class OverviewPage {
             tripWithDriverLicence.findBy(Condition.exactText(TractorLicense)).click();
             System.out.println("Find Last Trip " + TractorLicense);
             sleep(1000);
-        }
+        }*/
         tripOptions.findBy(Condition.exactText("Rit Voltooien")).click();
       //  System.out.println("Rit Voltooien");
         return this;
     }
-    public OverviewPage clickCloseButton(){
+    public OverviewPage clickCloseButtonSecondWindow(){
         sleep(5000);
-        closeButton.click();
+        closeButtonSecondWindow.click();
+        return this;
+    }
+    public OverviewPage clickCloseButtonFirstWindow(){
+        sleep(5000);
+        closeButtonFirstWindow.click();
         return this;
     }
     public OverviewPage clickTripDetails(){
@@ -276,14 +323,17 @@ public class OverviewPage {
     public OverviewPage clickIUnderstandButtonOnWarningPopUp(){
         if (isWarningPopUpPresent()) {
             sleep(2000);
-            iUnderstandButtonOnWarningPopUp.click();
+            if (iUnderstandButtonOnWarningPopUpWrong.isDisplayed())
+                iUnderstandButtonOnWarningPopUpWrong.click();
+            else
+                iUnderstandButtonOnWarningPopUp.click();
         }
         return this;
     }
     public Boolean isWarningPopUpPresent() {
         try {
             sleep(2000);
-            return WebDriverRunner.getWebDriver().findElement(By.cssSelector("[class*='btn mx-button mx-name-actionButton1 fa-right fas fa-chevron-right btn-default']")).isDisplayed();
+            return WebDriverRunner.getWebDriver().findElement(By.cssSelector("[class*='btn mx-button mx-name-actionButton1 fas fa-chevron-left btn-default']")).isDisplayed() ||WebDriverRunner.getWebDriver().findElement(By.cssSelector("[class*='btn mx-button mx-name-actionButton1 fa-right fas fa-chevron-right btn-default']")).isDisplayed() ;
         } catch (org.openqa.selenium.NoSuchElementException e) {
             return false;
         }

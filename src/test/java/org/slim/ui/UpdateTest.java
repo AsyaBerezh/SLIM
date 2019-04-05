@@ -31,7 +31,7 @@ public class UpdateTest extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickTripDetailsButton()
                 .clickresultsTab()
-                .clickCloseButton()
+                .clickCloseButtonSecondWindow()
                 .clickPublishTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickOKButton();
@@ -46,7 +46,18 @@ public class UpdateTest extends BaseTest {
                 .clickTrip()
                 .clickTripDetails()
                 .clickresultsTab()
-                .clickCloseButton();
+                .clickCloseButtonFirstWindow();
+        sleep(10000);
+    }
+    @Test
+    public void updateFindTrip() {
+        dashboardPage
+                .openDashBoard()
+                .clickOverviewButton();
+        overviewPage
+                .clickPlannedTripTN()
+                .clickTripDetails()
+                .clickCloseButtonFirstWindow();
         sleep(10000);
     }
     @Test
@@ -62,7 +73,7 @@ public class UpdateTest extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickTripDetailsButton()
                 .clickresultsTab()
-                .clickCloseButton()
+                .clickCloseButtonSecondWindow()
                 .clickPublishTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickOKButton();
@@ -82,7 +93,7 @@ public class UpdateTest extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickTripDetailsButton()
                 .clickresultsTab()
-                .clickCloseButton()
+                .clickCloseButtonSecondWindow()
                 .clickPublishTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickOKButton();

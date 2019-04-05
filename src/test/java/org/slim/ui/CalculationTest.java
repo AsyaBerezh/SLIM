@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.sleep;
+import static com.slim.ui.dataGenerator.DataGenerator.getTime;
 
 public class CalculationTest extends BaseTest {
 
@@ -37,13 +38,6 @@ public class CalculationTest extends BaseTest {
                 //             .checkLicenses()
                 //         .clickGoToPlanningButton()
                 .changeAddresses();
-    }
-
-    @Test
-    private void CheckDash() {
-        dashboardPage
-                .openDashBoard()
-                .clickOfficeButton();
     }
 
     @Test
@@ -80,7 +74,7 @@ public class CalculationTest extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickTripDetailsButton()
                 .clickresultsTab()
-                .clickCloseButton()
+                .clickCloseButtonSecondWindow()
                 .clickPublishTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickOKButton();
@@ -112,6 +106,18 @@ public class CalculationTest extends BaseTest {
         sleep(2000);
     }
     @Test
+    public void setTime(){
+        dashboardPage
+                .openDashBoard()
+                .clickPlanningButton();
+        planningPage
+                .clickPlansheetSelector()
+                .clickPlansheetItem()
+                .inputTimeToEveryField(getTime(10,11), getTime(14,15));
+        sleep(2000);
+    }
+
+    @Test
     public void calculateOneShipment(){
         dashboardPage
                 .openDashBoard()
@@ -129,13 +135,47 @@ public class CalculationTest extends BaseTest {
                 .clickDeleteDetachingTrailerButton()
                 .clickYesButton()*/
                 .dragLastShipment()
-                //           .clickRemoveFirstShipmentFromTripButton()
+                .inputTimeToFirstFromUntilTime(getTime(10,11), getTime(14,15))
                 .clickCalculateTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickPublishTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
         sleep(2000);
+    }
+    @Test
+    public void calculateOneShipmentUpdate(){
+        dashboardPage
+                .openDashBoard()
+                .clickPlanningButton();
+        planningPage
+                .clickPlansheetSelector()
+                .clickPlansheetItem()
+                .clickEditPlansheetButton()
+                .clickRandomNewTripButton()
+                .checkLicenses()
+                .clickGoToPlanningButton()
+                .changeAddresses()
+                .dragLastShipment()
+                .inputTimeToFirstFromUntilTime(getTime(10,11), getTime(14,15))
+                .clickCalculateTripButton()
+                .clickIUnderstandButtonOnWarningPopUp()
+                .clickPublishTripButton()
+                .clickIUnderstandButtonOnWarningPopUp()
+                .clickYesButton()
+                .clickOverviewButton();
+        overviewPage
+                .clickPlannedTripTN()
+                .clickTripUpdate()
+                .dragableUpdate()
+                .clickRecalculateTripButton()
+                .clickIUnderstandButtonOnWarningPopUp()
+                .clickTripDetailsButton()
+                .clickresultsTab()
+                .clickCloseButtonSecondWindow()
+                .clickPublishTripButton()
+                .clickIUnderstandButtonOnWarningPopUp()
+                .clickOKButton();
     }
     @Test
     public void createTripTwoShipments(){

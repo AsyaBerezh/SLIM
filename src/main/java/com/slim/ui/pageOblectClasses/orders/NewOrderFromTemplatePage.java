@@ -7,7 +7,7 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.*;
 
 public class NewOrderFromTemplatePage {
-    SelenideElement nextButton = $("[class*='btn mx-button mx-name-actionButton2 btnRight > img btn-default'] ");
+    SelenideElement nextButton = $("[class*='btn mx-button mx-name-actionButton2 fa-right fas fa-chevron-right btn-default'] ");
     ElementsCollection fromInputList1Field = $$("[class*='mx-name-textBox23'] [class*='form-control']");
     ElementsCollection untilInputList1Field = $$("[class*='mx-name-textBox24'] [class*='form-control']");
 
@@ -15,7 +15,7 @@ public class NewOrderFromTemplatePage {
     ElementsCollection inputUntilDate = $$("[class='mx-dateinput mx-name-datePicker4'] input");
 
     SelenideElement okButtonInModalWindow = $("[class='modal-dialog mx-dialog mx-dialog-error'] button");
-    SelenideElement saveButton = $("[class*='btn mx-button mx-name-actionButton4 btn-success'] ");
+    SelenideElement saveButton = $("[class*='btn mx-button mx-name-actionButton4 fa-right fas fa-save btn-success'] ");
 
     public NewOrderFromTemplatePage clickNextButton(){
         nextButton.click();
