@@ -56,6 +56,7 @@ public class NewWorkOrderPage {
         sleep(500);
         return this;
     }
+
     public NewWorkOrderPage changeAddresses() {
         for (int i=0; i< addressSelectors.size(); i++){
             String address = addressSelectors.get(i).getSelectedText();
@@ -109,7 +110,7 @@ public class NewWorkOrderPage {
 
         return dateFormat.format(currentDatePlusOne);
     }
-//for commits
+
     public NewWorkOrderPage setPlanedStartAndEndDate() {
         startAndEndDate.get(0).clear();
         String FutureDateStart = getFutureDate(7);
