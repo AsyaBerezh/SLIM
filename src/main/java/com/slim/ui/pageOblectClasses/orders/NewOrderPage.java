@@ -1,15 +1,21 @@
 package com.slim.ui.pageOblectClasses.orders;
 
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import static com.codeborne.selenide.Selenide.*;
+import java.util.*;
+import java.lang.*;
 
 public class NewOrderPage {
 
     SelenideElement customerSelectorField = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper']");
+    ElementsCollection referenceSelectors = $$("[class='form-control']");
+    SelenideElement cargoPTS = $("[class='form-group mx-name-referenceSelector8 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='13792273858823448']");
     SelenideElement abbinkVriezenveenCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417766605']");
     SelenideElement actifoodCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417766606']");
     SelenideElement anoeshGroningenCustomerSelect = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417767504']");
@@ -45,7 +51,7 @@ public class NewOrderPage {
     SelenideElement carrierH1PalletPlasticEuroItemSelect = $("[class='form-group mx-name-referenceSelector2 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='20266198323167237']");
     SelenideElement carrierBlokCHEPItemSelect = $("[class='form-group mx-name-referenceSelector2 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='20266198323167239']");
     SelenideElement carrierLeliekistItemSelect = $("[class='form-group mx-name-referenceSelector2 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='20266198323167333']");
-
+    SelenideElement customerMaxfurn = $("[class='form-group mx-name-referenceSelector1 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='7036874417768201']");
     SelenideElement carrierPalletboxItemSelect = $("[class='form-group mx-name-referenceSelector2 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='20266198323167335']");
     SelenideElement carrierRolcontainerItemSelect = $("[class='form-group mx-name-referenceSelector2 align-label-left'] [class*='mx-referenceselector-input-wrapper'] [value='20266198323167334']");
     SelenideElement unitsInputFields = $("[class='form-group mx-name-textBox4 align-label-left'] [class='form-control'] ");
@@ -55,11 +61,12 @@ public class NewOrderPage {
     SelenideElement koeltransportPlangroupItemSelect = $("[class='form-group mx-name-referenceSelector10 align-label-left'] [class*='form-control'] [value='27021597764223578']");
     SelenideElement orderTypeSelectorField = $("[class='form-group mx-name-referenceSelector9 align-label-left'] [class*='form-control']");
     SelenideElement enkelLosAdresOrderTypeSelect = $("[class='form-group mx-name-referenceSelector9 align-label-left'] [class*='form-control'] [value='2533274790396305']");
+    SelenideElement orderTypeABRit = $("[class*='form-control'] [value='2533274790397006']");
     SelenideElement voorgeplandeRitMet2LosadressenOrderTypeSelect = $("[class='form-group mx-name-referenceSelector9 align-label-left'] [class*='form-control'] [value='2533274790396006']");
     SelenideElement voorgeplandeRitMet3LosadressenOrderTypeSelect = $("[class='form-group mx-name-referenceSelector9 align-label-left'] [class*='form-control'] [value='2533274790396105']");
     SelenideElement voorgeplandeRitMet4LosadressenOrderTypeSelect = $("[class='form-group mx-name-referenceSelector9 align-label-left'] [class*='form-control'] [value='2533274790396106']");
     SelenideElement voorlaadRitOrderTypeSelect = $("[class='form-group mx-name-referenceSelector9 align-label-left'] [class*='form-control'] [value='2533274790396209']");
-    SelenideElement nextButton = $("[class*='btn mx-button mx-name-actionButton2 btnRight > img btn-default']");
+    SelenideElement nextButton = $("[class*='btn mx-button mx-name-actionButton2 fa-right fas fa-chevron-right btn-default']");
     SelenideElement searchAddressList1Button = $("[class='mx-listview mx-listview-selectable mx-name-listView3'] [class='mx-listview-item mx-name-index-0'] [class='btn btn-default']");
     SelenideElement searchAddressList2Button = $("[class='mx-listview mx-listview-selectable mx-name-listView3'] [class='mx-listview-item mx-name-index-1'] [class='btn btn-default']");
     SelenideElement firstItemAddress = $("[class='table table-striped table-bordered mx-datagrid-body-table'] [class*='mx-name-index-0']");
@@ -85,8 +92,9 @@ public class NewOrderPage {
     SelenideElement transportPrijsGekoeldPerUurTypeSelect = $("[class*='form-group mx-name-referenceSelector13 align-label-left'] [class*='form-control'] [value='26458647810801865']");
     SelenideElement transportPrijsOngekoeldPerUurTypeSelect = $("[class*='form-group mx-name-referenceSelector13 align-label-left'] [class*='form-control'] [value='26458647810801766']");
     SelenideElement transportPrijsVriesPerUurTypeSelect = $("[class*='form-group mx-name-referenceSelector13 align-label-left'] [class*='form-control'] [value='26458647810801868']");
+    SelenideElement transportTrekkerTrailerKm = $("[class*='form-group mx-name-referenceSelector13 align-label-left'] [class*='form-control'] [value='26458647810802965']");
 
-    SelenideElement saveButton = $("[class='btn mx-button mx-name-actionButton4 btn-success']");
+    SelenideElement saveButton = $("[class='btn mx-button mx-name-actionButton4 fa-right fas fa-save btn-success']");
     SelenideElement saveAsTemplate = $("[class*='btn mx-button mx-name-actionButton7 btn-success']");
     SelenideElement saveButtonOnTheNewOrderTemplateModalWindow = $("[class='mx-dataview mx-name-dataView1'] [class*='btn mx-button mx-name-actionButton2 btn-success']");
     SelenideElement templateNameOnTheNewOrderTemplateModalWindow = $("[class='form-group mx-name-textBox1'] [class*='form-control']");
@@ -99,10 +107,61 @@ public class NewOrderPage {
     SelenideElement planGroupValidationError = $("[class*='form-group mx-name-referenceSelector10 align-label-left has-error'] [class='alert alert-danger mx-validation-message']");
     SelenideElement orderTypeValidationError = $("[class*='form-group mx-name-referenceSelector9 align-label-left has-error'] [class='alert alert-danger mx-validation-message']");
 
-    public NewOrderPage clickCustomerSelectorField(){
-        customerSelectorField.click();
+    ElementsCollection addresses = $$("[class='table table-striped table-bordered mx-datagrid-body-table'] tr");
+
+    SelenideElement okButton = $("[class*='btn btn-primary']");
+
+    public NewOrderPage clickOKButtonErrorPopUp(){
+        if (isErrorPopUpPresent()) {
+            sleep(2000);
+            okButton.click();
+            clickSearchAddressList2Button();
+            clickRandomAddress();
+            clickSelectButton();
+            clickNextButton();
+        }
         return this;
     }
+    public Boolean isErrorPopUpPresent() {
+        try {
+            sleep(2000);
+            return WebDriverRunner.getWebDriver().findElement(By.cssSelector("[class*='btn btn-primary']")).isDisplayed();
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return false;
+        }
+    }
+    public NewOrderPage clickRandomAddress(){
+        sleep(1000);
+        int size = addresses.size();
+        int rand = new Random().nextInt(size - 1) + 1;
+        System.out.println("Addresses_rand=" + rand);
+        addresses.get(rand).click();
+        return this;
+    }
+    public NewOrderPage clickCustomerSelectorField(){
+
+        customerSelectorField.click();
+      /*  referenceSelectors.get(1).click();
+        String IDCustomerSelectorField = referenceSelectors.get(1).getAttribute("id");
+        System.out.println("IDCustomerSelectorField" + IDCustomerSelectorField);*/
+        return this;
+    }
+
+    public NewOrderPage clickCustomerMaxfurn(){
+        customerMaxfurn.click();
+        return this;
+    }
+
+    public NewOrderPage clickCargoPTS(){
+        cargoPTS.click();
+        return this;
+    }
+
+    public NewOrderPage clickOrderTypeABRit(){
+        orderTypeABRit.click();
+        return this;
+    }
+
     public NewOrderPage clickAbbinkVriezenveenCustomerSelect(){
         abbinkVriezenveenCustomerSelect.click();
         return this;
@@ -303,7 +362,7 @@ public class NewOrderPage {
     }
     public NewOrderPage clickNextButton(){
         nextButton.click();
-        sleep(5000);
+        sleep(2000);
         return this;
     }
     public NewOrderPage clickSearchAddressList1Button(){
@@ -401,6 +460,11 @@ public class NewOrderPage {
 
      public NewOrderPage clickTransportTypeSelectorField(){
         transportTypeSelectorField.click();
+        return this;
+    }
+
+    public NewOrderPage clickTransportTrekkerTrailerKm(){
+        transportTrekkerTrailerKm.click();
         return this;
     }
 

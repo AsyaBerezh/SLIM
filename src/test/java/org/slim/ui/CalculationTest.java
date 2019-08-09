@@ -33,11 +33,12 @@ public class CalculationTest extends BaseTest {
         planningPage
                 .clickPlansheetSelector()
                 .clickPlansheetItem()
-                //             .clickEditPlansheetButton()
-                //          .clickRandomNewTripButton()
-                //             .checkLicenses()
-                //         .clickGoToPlanningButton()
+                //.clickEditPlansheetButton()
+                //.clickRandomNewTripButton()
+                //.checkLicenses()
+                //.clickGoToPlanningButton()
                 .changeAddresses();
+                sleep(1000);
     }
 
     @Test

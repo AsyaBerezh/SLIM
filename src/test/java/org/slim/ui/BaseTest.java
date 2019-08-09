@@ -11,7 +11,7 @@ public class BaseTest {
     @BeforeSuite
     public void preSuite(){
         Configuration.browser =  "chrome";
-        Configuration.browserSize = "1920x1080";
+     //   Configuration.browserSize = "1920x1080";
         Configuration.timeout =  20000;
         Configuration.reportsFolder = "target/test-result/reports";
     }
@@ -19,7 +19,7 @@ public class BaseTest {
     @BeforeClass
     private void preClass (){
         loginPage
-                .loginToDashboard("marharyta@fitsoft.nl", "QWEqwe123!@#");
+                .loginToDashboard("anastasia@fitsoft.nl", "QWEqwe123!@#");
     }
 
 }

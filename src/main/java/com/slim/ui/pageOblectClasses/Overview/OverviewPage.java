@@ -37,12 +37,14 @@ public class OverviewPage {
     SelenideElement revenueTotal = $("[class='mx-name-textBox3']");
     SelenideElement costTotal = $("[class='mx-name-textBox6']");
     SelenideElement profitTotal = $("[class='mx-name-textBox7']");
+
     SelenideElement iUnderstandButtonOnWarningPopUpWrong = $("[class*='btn mx-button mx-name-actionButton1 fas fa-chevron-left btn-default']");
     SelenideElement iUnderstandButtonOnWarningPopUp = $("[class*='btn mx-button mx-name-actionButton1 fa-right fas fa-chevron-right btn-default']");
     // ElementsCollection tripActivities = $$("[class='timeline-item timeline-range timeline-selected timeline-readonly'][class='activities-row activities-plan']");
     double FinalSumPlannedPrice = 0;
     double FinalSumPlannedCost = 0;
     double FinalSumPlannedProfit = 0;
+
 
     public OverviewPage clickTrip(){
         sleep(5000);

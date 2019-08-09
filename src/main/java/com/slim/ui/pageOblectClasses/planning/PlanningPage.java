@@ -67,7 +67,6 @@ public class PlanningPage {
 
 
     public String getTripNumber(String tNumber){
-
         TripNumber = tripNumber.getText().substring(26, 40);
         System.out.println(TripNumber);
         return TripNumber;
@@ -381,65 +380,49 @@ public class PlanningPage {
     public PlanningPage clickStartAddress() {
 
         String StartAddress = startAddress.getSelectedText();
-     //   System.out.println("Start Address"+StartAddress+"||");
-        if (StartAddress != null && StartAddress.isEmpty())
+        //System.out.println("Start Address"+StartAddress+"||");
+        if (StartAddress.contentEquals("Selecteer Adres")|| StartAddress.trim().contentEquals(""))
         {
             startAddress.click();
-            clickChooseStartAddress();
-        }
-        return this;
-    }
-    public PlanningPage clickChooseStartAddress() {
-        chooseStartAddress.click();
-        return this;
-    }
-    public PlanningPage clickAttachingTrailerAddress() {
-        String AttachingTrailerAddress = attachingTrailerAddress.getSelectedText();
-      //  System.out.println("Attaching Trailer Address"+AttachingTrailerAddress+"||");
-        if (AttachingTrailerAddress != null && AttachingTrailerAddress.trim().isEmpty())
-        {
-            attachingTrailerAddress.click();
-            clickChooseAttachingTrailerAddress();
+            chooseStartAddress.click();
         }
         return this;
     }
 
-    public PlanningPage clickYesButton(){
-        getTripNumber(TripNumber);
-        yesButton.click();
-        return this;
-    }
-    public PlanningPage clickChooseAttachingTrailerAddress() {
-        chooseAttachingTrailerAddress.click();
+    public PlanningPage clickAttachingTrailerAddress() {
+        String AttachingTrailerAddress = attachingTrailerAddress.getSelectedText();
+        //System.out.println("Attaching Trailer Address"+AttachingTrailerAddress+"||");
+        if (AttachingTrailerAddress.contentEquals("Selecteer Adres"))
+        {
+            attachingTrailerAddress.click();
+            chooseAttachingTrailerAddress.click();
+        }
         return this;
     }
     public PlanningPage clickDetachingTrailerAddress() {
         String DetachingTrailerAddress = detachingTrailerAddress.getSelectedText();
       //  System.out.println("Detaching Trailer Address"+DetachingTrailerAddress+"||");
-        if (DetachingTrailerAddress != null && DetachingTrailerAddress.trim().isEmpty())
+        if (DetachingTrailerAddress.contentEquals("Selecteer Adres"))
         {
             detachingTrailerAddress.click();
-            clickChooseDetachingTrailerAddress();
+            chooseDetachingTrailerAddress.click();
         }
 
-        return this;
-    }
-    public PlanningPage clickChooseDetachingTrailerAddress() {
-        chooseDetachingTrailerAddress.click();
         return this;
     }
     public PlanningPage clickEndAddress() {
         String EndAddress = endAddress.getSelectedText();
    //     System.out.println("End Address"+EndAddress+"||");
-        if (EndAddress != null && EndAddress.trim().isEmpty())
+        if (EndAddress.contentEquals("Selecteer Adres"))
         {
             endAddress.click();
-            clickChooseEndAddress();
+            chooseEndAddress.click();
         }
         return this;
     }
-    public PlanningPage clickChooseEndAddress() {
-        chooseEndAddress.click();
+    public PlanningPage clickYesButton(){
+        getTripNumber(TripNumber);
+        yesButton.click();
         return this;
     }
     public PlanningPage clickCalculateTripButton(){

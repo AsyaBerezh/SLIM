@@ -28,38 +28,53 @@ public class OrdersTests extends BaseTest {
         loginPage
                 .loginToDashboard("anastasia@fitsoft.nl", "QWEqwe123!@#");
     }
-    @Test//work
-    public void createNewOrder(){
+    @Test
+    public void check() {
         dashboardPage
                 .openDashBoard()
                 .clickOrdersButton();
         ordersPage
                 .clickNewOrderButton();
         newOrderPage
-                .clickCustomerSelectorField()
-                .clickAbbinkVriezenveenCustomerSelect()
-                .clickСargoSelectorField()
-                .clickBakkerijproductenCargoItemSelect()
-                .clickCarrierSelectorField()
-                .clickCarrierBlockPalletItemSelect()
-                .inputDataToUnitsInputFields()
-                .clickPlangroupSelectorField()
-                .clickStandaardPlangroupItemSelect()
-                .clickOrderTypeSelectorField()
-                .clickEnkelLosAdresOrderTypeSelectOrderTypeSelect()
-                .clickNextButton()
-                .clickSearchAddressList1Button()
-                .clickFirstItemAddress()
-                .clickSelectButton()
-                .clickSearchAddressList2Button()
-                .clickSecondItemAddress()
-                .clickSelectButton()
-                .inputDataToTheFromInputListField(getTime(10,11), getTime(14,15))
-                .inputDataToTheUntilInputList2Field(getTime(10,11), getTime(14,15))
-                .clickNextButton()
-                .clickTransportTypeSelectorField()
-                .clickTransportPalletprijsGekoeldPerUurTypeSelect()
-                .clickSaveButton();
+                .clickCustomerSelectorField();
+        sleep(2000);
+    }
+
+    @Test//work
+    public void createNewOrder(){
+        dashboardPage
+                .openDashBoard()
+                .clickOrdersButton();
+        for (int i = 0; i < 30; i++) {
+            ordersPage
+                    .clickNewOrderButton();
+            newOrderPage
+                    .clickCustomerSelectorField()
+                    .clickCustomerMaxfurn()
+                    .clickСargoSelectorField()
+                    .clickCargoPTS()
+/*                .clickCarrierSelectorField()
+                .clickCarrierBlockPalletItemSelect()*/
+                    //   .inputDataToUnitsInputFields()
+                    //    .clickPlangroupSelectorField()
+                    //   .clickStandaardPlangroupItemSelect()
+                    .clickOrderTypeSelectorField()
+                    .clickOrderTypeABRit()
+                    .clickNextButton()
+                    .clickSearchAddressList1Button()
+                    .clickRandomAddress()
+                    .clickSelectButton()
+                    .clickSearchAddressList2Button()
+                    .clickRandomAddress()
+                    .clickSelectButton()
+                    .inputDataToTheFromInputListField(getTime(10, 11), getTime(14, 15))
+//                .inputDataToTheUntilInputList2Field(getTime(10,11), getTime(14,15))
+                    .clickNextButton()
+                    .clickOKButtonErrorPopUp()
+                    .clickTransportTypeSelectorField()
+                    .clickTransportTrekkerTrailerKm()
+                    .clickSaveButton();
+        }
     }
 
     @Test//work
@@ -83,7 +98,7 @@ public class OrdersTests extends BaseTest {
                 .openDashBoard()
                 .clickOrdersButton();
         ordersPage
-                .clickEditItem2Button();
+                .clickEdit1ItemButton();
         newOrderPage
                 .clickPlanGroupEditSelectorField()
                 .clickPlanGroupEditSelectorItem()
@@ -131,33 +146,18 @@ public class OrdersTests extends BaseTest {
         newWorkOrderPage
                 .clickCustomerField()
                 .clickAbbinkVriezenveenCustomerSelect()
-                .setPlanedStartAndEndDate(getCurrentDate(), getFutureDate(7))
+                .setPlanedStartAndEndDate()
                 .inputDataToPlannedStartTime(getTime(10, 11))
                 .inputDataToPlannedEndTime(getTime(12, 13))
                 .clickPlanGroupField()
                 .clickStandaardPlangroupItemSelect()
                 .clickNextButton()
                 .clickAddDriverButton()
-                .clickFirstItemClaimButton()
+                .clickRandomClaimButton()
                 .clickNextButton()
                 .clickIUnderstandButtonOnWarningPopUp()
-                .clickFirstStopSelector()
-                .clickAbsTransUtrechtItemInFirstStopSelector()
-                .clickLastStopAddressSelector()
-                .clickVisserijstraatAmmestolItemInLastStopSelector()
                 .clickNextButton()
                 .clickPublishTripButton();
-    }
-
-    @Test//work
-    public void deleteOrder(){
-        dashboardPage
-                .openDashBoard()
-                .clickOrdersButton();
-        ordersPage
-                .clickEditItem1Button()
-                .clickDeleteOrderButton()
-                .clickProceedButton();
     }
 
 }
