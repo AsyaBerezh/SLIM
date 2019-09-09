@@ -19,6 +19,24 @@ public class UpdateTest extends BaseTest {
                 .loginToDashboard("anastasia@fitsoft.nl", "QWEqwe123!@#");
     }
     @Test
+    public void updateTest() {
+        dashboardPage
+                .openDashBoard()
+                .clickOverviewButton();
+        overviewPage
+                .clickTrip()
+                .clickTripUpdate()
+                .clickRecalculateTripButton()
+                .clickIUnderstandButtonOnWarningPopUp()
+                .clickTripDetailsButton()
+                .clickResultsTab()
+                .clickCloseButtonSecondWindow()
+                .clickPublishTripButton()
+                .clickIUnderstandButtonOnWarningPopUp()
+                .clickOKButton();
+        sleep(1000);
+    }
+    @Test
     public void updateTripOneShipment() {
         dashboardPage
                 .openDashBoard()
@@ -30,12 +48,12 @@ public class UpdateTest extends BaseTest {
                 .clickRecalculateTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickTripDetailsButton()
-                .clickresultsTab()
+                .clickResultsTab()
                 .clickCloseButtonSecondWindow()
                 .clickPublishTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickOKButton();
-        sleep(10000);
+        sleep(1000);
     }
     @Test
     public void updateTripCheckTripDetails() {
@@ -45,7 +63,7 @@ public class UpdateTest extends BaseTest {
         overviewPage
                 .clickTrip()
                 .clickTripDetails()
-                .clickresultsTab()
+                .clickResultsTab()
                 .clickCloseButtonFirstWindow();
         sleep(10000);
     }
@@ -72,7 +90,7 @@ public class UpdateTest extends BaseTest {
                 .clickRecalculateTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickTripDetailsButton()
-                .clickresultsTab()
+                .clickResultsTab()
                 .clickCloseButtonSecondWindow()
                 .clickPublishTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
@@ -92,7 +110,7 @@ public class UpdateTest extends BaseTest {
                 .clickRecalculateTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickTripDetailsButton()
-                .clickresultsTab()
+                .clickResultsTab()
                 .clickCloseButtonSecondWindow()
                 .clickPublishTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
@@ -100,7 +118,7 @@ public class UpdateTest extends BaseTest {
         sleep(10000);
     }
     @Test
-    public void updateCompleteTrip() {
+    public void Script_1_A1A_BAB() {
         dashboardPage
                 .openDashBoard()
                 .clickOverviewButton();

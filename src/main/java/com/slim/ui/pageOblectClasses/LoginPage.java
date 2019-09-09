@@ -18,7 +18,7 @@ public class LoginPage {
         emailInput.setValue(email);
         passwordInput.setValue(password);
         loginButton.click();
-        sleep(10000);
+        sleep(2000);
         return new DashboardPage();
     }
 }

@@ -1,6 +1,7 @@
 package com.slim.ui.pageOblectClasses.Overview;
 
 import com.codeborne.selenide.*;
+
 import java.util.*;
 import java.lang.*;
 import java.util.List;
@@ -11,10 +12,10 @@ import static com.slim.ui.pageOblectClasses.planning.PlanningPage.TripNumber;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
-
+import java.text.DecimalFormat;
 
 public class OverviewPage {
-    ElementsCollection tripWithDriverLicence = $$("[class*='trip-status']");
+    ElementsCollection tripWithDriverLicence = $$("[class='trip-title']");
     ElementsCollection tripWithoutDriverLicence = $$("[class*='trip-main trip-flex expandable']");
     ElementsCollection plannedTrips = $$("[chartertrip='false']");
     ElementsCollection charterTrips = $$("[chartertrip='true']");
@@ -27,16 +28,17 @@ public class OverviewPage {
     SelenideElement publishTripButton = $("[class*='btn mx-button mx-name-actionButton2 fa-right fas fa-road btn-success']");
     SelenideElement okButton = $("[class='modal-footer mx-dialog-footer'] [class*='btn btn-primary']");
     ElementsCollection removeFirstShipmentFromTrip = $$("[class='btn mx-button mx-name-actionButton7 listview-content buttonnonborderred-image fa fa-times-circle btn-danger']");
-    SelenideElement closeButtonSecondWindow = $("[class='modal-dialog mx-window mx-window-active'] [class*='close']");
-    SelenideElement closeButtonFirstWindow = $("[class*='close']");
+/*    SelenideElement closeButtonSecondWindow = $("[class*='modal-dialog mx-window mx-window-active'] [class*='close']");*/
+    SelenideElement closeButtonWindow = $("[class*='close']");
+    ElementsCollection closeButtons = $$("[class*='close']");
     SelenideElement tripDetailsButton = $("[class*='btn mx-button mx-name-actionButton17 buttonnonborder-image fas fa-info-circle btn-info']");
-    SelenideElement resultsTab = $("[class='mx-name-tabPage1']");
-    ElementsCollection plannedPriceValue = $$("[class='mx-name-textBox35']");
-    ElementsCollection plannedCostValue = $$("[class='mx-name-textBox16']");
-    ElementsCollection plannedProfitValue = $$("[class='mx-name-textBox17']");
-    SelenideElement revenueTotal = $("[class='mx-name-textBox3']");
-    SelenideElement costTotal = $("[class='mx-name-textBox6']");
-    SelenideElement profitTotal = $("[class='mx-name-textBox7']");
+    SelenideElement resultsTab = $("[class='mx-name-tabPage4']");
+    ElementsCollection plannedPriceValue = $$("[class='mx-name-textBox49']");
+    ElementsCollection plannedCostValue = $$("[class='mx-name-textBox87']");
+    ElementsCollection plannedProfitValue = $$("[class='mx-name-textBox88']");
+    SelenideElement revenueTotal = $("[class='mx-name-textBox68']");
+    SelenideElement costTotal = $("[class='mx-name-textBox93']");
+    SelenideElement profitTotal = $("[class='mx-name-textBox94']");
 
     SelenideElement iUnderstandButtonOnWarningPopUpWrong = $("[class*='btn mx-button mx-name-actionButton1 fas fa-chevron-left btn-default']");
     SelenideElement iUnderstandButtonOnWarningPopUp = $("[class*='btn mx-button mx-name-actionButton1 fa-right fas fa-chevron-right btn-default']");
@@ -49,16 +51,16 @@ public class OverviewPage {
     public OverviewPage clickTrip(){
         sleep(5000);
         if (TractorLicense == null) {
-            sleep(1000);
+            //sleep(1000);
             tripWithoutDriverLicence.first().contextClick();
             System.out.println("Trip Without Driver Licence " + TractorLicense);
-            sleep(1000);
+            //sleep(1000);
         }
         else {
-            sleep(1000);
+           // sleep(1000);
             tripWithDriverLicence.findBy(Condition.exactText(TractorLicense)).contextClick();
             System.out.println("Find Last Trip " + TractorLicense);
-            sleep(1000);
+            //sleep(1000);
         }
         return this;
     }
@@ -152,13 +154,12 @@ public class OverviewPage {
         return this;
     }
     public OverviewPage clickCloseButtonSecondWindow(){
-        sleep(5000);
-        closeButtonSecondWindow.click();
+        closeButtons.get(1).click();
         return this;
     }
     public OverviewPage clickCloseButtonFirstWindow(){
-        sleep(5000);
-        closeButtonFirstWindow.click();
+       // sleep(5000);
+        closeButtonWindow.click();
         return this;
     }
     public OverviewPage clickTripDetails(){
@@ -169,15 +170,15 @@ public class OverviewPage {
         return this;
     }
     public OverviewPage clickTripUpdate(){
-        sleep(1000);
+       // sleep(1000);
         tripOptions.findBy(Condition.exactText("Rit Updaten")).click();
        // System.out.println("Rit Updaten");
-        sleep(1000);
+        //sleep(1000);
         return this;
     }
     public OverviewPage clickTripDetailsButton(){
         tripDetailsButton.click();
-        sleep(2000);
+/*        sleep(2000);*/
         return this;
     }
     public OverviewPage findPriceSum(){
@@ -221,7 +222,7 @@ public class OverviewPage {
         return this;
     }
 
-    public OverviewPage clickresultsTab(){
+    public OverviewPage clickResultsTab(){
         resultsTab.click();
 
         findPriceSum();
@@ -231,31 +232,44 @@ public class OverviewPage {
         int correctTest = 0; //variable for test is right
         //check for All Shipment Prices and Trip Total revenue
         String revenueTotalS = revenueTotal.getText();
-        float revenueTotalF = Float.parseFloat(revenueTotalS);
-        float roundRevenueTotalF = (float) Math.round(revenueTotalF);
+        double revenueTotalD = Double.parseDouble(revenueTotalS);
+/*        float roundRevenueTotalF = (float) Math.round(revenueTotalD);
         float roundFinalSumPlannedPrice = (float) Math.round(FinalSumPlannedPrice);
         if (roundRevenueTotalF == roundFinalSumPlannedPrice)
             System.out.println("roundRevenueTotalF equal roundFinalSumPlannedPrice " + " " + roundRevenueTotalF + " " + roundFinalSumPlannedPrice);
         else
-            System.out.println("roundRevenueTotalF not equal roundFinalSumPlannedPrice " + " " + roundRevenueTotalF + " " + roundFinalSumPlannedPrice);
+            System.out.println("roundRevenueTotalF not equal roundFinalSumPlannedPrice " + " " + roundRevenueTotalF + " " + roundFinalSumPlannedPrice);*/
+        if (revenueTotalD == FinalSumPlannedPrice) {
+            System.out.println("revenueTotalD equal FinalSumPlannedPrice " + " " + revenueTotalD + " " + FinalSumPlannedPrice);
+            correctTest++;
+        }
+        else
+            System.out.println("revenueTotalD not equal FinalSumPlannedPrice " + " " + revenueTotalD + " " + FinalSumPlannedPrice);
 
         //check for All Shipment Cost and Trip Total Cost
         String costTotalS = costTotal.getText();
-        float costTotalF = Float.parseFloat(costTotalS);
-        float roundCostTotalF= (float) Math.round(costTotalF);
-        float roundFinalSumPlannedCost = (float) Math.round(FinalSumPlannedCost);
+        double costTotalD = Double.parseDouble(costTotalS);
+/*         float roundCostTotalF= (float) Math.round(costTotalD);
+       float roundFinalSumPlannedCost = (float) Math.round(FinalSumPlannedCost);
         if (roundCostTotalF == roundFinalSumPlannedCost){
             System.out.println("roundCostTotalF equal roundFinalSumPlannedCost " + " " + roundCostTotalF + " " + roundFinalSumPlannedCost);
             correctTest++;
             //System.out.println("correctTest1 " + correctTest);
         }
         else
-            System.out.println("roundCostTotalF not equal roundFinalSumPlannedCost " + " " + roundCostTotalF + " " + roundFinalSumPlannedCost);
+            System.out.println("roundCostTotalF not equal roundFinalSumPlannedCost " + " " + roundCostTotalF + " " + roundFinalSumPlannedCost);*/
+        if (costTotalD == FinalSumPlannedCost){
+            System.out.println("costTotalD equal FinalSumPlannedCost " + " " + costTotalD + " " + FinalSumPlannedCost);
+            correctTest++;
+            //System.out.println("correctTest1 " + correctTest);
+        }
+        else
+            System.out.println("costTotalD not equal FinalSumPlannedCost " + " " + costTotalD + " " + FinalSumPlannedCost);
 
         //check for All Shipment Profit and Trip Total Profit
         String profitTotalS = profitTotal.getText();
-        float profitTotalF = Float.parseFloat(profitTotalS);
-        float roundProfitTotalF= (float) Math.round(profitTotalF);
+        double profitTotalD = Double.parseDouble(profitTotalS);
+      /*  float roundProfitTotalF= (float) Math.round(profitTotalD);
         float roundFinalSumPlannedProfit = (float) Math.round(FinalSumPlannedProfit);
         if (roundProfitTotalF == roundFinalSumPlannedProfit){
             System.out.println("roundProfitTotalF equal roundFinalSumPlannedProfit " + " " + roundProfitTotalF + " " + roundFinalSumPlannedProfit);
@@ -263,41 +277,51 @@ public class OverviewPage {
             //System.out.println("correctTest2 " + correctTest);
         }
         else
-            System.out.println("roundProfitTotalF not equal roundFinalSumPlannedProfit " + " " + roundProfitTotalF + " " + roundFinalSumPlannedProfit);
+            System.out.println("roundProfitTotalF not equal roundFinalSumPlannedProfit " + " " + roundProfitTotalF + " " + roundFinalSumPlannedProfit);*/
+        if (profitTotalD == FinalSumPlannedProfit){
+            System.out.println("profitTotalD equal FinalSumPlannedProfit " + " " + profitTotalD + " " + FinalSumPlannedProfit);
+            correctTest++;
+            //System.out.println("correctTest2 " + correctTest);
+        }
+        else
+            System.out.println("profitTotalD not equal FinalSumPlannedProfit " + " " + profitTotalD + " " + FinalSumPlannedProfit);
 
         //check if the Profit is right
-        float ProfitCalculation = roundFinalSumPlannedPrice - roundFinalSumPlannedCost;
-        if (ProfitCalculation == roundFinalSumPlannedProfit){
-            System.out.println("ProfitCalculation equal roundFinalSumPlannedProfit " + " " + ProfitCalculation + " " + roundFinalSumPlannedProfit);
+        double ProfitCalculation = FinalSumPlannedPrice - FinalSumPlannedCost;
+        ProfitCalculation = Double.parseDouble(new DecimalFormat("##.####").format(ProfitCalculation));
+        if (ProfitCalculation == FinalSumPlannedProfit)
+        {
+            System.out.println("ProfitCalculation equal FinalSumPlannedProfit " + " " + ProfitCalculation + " " + FinalSumPlannedProfit);
             correctTest++;
             //System.out.println("correctTest3 " + correctTest);
         }
         else
-            System.out.println("ProfitCalculation not equal roundFinalSumPlannedProfit " + " " + ProfitCalculation + " " + roundFinalSumPlannedProfit);
+            System.out.println("ProfitCalculation not equal FinalSumPlannedProfit " + " " + ProfitCalculation + " " + FinalSumPlannedProfit);
 
         //check if the Cost is right
-        float CostCalculation = roundFinalSumPlannedPrice - roundFinalSumPlannedProfit;
-        if (CostCalculation == roundFinalSumPlannedCost){
-            System.out.println("CostCalculation equal roundFinalSumPlannedCost " + " " + CostCalculation + " " + roundFinalSumPlannedCost);
+        double CostCalculation = FinalSumPlannedPrice - FinalSumPlannedProfit;
+        CostCalculation = Double.parseDouble(new DecimalFormat("##.####").format(CostCalculation));
+        if (CostCalculation == FinalSumPlannedCost){
+            System.out.println("CostCalculation equal FinalSumPlannedCost " + " " + CostCalculation + " " + FinalSumPlannedCost);
             correctTest++;
             //System.out.println("correctTest4 " + correctTest);
         }
         else
-            System.out.println("CostCalculation not equal roundFinalSumPlannedCost " + " " + CostCalculation + " " + roundFinalSumPlannedCost);
+            System.out.println("CostCalculation not equal FinalSumPlannedCost " + " " + CostCalculation + " " + FinalSumPlannedCost);
 
 
         //Autotest is correct
-        if (correctTest == 4)
+        if (correctTest == 5)
             System.out.println("Autotest on Overview Page is correct");
         else
             System.out.println("Autotest on Overview Page  not correct");
 
-        sleep(1000);
+       // sleep(1000);
         return this;
     }
 
     public OverviewPage clickCancelUpdateButton(){
-        sleep(8000);
+      //  sleep(8000);
         cancelUpdateButton.click();
         return this;
     }
@@ -314,7 +338,7 @@ public class OverviewPage {
         return this;
     }
     public OverviewPage clickRecalculateTripButton(){
-        sleep(1000);
+        //sleep(1000);
         recalculateTripButton.click();
         return this;
     }
@@ -322,9 +346,9 @@ public class OverviewPage {
         removeFirstShipmentFromTrip.first().click();
         return this;
     }
-    public OverviewPage clickIUnderstandButtonOnWarningPopUp(){
+/*    public OverviewPage clickIUnderstandButtonOnWarningPopUp(){
         if (isWarningPopUpPresent()) {
-            sleep(2000);
+            //sleep(2000);
             if (iUnderstandButtonOnWarningPopUpWrong.isDisplayed())
                 iUnderstandButtonOnWarningPopUpWrong.click();
             else
@@ -334,19 +358,32 @@ public class OverviewPage {
     }
     public Boolean isWarningPopUpPresent() {
         try {
+            return WebDriverRunner.getWebDriver().findElement(By.cssSelector("[class*='btn mx-button mx-name-actionButton1 fas fa-chevron-left btn-default']")).isDisplayed() || WebDriverRunner.getWebDriver().findElement(By.cssSelector("[class*='btn mx-button mx-name-actionButton1 fa-right fas fa-chevron-right btn-default']")).isDisplayed() ;
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return false;
+        }
+    }*/
+public OverviewPage clickIUnderstandButtonOnWarningPopUp(){
+    if (isWarningPopUpPresent()) {
+        iUnderstandButtonOnWarningPopUp.waitUntil(Condition.visible,1000).click();
+    }
+    return this;
+}
+    public Boolean isWarningPopUpPresent() {
+        try {
             sleep(2000);
-            return WebDriverRunner.getWebDriver().findElement(By.cssSelector("[class*='btn mx-button mx-name-actionButton1 fas fa-chevron-left btn-default']")).isDisplayed() ||WebDriverRunner.getWebDriver().findElement(By.cssSelector("[class*='btn mx-button mx-name-actionButton1 fa-right fas fa-chevron-right btn-default']")).isDisplayed() ;
+            return WebDriverRunner.getWebDriver().findElement(By.cssSelector("[class*='btn mx-button mx-name-actionButton1 fa-right fas fa-chevron-right btn-default']")).isDisplayed();
         } catch (org.openqa.selenium.NoSuchElementException e) {
             return false;
         }
     }
     public OverviewPage clickPublishTripButton(){
-        sleep(2000);
+      //  sleep(2000);
         publishTripButton.click();
         return this;
     }
     public OverviewPage clickOKButton(){
-        sleep(2000);
+     //   sleep(2000);
         okButton.click();
         return this;
     }
