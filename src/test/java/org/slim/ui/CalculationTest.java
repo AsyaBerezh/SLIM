@@ -8,6 +8,7 @@ import com.slim.ui.pageOblectClasses.planning.PlanningPage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static com.codeborne.selenide.Selenide.element;
 import static com.codeborne.selenide.Selenide.sleep;
 import static com.slim.ui.dataGenerator.DataGenerator.getTime;
 
@@ -26,6 +27,20 @@ public class CalculationTest extends BaseTest {
                 .loginToDashboard("anastasia@fitsoft.nl", "QWEqwe123!@#");
     }
     @Test
+    private void checkAddress2() {
+        dashboardPage
+                .openDashBoard()
+                .clickPlanningButton();
+        planningPage
+                .chooseDateofPlansheet()
+                .changeAddresses()
+                .dragShipment()
+                .inputTime()
+                .clickCalculateTripButton()
+                .clickOKButtonOnWarningPopUp()
+                .clickIUnderstandButtonOnWarningPopUp();
+    }
+    @Test
     private void checkAddress() {
         dashboardPage
                 .openDashBoard()
@@ -33,10 +48,60 @@ public class CalculationTest extends BaseTest {
         planningPage
                 .chooseDateofPlansheet()
                 .clickEditPlansheetButton()
+                .deleteNewTrips()
                 .clickRandomNewTripButton()
                 .checkLicenses()
-                .clickGoToPlanningButton();
-        sleep(1000);
+                .clickGoToPlanningButton()
+                .clickDeleteAttachingTrailerButton()
+                .clickDeleteDetachingTrailerButton()
+                .changeAddresses()
+                .dragShipment();
+                //.inputTimeToFirstFromUntilTime(getTime(10,11), getTime(14,15))
+                checkTimeEntries();
+        planningPage
+                .clickTripDetailsButton()
+                .clickResultsTab()
+                .clickCloseButton()
+                .clickBackToEditingButton()
+                .clickCalculateTripButton()
+                .clickIUnderstandButtonOnWarningPopUp()
+                .clickTripDetailsButton()
+                .clickResultsTab()
+                .clickCloseButton()
+                .clickEditPlansheetButton()
+                .clickRandomNewTripButton()
+                .checkLicenses()
+                .clickGoToPlanningButton()
+                .clickDeleteAttachingTrailerButton()
+                .clickDeleteDetachingTrailerButton()
+                .changeAddresses()
+                .dragShipment();
+        checkTimeEntries();
+        planningPage
+                .clickTripDetailsButton()
+                .clickResultsTab()
+                .clickCloseButton()
+                .clickLastTripOnTripToPlan()
+                .clickPublishTripButton()
+                .clickIUnderstandButtonOnWarningPopUp()
+                .clickYesButton()
+                .clickPublishTripButton()
+                .clickIUnderstandButtonOnWarningPopUp()
+                .clickYesButton();
+    }
+    public void checkTimeEntries() {
+        for (int i = 0; i <= 100; i++){
+            planningPage
+                .inputTime()
+                /*    .inputTimeToFirstFromUntilTime(getTime(10,11), getTime(14,15))*/
+                .clickCalculateTripButton()
+                .clickOKButtonOnWarningPopUp()
+                .clickIUnderstandButtonOnWarningPopUp();
+
+            if (!planningPage.isErrorNoTimeEnteredPopUpPresent()) {
+                break;
+            }
+        }
     }
     @Test
     private void Test0() {
@@ -52,7 +117,7 @@ public class CalculationTest extends BaseTest {
                 .clickDeleteAttachingTrailerButton()
                 .clickDeleteDetachingTrailerButton()
                 .changeAddresses()
-                .dragLastShipment()
+                .dragShipment()
                 .inputTimeToFirstFromUntilTime(getTime(10,11), getTime(14,15))
                 .clickCalculateTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
@@ -65,7 +130,6 @@ public class CalculationTest extends BaseTest {
                 .clickPublishTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
-        sleep(1000);
     }
     @Test
     private void Test1() {
@@ -81,7 +145,7 @@ public class CalculationTest extends BaseTest {
                 .changeAddresses()
                 .clickDeleteAttachingTrailerButton()
                 .clickDeleteDetachingTrailerButton()
-                .dragLastShipment()
+                .dragShipment()
                 .inputTimeToFirstFromUntilTime(getTime(10,11), getTime(14,15))
                 .clickEditPlansheetButton()
                 .clickRandomNewTripButton()
@@ -90,7 +154,7 @@ public class CalculationTest extends BaseTest {
                 .changeAddresses()
                 .clickDeleteAttachingTrailerButton()
                 .clickDeleteDetachingTrailerButton()
-                .dragLastShipment()
+                .dragShipment()
                 .inputTimeToFirstFromUntilTime(getTime(10,11), getTime(14,15))
                 .clickCalculateTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
@@ -100,7 +164,6 @@ public class CalculationTest extends BaseTest {
                 .clickPublishTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
-                sleep(1000);
     }
 
     @Test
@@ -116,8 +179,8 @@ public class CalculationTest extends BaseTest {
                 .checkLicenses()
                 .clickGoToPlanningButton()
                 .changeAddresses()
-                .dragLastShipment()
-                .dragLastShipment()
+                .dragShipment()
+                .dragShipment()
                 .clickCalculateTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickTripDetailsButton()
@@ -155,8 +218,8 @@ public class CalculationTest extends BaseTest {
                 .checkLicenses()
                 .clickGoToPlanningButton()
                 .changeAddresses()
-                .dragLastShipment()
-                .dragLastShipment()
+                .dragShipment()
+                .dragShipment()
      //           .clickRemoveFirstShipmentFromTripButton()
                 .clickCalculateTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
@@ -166,7 +229,6 @@ public class CalculationTest extends BaseTest {
                 .clickPublishTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
-        sleep(2000);
     }
 
     @Test
@@ -186,14 +248,13 @@ public class CalculationTest extends BaseTest {
                 .clickYesButton()
                 .clickDeleteDetachingTrailerButton()
                 .clickYesButton()*/
-                .dragLastShipment()
+                .dragShipment()
                 .inputTimeToFirstFromUntilTime(getTime(10,11), getTime(14,15))
                 .clickCalculateTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickPublishTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
-        sleep(2000);
     }
     @Test
     public void calculateOneShipmentUpdate(){
@@ -208,7 +269,7 @@ public class CalculationTest extends BaseTest {
                 .checkLicenses()
                 .clickGoToPlanningButton()
                 .changeAddresses()
-                .dragLastShipment()
+                .dragShipment()
                 .inputTimeToFirstFromUntilTime(getTime(10,11), getTime(14,15))
                 .clickCalculateTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
@@ -246,15 +307,14 @@ public class CalculationTest extends BaseTest {
                 .clickYesButton()
                 .clickDeleteDetachingTrailerButton()
                 .clickYesButton()*/
-                .dragLastShipment()
-                .dragLastShipment()
+                .dragShipment()
+                .dragShipment()
                 //           .clickRemoveFirstShipmentFromTripButton()
                 .clickCalculateTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickPublishTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
-        sleep(2000);
     }
     @Test
     public void CreateTripAddTwoShipmentsDeleteFirstShipment(){
@@ -273,15 +333,14 @@ public class CalculationTest extends BaseTest {
                 .clickYesButton()
                 .clickDeleteDetachingTrailerButton()
                 .clickYesButton()*/
-                .dragLastShipment()
-                .dragLastShipment()
+                .dragShipment()
+                .dragShipment()
                 .clickRemoveFirstShipmentFromTripButton()
                 .clickCalculateTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickPublishTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
-        sleep(2000);
     }
     @Test
     public void CreateTripOneShipmentDeleteTrailerActivities(){
@@ -300,14 +359,13 @@ public class CalculationTest extends BaseTest {
                 .clickYesButton()
                 .clickDeleteDetachingTrailerButton()
                 .clickYesButton()
-                .dragLastShipment()
+                .dragShipment()
                 //           .clickRemoveFirstShipmentFromTripButton()
                 .clickCalculateTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickPublishTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
-        sleep(2000);
     }
 }
 

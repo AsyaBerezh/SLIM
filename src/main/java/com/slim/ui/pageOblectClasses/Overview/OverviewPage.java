@@ -20,7 +20,7 @@ public class OverviewPage {
     ElementsCollection plannedTrips = $$("[chartertrip='false']");
     ElementsCollection charterTrips = $$("[chartertrip='true']");
     ElementsCollection tripOptions = $$("[class*='menu-option']");
-    SelenideElement cancelUpdateButton = $("[class*='btn mx-button mx-name-actionButton2 btnRight > img btn-danger']");
+    SelenideElement cancelUpdateButton = $("[class*='btn mx-button mx-name-actionButton2 fa-right fas fa-times btn-default']");
     SelenideElement proceedButton = $("[class='modal-footer mx-dialog-footer'] [class*='btn btn-primary']");
     ElementsCollection lastShipment = $$("[class='mx-layoutgrid mx-layoutgrid-fluid mx-name-layoutGrid2 center-align-childs']");
     SelenideElement tripActivitiesField = $("[class='mx-layoutgrid mx-layoutgrid-fluid mx-name-layoutGrid18 center-align-childs']");
@@ -39,15 +39,19 @@ public class OverviewPage {
     SelenideElement revenueTotal = $("[class='mx-name-textBox68']");
     SelenideElement costTotal = $("[class='mx-name-textBox93']");
     SelenideElement profitTotal = $("[class='mx-name-textBox94']");
-
-    SelenideElement iUnderstandButtonOnWarningPopUpWrong = $("[class*='btn mx-button mx-name-actionButton1 fas fa-chevron-left btn-default']");
+    SelenideElement planningPageButton = $("[class='mx-link mx-name-actionButton20 far fa-calendar-plus']");
     SelenideElement iUnderstandButtonOnWarningPopUp = $("[class*='btn mx-button mx-name-actionButton1 fa-right fas fa-chevron-right btn-default']");
+    SelenideElement backToEditingR = $("[class='btn mx-button mx-name-actionButton3 fas fa-chevron-left btn-default']");
     // ElementsCollection tripActivities = $$("[class='timeline-item timeline-range timeline-selected timeline-readonly'][class='activities-row activities-plan']");
+    // SelenideElement iUnderstandButtonOnWarningPopUpWrong = $("[class*='btn mx-button mx-name-actionButton1 fas fa-chevron-left btn-default']");
     double FinalSumPlannedPrice = 0;
     double FinalSumPlannedCost = 0;
     double FinalSumPlannedProfit = 0;
 
-
+    public OverviewPage clickBackToEditingR(){
+        backToEditingR.click();
+        return this;
+    }
     public OverviewPage clickTrip(){
         sleep(5000);
         if (TractorLicense == null) {
@@ -69,10 +73,11 @@ public class OverviewPage {
         sleep(5000);
         List<Long> StartTimeAll = new ArrayList<Long>();
         if (TripNumber == null) {
-            sleep(1000);
-            for (int i = 0; i < plannedTrips.size(); i++) {
-                System.out.println("plannedTrips size =" + plannedTrips.size());
-                String StartTimeS = plannedTrips.get(i).getAttribute("startdatetime");
+        //    sleep(1000);
+
+            for (int i = 0; i < plannedTrips.filter(Condition.attribute("tripstatus","Planned")).size(); i++) {
+                System.out.println("plannedTrips size =" + plannedTrips.filter(Condition.attribute("tripstatus","Planned")).size());
+                String StartTimeS = plannedTrips.filter(Condition.attribute("tripstatus","Planned")).get(i).getAttribute("startdatetime");
                 long StartTimeI = Long.parseLong(StartTimeS);
                 StartTimeAll.add(StartTimeI);
                 System.out.println("StartTimeI=" + StartTimeI);
@@ -83,20 +88,64 @@ public class OverviewPage {
             System.out.println("Start Time sorted " + StartTimeAll);
             String StarTimeFirst = StartTimeAll.get(0).toString();
             System.out.println("StarTimeFirst" + StarTimeFirst);
-            for (int i = 0; i < plannedTrips.size(); i++) {
-                if (plannedTrips.get(i).getAttribute("startdatetime").contentEquals(StarTimeFirst))
-                    plannedTrips.get(i).contextClick();
+            for (int i = 0; i < plannedTrips.filter(Condition.attribute("tripstatus","Planned")).size(); i++) {
+                if (plannedTrips.filter(Condition.attribute("tripstatus","Planned")).get(i).getAttribute("startdatetime").contentEquals(StarTimeFirst))
+                    plannedTrips.filter(Condition.attribute("tripstatus","Planned")).get(i).contextClick();
             }
-            sleep(1000);
+          //  sleep(1000);
         } else {
-            sleep(1000);
-            for (int i = 0; i < plannedTrips.size(); i++) {
-                if (plannedTrips.get(i).getAttribute("tripnumber").contentEquals(TripNumber)) {
-                    plannedTrips.get(i).contextClick();
-                    System.out.println("tripnumber" + plannedTrips.get(i).getAttribute("tripnumber"));
+           // sleep(1000);
+            for (int i = 0; i < plannedTrips.filter(Condition.attribute("tripstatus","Planned")).size(); i++) {
+                if (plannedTrips.filter(Condition.attribute("tripstatus","Planned")).get(i).getAttribute("tripnumber").contentEquals(TripNumber)) {
+                    plannedTrips.filter(Condition.attribute("tripstatus","Planned")).get(i).contextClick();
+                    System.out.println("tripnumber" + plannedTrips.filter(Condition.attribute("tripstatus","Planned")).get(i).getAttribute("tripnumber"));
                     System.out.println("TripNumber" + TripNumber);
                 }
             }
+        }
+        return this;
+    }
+    public OverviewPage clickFirstPlannedTrip() {
+        sleep(5000);
+        List<Long> StartTimeAll = new ArrayList<Long>();
+        for (int i = 0; i < plannedTrips.filter(Condition.attribute("tripstatus","Planned")).size(); i++) {
+          //  System.out.println("plannedTrips size =" + plannedTrips.filter(Condition.attribute("tripstatus","Planned")).size());
+            String StartTimeS = plannedTrips.filter(Condition.attribute("tripstatus","Planned")).get(i).getAttribute("startdatetime");
+            long StartTimeI = Long.parseLong(StartTimeS);
+            StartTimeAll.add(StartTimeI);
+         //   System.out.println("StartTimeI=" + StartTimeI);
+         //   System.out.println("StartTimeS=" + StartTimeS);
+        }
+        System.out.println("Start Time not sorted " + StartTimeAll);
+        Collections.sort(StartTimeAll,Collections.reverseOrder());
+        System.out.println("Start Time sorted " + StartTimeAll);
+        String StarTimeFirst = StartTimeAll.get(0).toString();
+        System.out.println("Start Time First " + StarTimeFirst);
+        for (int i = 0; i < plannedTrips.filter(Condition.attribute("tripstatus","Planned")).size(); i++) {
+            if (plannedTrips.filter(Condition.attribute("tripstatus","Planned")).get(i).getAttribute("startdatetime").contentEquals(StarTimeFirst))
+                plannedTrips.filter(Condition.attribute("tripstatus","Planned")).get(i).contextClick();
+        }
+        return this;
+    }
+    public OverviewPage clickSecondPlannedTrip() {
+        sleep(5000);
+        List<Long> StartTimeAll = new ArrayList<Long>();
+        for (int i = 0; i < plannedTrips.filter(Condition.attribute("tripstatus","Planned")).size(); i++) {
+          //  System.out.println("plannedTrips size =" + plannedTrips.filter(Condition.attribute("tripstatus","Planned")).size());
+            String StartTimeS = plannedTrips.filter(Condition.attribute("tripstatus","Planned")).get(i).getAttribute("startdatetime");
+            long StartTimeI = Long.parseLong(StartTimeS);
+            StartTimeAll.add(StartTimeI);
+            //System.out.println("StartTimeI=" + StartTimeI);
+            //System.out.println("StartTimeS=" + StartTimeS);
+        }
+        System.out.println("Start Time not sorted " + StartTimeAll);
+        Collections.sort(StartTimeAll,Collections.reverseOrder());
+        System.out.println("Start Time sorted " + StartTimeAll);
+        String StarTimeFirst = StartTimeAll.get(1).toString();
+        System.out.println("Start Time Second " + StarTimeFirst);
+        for (int i = 0; i < plannedTrips.filter(Condition.attribute("tripstatus","Planned")).size(); i++) {
+            if (plannedTrips.filter(Condition.attribute("tripstatus","Planned")).get(i).getAttribute("startdatetime").contentEquals(StarTimeFirst))
+                plannedTrips.filter(Condition.attribute("tripstatus","Planned")).get(i).contextClick();
         }
         return this;
     }
@@ -133,6 +182,10 @@ public class OverviewPage {
                 }
             }
         }
+        return this;
+    }
+    public OverviewPage clickPlanningPagebutton(){
+        planningPageButton.click();
         return this;
     }
     public OverviewPage clickCompleteTrip(){
@@ -184,7 +237,7 @@ public class OverviewPage {
     public OverviewPage findPriceSum(){
         List<Double> SumPlannedEachPrice = new ArrayList<Double>();
         for (int i = 0; i < plannedPriceValue.size(); i++) {
-            String EachPrice = plannedPriceValue.get(i).getText();
+            String EachPrice = plannedPriceValue.get(i).getText().replace(",",".");
             double PlannedEachPrice = Double.parseDouble(EachPrice);
             //     System.out.println("PlannedEachPrice " + PlannedEachPrice + " ");
             SumPlannedEachPrice.add(PlannedEachPrice);
@@ -198,7 +251,7 @@ public class OverviewPage {
     public OverviewPage findCostSum(){
         List<Double> SumPlannedEachCost = new ArrayList<Double>();
         for (int i = 0; i < plannedCostValue.size(); i++) {
-            String EachCost = plannedCostValue.get(i).getText();
+            String EachCost = plannedCostValue.get(i).getText().replace(",",".");
             double PlannedEachCost = Double.parseDouble(EachCost);
             //     System.out.println("PlannedEachCost " + PlannedEachCost + " ");
             SumPlannedEachCost.add(PlannedEachCost);
@@ -211,7 +264,7 @@ public class OverviewPage {
     public OverviewPage findProfitSum() {
         List<Double> SumPlannedEachProfit = new ArrayList<Double>();
         for (int i = 0; i < plannedProfitValue.size(); i++) {
-            String EachProfit = plannedProfitValue.get(i).getText();
+            String EachProfit = plannedProfitValue.get(i).getText().replace(",",".");
             double PlannedEachProfit = Double.parseDouble(EachProfit);
             //    System.out.println("PlannedEachProfit " + PlannedEachProfit + " ");
             SumPlannedEachProfit.add(PlannedEachProfit);
@@ -231,7 +284,7 @@ public class OverviewPage {
 
         int correctTest = 0; //variable for test is right
         //check for All Shipment Prices and Trip Total revenue
-        String revenueTotalS = revenueTotal.getText();
+        String revenueTotalS = revenueTotal.getText().replace(",",".");
         double revenueTotalD = Double.parseDouble(revenueTotalS);
 /*        float roundRevenueTotalF = (float) Math.round(revenueTotalD);
         float roundFinalSumPlannedPrice = (float) Math.round(FinalSumPlannedPrice);
@@ -239,7 +292,7 @@ public class OverviewPage {
             System.out.println("roundRevenueTotalF equal roundFinalSumPlannedPrice " + " " + roundRevenueTotalF + " " + roundFinalSumPlannedPrice);
         else
             System.out.println("roundRevenueTotalF not equal roundFinalSumPlannedPrice " + " " + roundRevenueTotalF + " " + roundFinalSumPlannedPrice);*/
-        if (revenueTotalD == FinalSumPlannedPrice) {
+        if (revenueTotalD == Double.parseDouble(new DecimalFormat("##.####").format(FinalSumPlannedPrice))) {
             System.out.println("revenueTotalD equal FinalSumPlannedPrice " + " " + revenueTotalD + " " + FinalSumPlannedPrice);
             correctTest++;
         }
@@ -247,7 +300,7 @@ public class OverviewPage {
             System.out.println("revenueTotalD not equal FinalSumPlannedPrice " + " " + revenueTotalD + " " + FinalSumPlannedPrice);
 
         //check for All Shipment Cost and Trip Total Cost
-        String costTotalS = costTotal.getText();
+        String costTotalS = costTotal.getText().replace(",",".");
         double costTotalD = Double.parseDouble(costTotalS);
 /*         float roundCostTotalF= (float) Math.round(costTotalD);
        float roundFinalSumPlannedCost = (float) Math.round(FinalSumPlannedCost);
@@ -258,7 +311,7 @@ public class OverviewPage {
         }
         else
             System.out.println("roundCostTotalF not equal roundFinalSumPlannedCost " + " " + roundCostTotalF + " " + roundFinalSumPlannedCost);*/
-        if (costTotalD == FinalSumPlannedCost){
+        if (costTotalD == Double.parseDouble(new DecimalFormat("##.####").format(FinalSumPlannedCost))){
             System.out.println("costTotalD equal FinalSumPlannedCost " + " " + costTotalD + " " + FinalSumPlannedCost);
             correctTest++;
             //System.out.println("correctTest1 " + correctTest);
@@ -267,7 +320,7 @@ public class OverviewPage {
             System.out.println("costTotalD not equal FinalSumPlannedCost " + " " + costTotalD + " " + FinalSumPlannedCost);
 
         //check for All Shipment Profit and Trip Total Profit
-        String profitTotalS = profitTotal.getText();
+        String profitTotalS = profitTotal.getText().replace(",",".");
         double profitTotalD = Double.parseDouble(profitTotalS);
       /*  float roundProfitTotalF= (float) Math.round(profitTotalD);
         float roundFinalSumPlannedProfit = (float) Math.round(FinalSumPlannedProfit);
@@ -278,7 +331,7 @@ public class OverviewPage {
         }
         else
             System.out.println("roundProfitTotalF not equal roundFinalSumPlannedProfit " + " " + roundProfitTotalF + " " + roundFinalSumPlannedProfit);*/
-        if (profitTotalD == FinalSumPlannedProfit){
+        if (profitTotalD == Double.parseDouble(new DecimalFormat("##.####").format(FinalSumPlannedProfit))){
             System.out.println("profitTotalD equal FinalSumPlannedProfit " + " " + profitTotalD + " " + FinalSumPlannedProfit);
             correctTest++;
             //System.out.println("correctTest2 " + correctTest);
@@ -314,7 +367,7 @@ public class OverviewPage {
         if (correctTest == 5)
             System.out.println("Autotest on Overview Page is correct");
         else
-            System.out.println("Autotest on Overview Page  not correct");
+            System.out.println("Autotest on Overview Page is not correct");
 
        // sleep(1000);
         return this;

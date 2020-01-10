@@ -5,8 +5,8 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 
 import java.text.DecimalFormat;
 import java.util.regex.*;
@@ -14,7 +14,12 @@ import java.util.*;
 import java.lang.*;
 import java.util.List;
 
+import org.openqa.selenium.*;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
 import static com.codeborne.selenide.Selenide.*;
+import static com.slim.ui.dataGenerator.DataGenerator.getTime;
 
 public class PlanningPage {
     SelenideElement plansheetSelector = $("[class*='mx-referenceselector'] [class*='form-control']");
@@ -28,17 +33,18 @@ public class PlanningPage {
     ElementsCollection trailerClaimButton = $$("[class='btn mx-button mx-name-actionButton13 fa-right fas fa-chevron-right btn-default']");
     SelenideElement goToPlanningButton = $("[class='btn mx-button mx-name-actionButton1 fa-right fas fa-chevron-right btn-default']");
     ElementsCollection deleteTrailerButton = $$("[class='btn mx-button mx-name-actionButton6 buttonnonborderred-image far fa-times-square btn-danger']");
-    ElementsCollection ShipmentList = $$("[class='mx-layoutgrid mx-layoutgrid-fluid mx-name-layoutGrid33 center-align-childs']");
+    ElementsCollection shipmentList = $$("[class='mx-layoutgrid mx-layoutgrid-fluid mx-name-layoutGrid33 center-align-childs']");
     SelenideElement tripActivitiesField = $("[class='mx-name-textBox2 h6']");
     SelenideElement yesButton = $("[class*='btn btn-primary']");
     ElementsCollection removeShipmentFromTripButton = $$(" [class='btn mx-button mx-name-actionButton18 buttonnonborderred-image fa fa-times-circle btn-danger']");
-    SelenideElement calculateTripButton = $("[class='btn mx-button mx-name-actionButton1 fa-right fas fa-clock btn-success']");
+    SelenideElement calculateTripButton = $("[class*='btn mx-button mx-name-actionButton1 fa-right fas fa-clock ml-10 btn-success']");
     ElementsCollection drivers = $$("[class='mx-name-textBox8 h6']");
+    SelenideElement textRittenInPlanblad = $("[class='mx-text mx-name-text8']");
     ElementsCollection tripToPlan = $$("[class='mx-name-column2 mx-left-aligned']");
-
+    ElementsCollection deleteTripButtons =$$("[class*='btn mx-button mx-name-actionButton10 buttonnonborderred-image far fa-times-square btn-danger']");
     SelenideElement startAddressInputField = $("[class='mx-listview-item mx-name-index-0'] [class*='input-group'] input");
     SelenideElement startAddressSearchButton = $("[class='mx-listview-item mx-name-index-0'] [class*='btn btn-default']");
-    SelenideElement secondAddressFromAddressBook = $("[class='mx-name-index-1']");
+    SelenideElement secondAddressFromAddressBook = $("[class='mx-name-index-19']");
     SelenideElement attachingTrailerInputField = $("[class='mx-listview-item mx-name-index-1'] [class='input-group']");
     SelenideElement attachingTrailerSearchButton = $("[class='mx-listview-item mx-name-index-1'] [class='btn btn-default']");
     SelenideElement detachingTrailerInputField = $("[class='mx-listview-item mx-name-index-2'] [class='input-group']");
@@ -122,27 +128,45 @@ public class PlanningPage {
         overviewButton.click();
         return this;
     }
+    public PlanningPage inputTime(){
+        fromInputListField.first().click();
+        fromInputListField.first().clear();
+        fromInputListField.first().sendKeys("11:12", Keys.ENTER);
+    //    System.out.println("fromInputListField" + fromInputListField.first().getText().trim().isEmpty());
+
+        untilInputListField.first().click();
+        untilInputListField.first().clear();
+        untilInputListField.first().sendKeys("22:22");
+      //  System.out.println("untilInputListField" + untilInputListField.first().getText().trim().isEmpty());
+
+        return this;
+    }
     public PlanningPage inputTimeToFirstFromUntilTime(String fromTime, String untilTime) {
         fromInputListField.first().click();
-        sleep(550);
-        String timeWithoutDotFrom = fromTime.replace(":", "");
+        //sleep(550);
         fromInputListField.first().clear();
+        String timeWithoutDotFrom = fromTime.replace(":", "");
+/*        fromInputListField.first().clear();*/
         fromInputListField.first().setValue(timeWithoutDotFrom).pressEnter();
 
         String timeWithoutDotUntil = untilTime.replace(":", "");
         untilInputListField.first().click();
-        sleep(550);
+        //sleep(550);
         untilInputListField.first().clear();
         untilInputListField.first().setValue(timeWithoutDotUntil).pressEnter();
         return this;
     }
-
-// Доделать тут нужно взять последнюю
     public PlanningPage chooseDateofPlansheet() {
             plansheetSelector.click();
-            plansheetItem.click();
-
-            //List <WebElement> options = plansheetSelector2.first().findElements(By.tagName("option"));
+        for (int i=0; i< plansheetSelector2.size(); i++) {
+            plansheetSelector2.get(i).click();
+            List <WebElement> options = plansheetSelector2.get(i).findElements(By.tagName("option"));
+            int size = options.size() - 1;
+            //int rand = 1+(size-1)*new Random().nextInt(1);
+            //int rand = new Random().nextInt(size - 1) + 1;
+            //System.out.println("rand=" + rand);
+            options.get(size).click();
+        }
             return this;
     }
 
@@ -163,11 +187,11 @@ public class PlanningPage {
     public PlanningPage findPriceSum(){
         List<Double> SumPlannedEachPrice = new ArrayList<Double>();
         for (int i = 0; i < plannedPriceValue.size(); i++) {
-            String EachPrice = plannedPriceValue.get(i).getText();
-            double PlannedEachPrice = Double.parseDouble(EachPrice);
-       //     System.out.println("PlannedEachPrice " + PlannedEachPrice + " ");
-            SumPlannedEachPrice.add(PlannedEachPrice);
-         //   System.out.println("SumPlannedEachPrice " + SumPlannedEachPrice + " ");
+            String EachPrice = plannedPriceValue.get(i).getText().replace(",",".");
+                double PlannedEachPrice = Double.parseDouble(EachPrice);
+                SumPlannedEachPrice.add(PlannedEachPrice);
+/*            System.out.println("PlannedEachPrice " + PlannedEachPrice + " ");
+            System.out.println("SumPlannedEachPrice " + SumPlannedEachPrice + " ");*/
          }
         FinalSumPlannedPrice = SumPlannedEachPrice.stream().mapToDouble(Double::doubleValue).sum();
       //  System.out.println("FinalSumPlannedPrice " + FinalSumPlannedPrice + " ");
@@ -177,11 +201,11 @@ public class PlanningPage {
     public PlanningPage findCostSum(){
         List<Double> SumPlannedEachCost = new ArrayList<Double>();
         for (int i = 0; i < plannedCostValue.size(); i++) {
-            String EachCost = plannedCostValue.get(i).getText();
+            String EachCost = plannedCostValue.get(i).getText().replace(",",".");
             double PlannedEachCost = Double.parseDouble(EachCost);
-       //     System.out.println("PlannedEachCost " + PlannedEachCost + " ");
+        /*    System.out.println("PlannedEachCost " + PlannedEachCost + " ");
+            System.out.println("SumPlannedEachCost " + SumPlannedEachCost + " "); */
             SumPlannedEachCost.add(PlannedEachCost);
-         //   System.out.println("SumPlannedEachCost " + SumPlannedEachCost + " ");
         }
         FinalSumPlannedCost = SumPlannedEachCost.stream().mapToDouble(Double::doubleValue).sum();
       //  System.out.println("FinalSumPlannedCost " + FinalSumPlannedCost + " ");
@@ -190,11 +214,11 @@ public class PlanningPage {
     public PlanningPage findProfitSum() {
         List<Double> SumPlannedEachProfit = new ArrayList<Double>();
         for (int i = 0; i < plannedProfitValue.size(); i++) {
-            String EachProfit = plannedProfitValue.get(i).getText();
+            String EachProfit = plannedProfitValue.get(i).getText().replace(",",".");
             double PlannedEachProfit = Double.parseDouble(EachProfit);
-        //    System.out.println("PlannedEachProfit " + PlannedEachProfit + " ");
+/*            System.out.println("PlannedEachProfit " + PlannedEachProfit + " ");
+            System.out.println("SumPlannedEachProfit " + SumPlannedEachProfit + " ");*/
             SumPlannedEachProfit.add(PlannedEachProfit);
-      //      System.out.println("SumPlannedEachProfit " + SumPlannedEachProfit + " ");
         }
         FinalSumPlannedProfit = SumPlannedEachProfit.stream().mapToDouble(Double::doubleValue).sum();
      //   System.out.println("FinalSumPlannedProfitSum " + FinalSumPlannedProfit + " ");
@@ -210,7 +234,7 @@ public class PlanningPage {
 
         int correctTest = 0; //variable for test is right
         //check for All Shipment Prices and Trip Total revenue
-        String revenueTotalS = revenueTotal.getText();
+        String revenueTotalS = revenueTotal.getText().replace(",",".");
         double revenueTotalD = Double.parseDouble(revenueTotalS);
         if (revenueTotalD == FinalSumPlannedPrice) {
             System.out.println("revenueTotalD equal FinalSumPlannedPrice " + " " + revenueTotalD + " " + FinalSumPlannedPrice);
@@ -220,7 +244,7 @@ public class PlanningPage {
             System.out.println("revenueTotalD not equal FinalSumPlannedPrice " + " " + revenueTotalD + " " + FinalSumPlannedPrice);
 
         //check for All Shipment Cost and Trip Total Cost
-        String costTotalS = costTotal.getText();
+        String costTotalS = costTotal.getText().replace(",",".");
         double costTotalD = Double.parseDouble(costTotalS);
         if (costTotalD == FinalSumPlannedCost){
             System.out.println("costTotalD equal FinalSumPlannedCost " + " " + costTotalD + " " + FinalSumPlannedCost);
@@ -230,7 +254,7 @@ public class PlanningPage {
             System.out.println("costTotalD not equal FinalSumPlannedCost " + " " + costTotalD + " " + FinalSumPlannedCost);
 
         //check for All Shipment Profit and Trip Total Profit
-        String profitTotalS = profitTotal.getText();
+        String profitTotalS = profitTotal.getText().replace(",",".");
         double profitTotalD = Double.parseDouble(profitTotalS);
         if (profitTotalD == FinalSumPlannedProfit){
             System.out.println("profitTotalD equal FinalSumPlannedProfit " + " " + profitTotalD + " " + FinalSumPlannedProfit);
@@ -264,7 +288,7 @@ public class PlanningPage {
         if (correctTest == 5)
             System.out.println("Calculation on Planning Page is correct");
         else
-            System.out.println("Calculation on Planning Page  not correct");
+            System.out.println("Calculation on Planning Page is not correct");
         return this;
     }
     public PlanningPage clickDeleteFirstActivityButton() {
@@ -273,9 +297,19 @@ public class PlanningPage {
     }
     public PlanningPage clickEditPlansheetButton() {
         editPlansheetButton.click();
+        /*deleteNewTrips();*/
         return this;
     }
-
+    public PlanningPage deleteNewTrips(){
+        sleep(1000);
+        int size = deleteTripButtons.size() - 1;
+        for (int i = size; i >= 0; i--) {
+            //System.out.println(size);
+            deleteTripButtons.get(i).click();
+            yesButton.click();
+        }
+        return this;
+    }
     public PlanningPage clickRandomNewTripButton() {
         sleep(2000);
         Collection resourceButtons;
@@ -283,12 +317,12 @@ public class PlanningPage {
         resourceButtons = newTripButton;
         int size = resourceButtons.size();
         int rand = new Random().nextInt(size);
-/*        TractorLicense = newTripRow.get(rand).findElement(By.cssSelector("[class='mx-referenceselector mx-name-referenceSelector8 h6']")).getText();
+/*      TractorLicense = newTripRow.get(rand).findElement(By.cssSelector("[class='mx-referenceselector mx-name-referenceSelector8 h6']")).getText();
         TrailerLicense = newTripRow.get(rand).findElement(By.cssSelector("[class='mx-referenceselector mx-name-referenceSelector9 h6']")).getText();
         System.out.println("Tractor License in click Random New Trip Button " + TractorLicense);
-        System.out.println("Trailer License in click Random New Trip Button " + TrailerLicense);*/
+        System.out.println("Trailer License in click Random New Trip Button " + TrailerLicense);
+        System.out.println("Random Driver " + RandomDriver);  */
         RandomDriver = ((ElementsCollection) driversC).get(rand).getText();;
-   //     System.out.println("Random Driver " + RandomDriver);
         ((ElementsCollection) resourceButtons).get(rand).click();
         return this;
     }
@@ -307,10 +341,9 @@ public class PlanningPage {
         if (TractorLicense != null && TractorLicense.trim().isEmpty())
         {
         // if Tractor License is empty
-        // sleep(500);
+         /*sleep(500);
+         tractorClaimButton.last().click();*/
             clickChangeTractorButton();
-        //   sleep(500);
-        // tractorClaimButton.last().click();
             clickTractorClaimButton();
         }
         sleep(500);
@@ -335,10 +368,19 @@ public class PlanningPage {
         return this;
     }
     public String getValueTractorLicense(String Tractor){
-       String tripStatus = tripsInPlansheet.findBy(Condition.matchesText(RandomDriver)).findElement(By.cssSelector("[class='mx-name-radioButtons1 listview-content']")).getText();
-      //  System.out.println("Trip Status in getValueTractorLicense" + tripStatus);
-        TractorLicense =  tripsInPlansheet.findBy(Condition.matchesText(RandomDriver)).should(Condition.matchesText(tripStatus)).findElement(By.cssSelector("[class = 'mx-name-textBox3 listview-content']")).getText();
-    //    System.out.println("Tractor License in getValueTractorLicense" + TractorLicense);
+        if (textRittenInPlanblad.getText().contains("Ritten in Planblad:")) {
+            //String tripStatus = tripsInPlansheet.findBy(Condition.matchesText(RandomDriver)).findElement(By.cssSelector("[class='mx-name-radioButtons1 listview-content']")).getText();
+            //  System.out.println("Trip Status in getValueTractorLicense" + tripStatus);
+            String tripStatus = "Nieuw";
+            TractorLicense = tripsInPlansheet.findBy(Condition.matchesText(RandomDriver)).should(Condition.matchesText(tripStatus)).findElement(By.cssSelector("[class = 'mx-name-textBox3 listview-content']")).getText();
+            //    System.out.println("Tractor License in getValueTractorLicense" + TractorLicense);
+        }
+        else
+        {
+            String tripStatus = "New";
+            TractorLicense = tripsInPlansheet.findBy(Condition.matchesText(RandomDriver)).should(Condition.matchesText(tripStatus)).findElement(By.cssSelector("[class = 'mx-name-textBox3 listview-content']")).getText();
+            //    System.out.println("Tractor License in getValueTractorLicense" + TractorLicense);
+        }
         return TractorLicense;
     }
 
@@ -382,9 +424,18 @@ public class PlanningPage {
         goToPlanningButton.click();
         return this;
     }
-    public PlanningPage dragLastShipment() {
-        sleep(2000);
-        ShipmentList.last().dragAndDropTo(tripActivitiesField);
+    public PlanningPage dragShipment() {
+
+        int shipmentListSize =  shipmentList.size();
+        /*System.out.println("shipment List Size" + shipmentListSize);*/
+        if (shipmentListSize > 6)
+        {
+            shipmentList.first().dragAndDropTo(tripActivitiesField);
+        }
+        else{
+            shipmentList.last().dragAndDropTo(tripActivitiesField);
+        }
+
         return this;
     }
     public PlanningPage clickRemoveFirstShipmentFromTripButton() {
@@ -416,30 +467,40 @@ public class PlanningPage {
         } catch (org.openqa.selenium.NoSuchElementException e) {
 
         }
-        return this;
-                */
+        return this;*/
         if (startAddressInputField.isDisplayed())
         {
             startAddressSearchButton.click();
             secondAddressFromAddressBook.waitUntil(Condition.visible, 1000).doubleClick();
         }
-
         return this;
     }
 
     public PlanningPage clickAttachingTrailerAddress() {
-        if (attachingTrailerInputField.isDisplayed())
-        {
-            attachingTrailerSearchButton.click();
-            secondAddressFromAddressBook.waitUntil(Condition.visible, 1000).doubleClick();
+        try {
+            if (attachingTrailerInputField.isDisplayed()) {
+                attachingTrailerSearchButton.click();
+                secondAddressFromAddressBook.doubleClick();
+            }
+        }
+        catch (java.lang.RuntimeException exception){
+            System.out.println(exception.getMessage());
+            System.out.println("No attaching trailer address input field");
+        }
+        catch (Exception exception){
+            System.out.println(exception.getMessage());
         }
         return this;
     }
     public PlanningPage clickDetachingTrailerAddress() {
-        if (detachingTrailerInputField.isDisplayed())
-        {
-            detachingTrailerSearchButton.click();
-            secondAddressFromAddressBook.waitUntil(Condition.visible, 1000).doubleClick();
+        try {
+            if (detachingTrailerInputField.isDisplayed()) {
+                detachingTrailerSearchButton.click();
+                secondAddressFromAddressBook.doubleClick();
+            }
+        }
+        catch (org.openqa.selenium.NoSuchElementException exception){
+            System.out.println("No detaching trailer address input field");
         }
         return this;
     }
@@ -457,6 +518,7 @@ public class PlanningPage {
         return this;
     }
     public PlanningPage clickCalculateTripButton(){
+        sleep(1000);
         calculateTripButton.click();
         return this;
     }
@@ -464,6 +526,30 @@ public class PlanningPage {
         publishTripButton.click();
         return this;
     }
+    public PlanningPage clickOKButtonOnWarningPopUp(){
+        if (isErrorNoTimeEnteredPopUpPresent()) {
+            yesButton.waitUntil(Condition.visible,50).click();
+            for (int i = 0; i <= 100; i++){
+                inputTimeToFirstFromUntilTime(getTime(10,11), getTime(14,15));
+                clickCalculateTripButton();
+                clickOKButtonOnWarningPopUp();
+                clickIUnderstandButtonOnWarningPopUp();
+                if (!isErrorNoTimeEnteredPopUpPresent()) {
+                    break;
+                }
+            }
+        }
+        return this;
+    }
+    public Boolean isErrorNoTimeEnteredPopUpPresent() {
+        try {
+            sleep(500);
+            return WebDriverRunner.getWebDriver().findElement(By.cssSelector("[class*='modal-header mx-dialog-header']")).isDisplayed();
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return false;
+        }
+    }
+
     public PlanningPage clickIUnderstandButtonOnWarningPopUp(){
         if (isWarningPopUpPresent()) {
             iUnderstandButtonOnWarningPopUp.waitUntil(Condition.visible,1000).click();
@@ -472,7 +558,7 @@ public class PlanningPage {
     }
     public Boolean isWarningPopUpPresent() {
         try {
-            sleep(2000);
+            sleep(1000);
             return WebDriverRunner.getWebDriver().findElement(By.cssSelector("[class*='btn mx-button mx-name-actionButton1 fa-right fas fa-chevron-right btn-default']")).isDisplayed();
         } catch (org.openqa.selenium.NoSuchElementException e) {
             return false;

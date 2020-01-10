@@ -34,7 +34,6 @@ public class UpdateTest extends BaseTest {
                 .clickPublishTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickOKButton();
-        sleep(1000);
     }
     @Test
     public void updateTripOneShipment() {
@@ -53,7 +52,6 @@ public class UpdateTest extends BaseTest {
                 .clickPublishTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickOKButton();
-        sleep(1000);
     }
     @Test
     public void updateTripCheckTripDetails() {
@@ -65,10 +63,9 @@ public class UpdateTest extends BaseTest {
                 .clickTripDetails()
                 .clickResultsTab()
                 .clickCloseButtonFirstWindow();
-        sleep(10000);
     }
     @Test
-    public void updateFindTrip() {
+    public void updateFindPlannedTrip() {
         dashboardPage
                 .openDashBoard()
                 .clickOverviewButton();
@@ -76,7 +73,6 @@ public class UpdateTest extends BaseTest {
                 .clickPlannedTripTN()
                 .clickTripDetails()
                 .clickCloseButtonFirstWindow();
-        sleep(10000);
     }
     @Test
     public void updateDeleteShipmentFromTrip() {
@@ -95,7 +91,6 @@ public class UpdateTest extends BaseTest {
                 .clickPublishTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickOKButton();
-        sleep(10000);
     }
     @Test
     public void updateDeleteFirstShipmentFromTripAddShipment() {
@@ -115,7 +110,6 @@ public class UpdateTest extends BaseTest {
                 .clickPublishTripButton()
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickOKButton();
-        sleep(10000);
     }
     @Test
     public void Script_1_A1A_BAB() {
@@ -124,6 +118,5 @@ public class UpdateTest extends BaseTest {
                 .clickOverviewButton();
         overviewPage
                 .clickCompleteTrip();
-        sleep(10000);
     }
 }
