@@ -28,7 +28,7 @@ public class OrdersTests extends BaseTest {
         loginPage
                 .loginToDashboard("anastasia@fitsoft.nl", "QWEqwe123!@#");
     }
-    @Test
+    @Test(enabled = false)
     public void check() {
         dashboardPage
                 .openDashBoard()
@@ -40,7 +40,7 @@ public class OrdersTests extends BaseTest {
         sleep(2000);
     }
 
-    @Test//work
+    @Test(enabled = false)//work
     public void createNewOrder(){
         dashboardPage
                 .openDashBoard()
@@ -77,7 +77,7 @@ public class OrdersTests extends BaseTest {
         }
     }
 
-    @Test//work
+    @Test(enabled = false)//work
     public void checkingFieldValidationOnTheOrdersDetailsStep(){
         dashboardPage
                 .openDashBoard()
@@ -92,7 +92,7 @@ public class OrdersTests extends BaseTest {
                 .checkPlanGroupValidation();
     }
 
-    @Test//work
+    @Test(enabled = false)//work
     public void editOrder() {
         dashboardPage
                 .openDashBoard()
@@ -119,7 +119,7 @@ public class OrdersTests extends BaseTest {
                 .clickNextButton()
                 .clickSaveButton();
     }
-    @Test//work
+    @Test(enabled = false)//work
     public void createOrderFromTemplate(){
         dashboardPage
                 .openDashBoard()
@@ -128,7 +128,7 @@ public class OrdersTests extends BaseTest {
             createPlannedOrderFromTemplate();
         }
     }
-    @Test//work
+    @Test(enabled = false)//work
     public void changeDateOrders(){
         dashboardPage
                 .openDashBoard()
@@ -136,7 +136,7 @@ public class OrdersTests extends BaseTest {
         ordersPage
                 .clickEveryChangeButton();
     }
-    @Test//work
+    @Test(enabled = false)//work
     public void createNewWorkOrder(){
         dashboardPage
                 .openDashBoard()

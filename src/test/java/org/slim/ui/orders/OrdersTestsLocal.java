@@ -28,7 +28,7 @@ public class OrdersTestsLocal extends BaseTest {
         loginPageLocal
                 .loginToDashboard("Anastasia", "26018As");
     }
-    @Test
+    @Test(enabled = false)
     public void check() {
         dashboardPageLocal
                 .clickOrdersButton();
@@ -39,7 +39,7 @@ public class OrdersTestsLocal extends BaseTest {
         sleep(2000);
     }
 
-    @Test//work
+    @Test(enabled = false)//work
     public void createNewOrder(){
         dashboardPageLocal
                 .clickOrdersButton();
@@ -72,7 +72,7 @@ public class OrdersTestsLocal extends BaseTest {
                 .clickSaveButton();
     }
 
-    @Test//work
+    @Test(enabled = false)//work
     public void checkingFieldValidationOnTheOrdersDetailsStep(){
         dashboardPageLocal
                 .clickOrdersButton();
@@ -86,7 +86,7 @@ public class OrdersTestsLocal extends BaseTest {
                 .checkPlanGroupValidation();
     }
 
-    @Test//work
+    @Test(enabled = false)//work
     public void edit1Order() {
         dashboardPageLocal
                 .clickOrdersButton();
@@ -113,7 +113,7 @@ public class OrdersTestsLocal extends BaseTest {
                 .clickNextButton()
                 .clickSaveButton();
     }
-    @Test//work
+    @Test(enabled = false)//work
     public void createOrderFromTemplate(){
         dashboardPageLocal
                 .clickOrdersButton();
@@ -121,7 +121,7 @@ public class OrdersTestsLocal extends BaseTest {
             createPlannedOrderFromTemplate();
         }
     }
-    @Test//work
+    @Test(enabled = false)//work
     public void changeDateOrders(){
         dashboardPageLocal
                 .clickOrdersButton();
@@ -129,7 +129,7 @@ public class OrdersTestsLocal extends BaseTest {
                 .clickEveryChangeButton();
     }
 
-    @Test//work
+    @Test(enabled = false)//work
     public void deleteOrders(){
         dashboardPageLocal
                 .clickOrdersButton();
@@ -137,7 +137,7 @@ public class OrdersTestsLocal extends BaseTest {
                 .clickEveryDeleteOrderButton();
     }
 
-    @Test//work
+    @Test(enabled = false)//work
     public void createNewWorkOrder(){
         dashboardPageLocal
                 .clickOrdersButton();

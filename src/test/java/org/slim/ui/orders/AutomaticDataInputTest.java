@@ -29,7 +29,7 @@ public class AutomaticDataInputTest extends BaseTest {
         loginPage
                 .loginToDashboard("marharyta@fitsoft.nl", "QWEqwe123!@#");
     }
-    @Test
+    @Test(enabled = false)
     public void generatingNewOrderWithAbbinkVriezenveenCustomerAndBakkerijproductenCargo(){
         dashboardPage
                 .openDashBoard()
@@ -63,7 +63,7 @@ public class AutomaticDataInputTest extends BaseTest {
                 .clickSaveButton();
         sleep(2000);
     }
-    @Test
+    @Test(enabled = false)
     public void generatingNewOrderWithAbbinkVriezenveenCustomerAndBuffelmelkCargo(){
         dashboardPage
                 .openDashBoard()
@@ -97,7 +97,7 @@ public class AutomaticDataInputTest extends BaseTest {
                 .clickSaveButton();
         sleep(2000);
     }
-    @Test
+    @Test(enabled = false)
     public void generatingNewOrderWithGebrCustomerAndTetjuCargo(){
         dashboardPage
                 .openDashBoard()
@@ -131,7 +131,7 @@ public class AutomaticDataInputTest extends BaseTest {
                 .clickSaveButton();
         sleep(2000);
     }
-    @Test
+    @Test(enabled = false)
     public void generatingNewOrderWithGebrCustomerAndVersproductenCargoAndSavingAsTemplate(){
         dashboardPage
                 .openDashBoard()
@@ -168,7 +168,7 @@ public class AutomaticDataInputTest extends BaseTest {
                 .clickSaveButton();
         sleep(2000);
     }
-    @Test
+    @Test(enabled = false)
     public void generatingNewOrderWithActifoodCustomerAndBakkerijproductenCargo(){
         dashboardPage
                 .openDashBoard()
@@ -202,7 +202,7 @@ public class AutomaticDataInputTest extends BaseTest {
                 .clickSaveButton();
         sleep(2000);
     }
-    @Test
+    @Test(enabled = false)
     public void generatingNewOrderWithBoonstraTransportCustomerAndBuffelmelkCargo(){
         dashboardPage
                 .openDashBoard()
@@ -236,7 +236,7 @@ public class AutomaticDataInputTest extends BaseTest {
                 .clickSaveButton();
         sleep(2000);
     }
-    @Test
+    @Test(enabled = false)
     public void generatingNewOrderWithAbbinkVriezenveenCustomerAndLeliesCargo(){
         dashboardPage
                 .openDashBoard()
@@ -270,7 +270,7 @@ public class AutomaticDataInputTest extends BaseTest {
                 .clickSaveButton();
         sleep(2000);
     }
-    @Test
+    @Test(enabled = false)
     public void generatingNewOrderWithAbbinkVriezenveenCustomerAndGekoeldCargoAndSavingAsTemplate(){
         dashboardPage
                 .openDashBoard()
@@ -307,7 +307,7 @@ public class AutomaticDataInputTest extends BaseTest {
                 .clickSaveButton();
         sleep(2000);
     }
-    @Test
+    @Test(enabled = false)
     public void generatingOrderFromTemplate(){
         dashboardPage
                 .openDashBoard()
@@ -326,7 +326,7 @@ public class AutomaticDataInputTest extends BaseTest {
                 .clickNextButton()
                 .clickSaveButton();
     }
-    @Test
+    @Test(enabled = false)
     public void generatingNewWorkOrderWithAbbinkVriezenveenCustomer(){
         dashboardPage
                 .openDashBoard()
@@ -352,7 +352,7 @@ public class AutomaticDataInputTest extends BaseTest {
                 .clickPublishTripButton();
         sleep(1000);
     }
-    @Test
+    @Test(enabled = false)
     public void generatingNewWorkOrderWithActifoodCustomer(){
         dashboardPage
                 .openDashBoard()
