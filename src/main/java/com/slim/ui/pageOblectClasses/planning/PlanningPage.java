@@ -306,7 +306,7 @@ public class PlanningPage {
         for (int i = size; i >= 0; i--) {
             //System.out.println(size);
             deleteTripButtons.get(i).click();
-            yesButton.click();
+            yesButton.waitUntil(Condition.visible,1000).click();
         }
         return this;
     }
