@@ -18,7 +18,7 @@ public class UpdateTest extends BaseTest {
         loginPage
                 .loginToDashboard("anastasia@fitsoft.nl", "QWEqwe123!@#");
     }
-    @Test
+    @Test(enabled = false)
     public void updateTest() {
         dashboardPage
                 .openDashBoard()
@@ -35,7 +35,7 @@ public class UpdateTest extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickOKButton();
     }
-    @Test
+    @Test(enabled = false)
     public void updateTripOneShipment() {
         dashboardPage
                 .openDashBoard()
@@ -53,7 +53,7 @@ public class UpdateTest extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickOKButton();
     }
-    @Test
+    @Test(enabled = false)
     public void updateTripCheckTripDetails() {
         dashboardPage
                 .openDashBoard()
@@ -64,7 +64,7 @@ public class UpdateTest extends BaseTest {
                 .clickResultsTab()
                 .clickCloseButtonFirstWindow();
     }
-    @Test
+    @Test(enabled = false)
     public void updateFindPlannedTrip() {
         dashboardPage
                 .openDashBoard()
@@ -74,7 +74,7 @@ public class UpdateTest extends BaseTest {
                 .clickTripDetails()
                 .clickCloseButtonFirstWindow();
     }
-    @Test
+    @Test(enabled = false)
     public void updateDeleteShipmentFromTrip() {
         dashboardPage
                 .openDashBoard()
@@ -92,7 +92,7 @@ public class UpdateTest extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickOKButton();
     }
-    @Test
+    @Test(enabled = false)
     public void updateDeleteFirstShipmentFromTripAddShipment() {
         dashboardPage
                 .openDashBoard()
@@ -111,7 +111,7 @@ public class UpdateTest extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickOKButton();
     }
-    @Test
+    @Test(enabled = false)
     public void Script_1_A1A_BAB() {
         dashboardPage
                 .openDashBoard()

@@ -26,7 +26,7 @@ public class CalculationTest extends BaseTest {
         loginPage
                 .loginToDashboard("anastasia@fitsoft.nl", "QWEqwe123!@#");
     }
-    @Test
+    @Test(enabled = false)
     private void checkAddress2() {
         dashboardPage
                 .openDashBoard()
@@ -40,7 +40,7 @@ public class CalculationTest extends BaseTest {
                 .clickOKButtonOnWarningPopUp()
                 .clickIUnderstandButtonOnWarningPopUp();
     }
-    @Test
+    @Test(enabled = false)
     private void checkAddress() {
         dashboardPage
                 .openDashBoard()
@@ -103,7 +103,7 @@ public class CalculationTest extends BaseTest {
             }
         }
     }
-    @Test
+    @Test(enabled = false)
     private void Test0() {
         dashboardPage
                 .openDashBoard()
@@ -131,7 +131,7 @@ public class CalculationTest extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Test1() {
         dashboardPage
                 .openDashBoard()
@@ -166,7 +166,7 @@ public class CalculationTest extends BaseTest {
                 .clickYesButton();
     }
 
-    @Test
+    @Test(enabled = false)
     public void CreateTripTwoShipmentsUpdateTripOneShipmentFinanceCheck() {
         dashboardPage
                 .openDashBoard()
@@ -205,7 +205,7 @@ public class CalculationTest extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickOKButton();
     }
-    @Test
+    @Test(enabled = false)
     public void CreateTripTwoShipmentsFinanceCheck(){
         dashboardPage
                 .openDashBoard()
@@ -231,7 +231,7 @@ public class CalculationTest extends BaseTest {
                 .clickYesButton();
     }
 
-    @Test
+    @Test(enabled = false)
     public void calculateOneShipment(){
         dashboardPage
                 .openDashBoard()
@@ -256,7 +256,7 @@ public class CalculationTest extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     public void calculateOneShipmentUpdate(){
         dashboardPage
                 .openDashBoard()
@@ -290,7 +290,7 @@ public class CalculationTest extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickOKButton();
     }
-    @Test
+    @Test(enabled = false)
     public void createTripTwoShipments(){
         dashboardPage
                 .openDashBoard()
@@ -316,7 +316,7 @@ public class CalculationTest extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     public void CreateTripAddTwoShipmentsDeleteFirstShipment(){
         dashboardPage
                 .openDashBoard()
@@ -342,7 +342,7 @@ public class CalculationTest extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     public void CreateTripOneShipmentDeleteTrailerActivities(){
         dashboardPage
                 .openDashBoard()

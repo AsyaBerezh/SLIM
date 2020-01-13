@@ -19,7 +19,7 @@ public class OfficeTest extends BaseTest {
         loginPage
                 .loginToDashboard("anastasia@fitsoft.nl", "QWEqwe123!@#");
     }
-    @Test
+    @Test(enabled = false)
     public void open() {
         dashboardPage
                 .openDashBoard()

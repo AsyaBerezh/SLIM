@@ -25,7 +25,7 @@ public class FirstPlanningSecondUpdate extends BaseTest {
         loginPage
                 .loginToDashboard("anastasia@fitsoft.nl", "QWEqwe123!@#");
     }
-    @Test
+    @Test(enabled = false)
     public void updateTest() {
         dashboardPage
                 .openDashBoard()
@@ -54,7 +54,7 @@ public class FirstPlanningSecondUpdate extends BaseTest {
     }
     /* Without BackToEditing*/
 
-    @Test
+    @Test(enabled = false)
     private void Script_2_AABB() {
         dashboardPage
                 .openDashBoard()
@@ -93,7 +93,7 @@ public class FirstPlanningSecondUpdate extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickOKButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_2_ABBA() {
         dashboardPage
                 .openDashBoard()
@@ -134,7 +134,7 @@ public class FirstPlanningSecondUpdate extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_2_AB3AB() {
         dashboardPage
                 .openDashBoard()
@@ -189,7 +189,7 @@ public class FirstPlanningSecondUpdate extends BaseTest {
     }
     /*BackToEditing/Cancel one*/
     //A1A (Calculate/BackToEditing/Calculate one)
-    @Test
+    @Test(enabled = false)
     private void Script_2_A1A_B3ABB() {
         dashboardPage
                 .openDashBoard()
@@ -248,7 +248,7 @@ public class FirstPlanningSecondUpdate extends BaseTest {
                 .clickOKButton()
                 .clickPlanningPagebutton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_2_A1A_BBA() {
         dashboardPage
                 .openDashBoard()
@@ -295,7 +295,7 @@ public class FirstPlanningSecondUpdate extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_2_A1A_ABB() {
         dashboardPage
                 .openDashBoard()
@@ -341,7 +341,7 @@ public class FirstPlanningSecondUpdate extends BaseTest {
                 .clickOKButton();
     }
     //A1B (Calculate/BacktoEditing one, ReCalculate other)
-    @Test
+    @Test(enabled = false)
     private void Script_2_A1B_3AABB() {
         dashboardPage
                 .openDashBoard()
@@ -399,7 +399,7 @@ public class FirstPlanningSecondUpdate extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickOKButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_2_A1B_3ABBA() {
         dashboardPage
                 .openDashBoard()
@@ -459,7 +459,7 @@ public class FirstPlanningSecondUpdate extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_2_A1B_BBA() {
         dashboardPage
                 .openDashBoard()
@@ -507,7 +507,7 @@ public class FirstPlanningSecondUpdate extends BaseTest {
                 .clickYesButton();
     }
     //AB31 (Calculate one, ReCalculate/Cancel other, BackToEditing one)
-    @Test
+    @Test(enabled = false)
     private void Script_2_AB31_ABBA() {
         dashboardPage
                 .openDashBoard()
@@ -567,7 +567,7 @@ public class FirstPlanningSecondUpdate extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_2_AB31_AABB() {
         dashboardPage
                 .openDashBoard()
@@ -626,7 +626,7 @@ public class FirstPlanningSecondUpdate extends BaseTest {
                 .clickOKButton()
                 .clickPlanningPagebutton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_2_AB31_BBAA() {
         dashboardPage
                 .openDashBoard()
@@ -687,7 +687,7 @@ public class FirstPlanningSecondUpdate extends BaseTest {
                 .clickYesButton();
     }
     //AB2 (Calculate one, ReCalculate/BackToEditing or Cancel other)
-    @Test
+    @Test(enabled = false)
     private void Script_2_AB2_BBA() {
         dashboardPage
                 .openDashBoard()
@@ -734,7 +734,7 @@ public class FirstPlanningSecondUpdate extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_2_AB2_B3ABB() {
         dashboardPage
                 .openDashBoard()
@@ -792,7 +792,7 @@ public class FirstPlanningSecondUpdate extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickOKButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_2_AB2_3ABB() {
         dashboardPage
                 .openDashBoard()
@@ -845,7 +845,7 @@ public class FirstPlanningSecondUpdate extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickOKButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_2_AB3_ABB() {
         dashboardPage
                 .openDashBoard()
@@ -898,7 +898,7 @@ public class FirstPlanningSecondUpdate extends BaseTest {
                 .clickOKButton();
     }
     //AAB2
-    @Test
+    @Test(enabled = false)
     private void Script_2_AAB3_BB() {
         dashboardPage
                 .openDashBoard()
@@ -947,7 +947,7 @@ public class FirstPlanningSecondUpdate extends BaseTest {
                 .clickOKButton();
     }
     //AAB1
-    @Test
+    @Test(enabled = false)
     private void Script_2_AAB1_AA() {
         dashboardPage
                 .openDashBoard()

@@ -23,7 +23,7 @@ public class BothPlanning extends BaseTest {
 
     /* Without BackToEditing one */
 
-    @Test
+    @Test(enabled = false)
     private void Script_1_AABB() {
         dashboardPage
                 .openDashBoard()
@@ -69,7 +69,7 @@ public class BothPlanning extends BaseTest {
                 .clickYesButton();
         sleep(1000);
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_ABBA() {
         dashboardPage
                 .openDashBoard()
@@ -115,7 +115,7 @@ public class BothPlanning extends BaseTest {
                 .clickYesButton();
         sleep(1000);
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_ABAB() {
         dashboardPage
                 .openDashBoard()
@@ -166,7 +166,7 @@ public class BothPlanning extends BaseTest {
     /* BackToEditing one */
 
     //A1A
-    @Test
+    @Test(enabled = false)
     private void Script_1_A1A_BAB() {
         dashboardPage
                 .openDashBoard()
@@ -219,7 +219,7 @@ public class BothPlanning extends BaseTest {
                 .clickYesButton();
         sleep(1000);
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_A1A_BBA() {
         dashboardPage
                 .openDashBoard()
@@ -271,7 +271,7 @@ public class BothPlanning extends BaseTest {
                 .clickYesButton();
         sleep(1000);
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_A1A_ABB() {
         dashboardPage
                 .openDashBoard()
@@ -324,7 +324,7 @@ public class BothPlanning extends BaseTest {
         sleep(1000);
     }
     //A1B
-    @Test
+    @Test(enabled = false)
     private void Script_1_A1B_AAB() {
         dashboardPage
                 .openDashBoard()
@@ -377,7 +377,7 @@ public class BothPlanning extends BaseTest {
                 .clickYesButton();
         sleep(1000);
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_A1B_ABA() {
         dashboardPage
                 .openDashBoard()
@@ -431,7 +431,7 @@ public class BothPlanning extends BaseTest {
                 .clickYesButton();
         sleep(1000);
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_A1B_BAA() {
         dashboardPage
                 .openDashBoard()
@@ -484,7 +484,7 @@ public class BothPlanning extends BaseTest {
         sleep(1000);
     }
     //AB1
-    @Test
+    @Test(enabled = false)
     private void Script_1_AB1_ABA() {
         dashboardPage
                 .openDashBoard()
@@ -539,7 +539,7 @@ public class BothPlanning extends BaseTest {
         sleep(1000);
     }
 
-    @Test
+    @Test(enabled = false)
     private void Script_1_AB1_AAB() {
         dashboardPage
                 .openDashBoard()
@@ -592,7 +592,7 @@ public class BothPlanning extends BaseTest {
                 .clickYesButton();
         sleep(1000);
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_AB1_BAA() {
         dashboardPage
                 .openDashBoard()
@@ -648,7 +648,7 @@ public class BothPlanning extends BaseTest {
     }
 
     //AB2
-    @Test
+    @Test(enabled = false)
     private void Script_1_AB2_BBA() {
         dashboardPage
                 .openDashBoard()
@@ -693,7 +693,7 @@ public class BothPlanning extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_AB2_BAB() {
         dashboardPage
                 .openDashBoard()
@@ -745,7 +745,7 @@ public class BothPlanning extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_AB2_ABB() {
         dashboardPage
                 .openDashBoard()
@@ -798,7 +798,7 @@ public class BothPlanning extends BaseTest {
                 .clickYesButton();
     }
     //AAB2
-    @Test
+    @Test(enabled = false)
     private void Script_1_AAB2_BB() {
         dashboardPage
                 .openDashBoard()
@@ -850,7 +850,7 @@ public class BothPlanning extends BaseTest {
                 .clickYesButton();
     }
     //ABB1
-    @Test
+    @Test(enabled = false)
     private void Script_1_AAB1_AA() {
         dashboardPage
                 .openDashBoard()
@@ -902,7 +902,7 @@ public class BothPlanning extends BaseTest {
                 .clickYesButton();
     }
     //A1AB
-    @Test
+    @Test(enabled = false)
     private void Script_1_A1AB_2BBA() {
         dashboardPage
                 .openDashBoard()
@@ -959,7 +959,7 @@ public class BothPlanning extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_A1AB_2BAB() {
         dashboardPage
                 .openDashBoard()
@@ -1017,7 +1017,7 @@ public class BothPlanning extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_A1AB_2ABB() {
         dashboardPage
                 .openDashBoard()
@@ -1074,7 +1074,7 @@ public class BothPlanning extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_A1AB_A2BB() {
         dashboardPage
                 .openDashBoard()
@@ -1133,7 +1133,7 @@ public class BothPlanning extends BaseTest {
                 .clickYesButton();
     }
     //A1AA
-    @Test
+    @Test(enabled = false)
     private void Script_1_A1AA_B2BB() {
         dashboardPage
                 .openDashBoard()
@@ -1185,7 +1185,7 @@ public class BothPlanning extends BaseTest {
                 .clickYesButton();
     }
     //A1BA
-    @Test
+    @Test(enabled = false)
     private void Script_1_A1BA_A2BB() {
         dashboardPage
                 .openDashBoard()
@@ -1243,7 +1243,7 @@ public class BothPlanning extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_A1BA_2ABB() {
         dashboardPage
                 .openDashBoard()
@@ -1303,7 +1303,7 @@ public class BothPlanning extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_A1BA_2BAB() {
         dashboardPage
                 .openDashBoard()
@@ -1363,7 +1363,7 @@ public class BothPlanning extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_A1BA_2BBA() {
             dashboardPage
                     .openDashBoard()
@@ -1423,7 +1423,7 @@ public class BothPlanning extends BaseTest {
                     .clickYesButton();
         }
     //A1B2
-    @Test
+    @Test(enabled = false)
     private void Script_1_A1B2_AABB() {
         dashboardPage
                 .openDashBoard()
@@ -1481,7 +1481,7 @@ public class BothPlanning extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_A1B2_ABAB() {
         dashboardPage
                 .openDashBoard()
@@ -1541,7 +1541,7 @@ public class BothPlanning extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_A1B2_ABBA() {
         dashboardPage
                 .openDashBoard()
@@ -1600,7 +1600,7 @@ public class BothPlanning extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_A1B2_BAAB() {
         dashboardPage
                 .openDashBoard()
@@ -1659,7 +1659,7 @@ public class BothPlanning extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_A1B2_BBAA() {
         dashboardPage
                 .openDashBoard()
@@ -1717,7 +1717,7 @@ public class BothPlanning extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_A1B2_BABA() {
         dashboardPage
                 .openDashBoard()
@@ -1777,7 +1777,7 @@ public class BothPlanning extends BaseTest {
                 .clickYesButton();
     }
     //AB12
-    @Test
+    @Test(enabled = false)
     private void Script_1_AB12_AABB() {
         dashboardPage
                 .openDashBoard()
@@ -1837,7 +1837,7 @@ public class BothPlanning extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_AB12_BBAA() {
         dashboardPage
                 .openDashBoard()
@@ -1896,7 +1896,7 @@ public class BothPlanning extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_AB12_ABAB() {
         dashboardPage
                 .openDashBoard()
@@ -1957,7 +1957,7 @@ public class BothPlanning extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_AB12_BABA() {
         dashboardPage
                 .openDashBoard()
@@ -2018,7 +2018,7 @@ public class BothPlanning extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_AB12_BAAB() {
         dashboardPage
                 .openDashBoard()
@@ -2079,7 +2079,7 @@ public class BothPlanning extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_AB12_ABBA() {
         dashboardPage
                 .openDashBoard()
@@ -2141,7 +2141,7 @@ public class BothPlanning extends BaseTest {
                 .clickYesButton();
     }
     //AB21
-    @Test
+    @Test(enabled = false)
     private void Script_1_AB21_AABB() {
         dashboardPage
                 .openDashBoard()
@@ -2202,7 +2202,7 @@ public class BothPlanning extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_AB21_BBAA() {
         dashboardPage
                 .openDashBoard()
@@ -2263,7 +2263,7 @@ public class BothPlanning extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_AB21_ABAB() {
         dashboardPage
                 .openDashBoard()
@@ -2324,7 +2324,7 @@ public class BothPlanning extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_AB21_BABA() {
         dashboardPage
                 .openDashBoard()
@@ -2385,7 +2385,7 @@ public class BothPlanning extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_AB21_ABBA() {
         dashboardPage
                 .openDashBoard()
@@ -2446,7 +2446,7 @@ public class BothPlanning extends BaseTest {
                 .clickIUnderstandButtonOnWarningPopUp()
                 .clickYesButton();
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_AB21_BAAB() {
         dashboardPage
                 .openDashBoard()
