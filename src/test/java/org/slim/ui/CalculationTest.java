@@ -26,7 +26,7 @@ public class CalculationTest extends BaseTest {
         loginPage
                 .loginToDashboard("anastasia@fitsoft.nl", "QWEqwe123!@#");
     }
-    @Test(enabled = false)
+    @Test(enabled = true)
     private void checkAddress2() {
         dashboardPage
                 .openDashBoard()
