@@ -30,8 +30,9 @@
                     <target>${jdk.level}</target>
                 </configuration>
             </plugin>
+<!--
 
-            <!-- Added Surefire Plugin configuration to execute tests -->
+            &lt;!&ndash; Added Surefire Plugin configuration to execute tests &ndash;&gt;
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -53,6 +54,7 @@
                     </dependency>
                 </dependencies>
             </plugin>
+-->
 
         </plugins>
     </build>
