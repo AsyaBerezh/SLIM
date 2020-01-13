@@ -12,6 +12,7 @@
         <jre.level>1.8</jre.level>
         <jdk.level>1.8</jdk.level>
         <aspectj.version>1.9.2</aspectj.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <build>
@@ -20,11 +21,11 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
                 <configuration>
                    <!-- Was with Margaritha-->
 <!--                    <source>8</source>
                     <target>8</target>-->
-
                     <source>${jdk.level}</source>
                     <target>${jdk.level}</target>
                 </configuration>
