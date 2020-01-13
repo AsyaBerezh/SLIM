@@ -23,7 +23,7 @@ public class ForMaven extends BaseTest {
 
     /* Without BackToEditing one */
 
-    @Test
+    @Test(enabled = false)
     private void Script_1_AABB() {
         dashboardPage
                 .openDashBoard()
@@ -69,7 +69,7 @@ public class ForMaven extends BaseTest {
                 .clickYesButton();
         sleep(1000);
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_ABBA() {
         dashboardPage
                 .openDashBoard()
@@ -115,7 +115,7 @@ public class ForMaven extends BaseTest {
                 .clickYesButton();
         sleep(1000);
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_ABAB() {
         dashboardPage
                 .openDashBoard()
@@ -166,7 +166,7 @@ public class ForMaven extends BaseTest {
     /* BackToEditing one */
 
     //A1A
-    @Test
+    @Test(enabled = false)
     private void Script_1_A1A_BAB() {
         dashboardPage
                 .openDashBoard()
@@ -219,7 +219,7 @@ public class ForMaven extends BaseTest {
                 .clickYesButton();
         sleep(1000);
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_A1A_BBA() {
         dashboardPage
                 .openDashBoard()
@@ -271,7 +271,7 @@ public class ForMaven extends BaseTest {
                 .clickYesButton();
         sleep(1000);
     }
-    @Test
+    @Test(enabled = false)
     private void Script_1_A1A_ABB() {
         dashboardPage
                 .openDashBoard()
@@ -324,7 +324,7 @@ public class ForMaven extends BaseTest {
         sleep(1000);
     }
     //A1B
-    @Test
+    @Test(enabled = false)
     private void Script_1_A1B_AAB() {
         dashboardPage
                 .openDashBoard()
