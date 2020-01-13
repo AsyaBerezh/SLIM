@@ -16,7 +16,7 @@ public class DashboardTest extends BaseTest {
         loginPage
                 .loginToDashboard("marharyta@fitsoft.nl", "QWEqwe123!@#");
     }
-    @Test
+    @Test(enabled = false)
     public void moveToOrders() {
 
         dashboardPage
