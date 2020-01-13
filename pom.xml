@@ -18,18 +18,18 @@
     <build>
         <plugins>
             <!-- Compiler plug-in -->
-            <plugin>
+<!--            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                   <!-- Was with Margaritha-->
-<!--                    <source>8</source>
-                    <target>8</target>-->
+                   &lt;!&ndash; Was with Margaritha&ndash;&gt;
+&lt;!&ndash;                    <source>8</source>
+                    <target>8</target>&ndash;&gt;
                     <source>${jdk.level}</source>
                     <target>${jdk.level}</target>
                 </configuration>
-            </plugin>
+            </plugin>-->
             <!-- Added Surefire Plugin configuration to execute tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
