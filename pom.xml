@@ -30,9 +30,8 @@
                     <target>${jdk.level}</target>
                 </configuration>
             </plugin>
-<!--
 
-            &lt;!&ndash; Added Surefire Plugin configuration to execute tests &ndash;&gt;
+            <!-- Added Surefire Plugin configuration to execute tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -42,9 +41,9 @@
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
-                    <suiteXmlFiles>
+<!--                    <suiteXmlFiles>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
-                    </suiteXmlFiles>
+                    </suiteXmlFiles>-->
                 </configuration>
                 <dependencies>
                     <dependency>
@@ -54,7 +53,6 @@
                     </dependency>
                 </dependencies>
             </plugin>
--->
 
         </plugins>
     </build>
