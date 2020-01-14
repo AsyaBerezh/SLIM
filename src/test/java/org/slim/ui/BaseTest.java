@@ -7,7 +7,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
+import org.openqa.selenium.firefox.FirefoxDriver;
 public class BaseTest {
     LoginPage loginPage = new LoginPage();
 
@@ -21,7 +21,9 @@ public class BaseTest {
         browser.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         return browser;*/
 
-
+        System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver.exe");
+        WebDriver driver = new FirefoxDriver();
+        driver.manage().window().maximize();
         Configuration.browser =  "firefox";
         Configuration.timeout =  20000;
         Configuration.reportsFolder = "target/test-result/reports";
