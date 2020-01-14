@@ -21,9 +21,10 @@ public class BaseTest {
         browser.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         return browser;*/
 
-        System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver.exe");
+/*        System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver.exe");
         WebDriver driver = new FirefoxDriver();
-        driver.manage().window().maximize();
+        driver.manage().window().maximize();*/
+
         Configuration.browser =  "firefox";
         Configuration.timeout =  20000;
         Configuration.reportsFolder = "target/test-result/reports";
