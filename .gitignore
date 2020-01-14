@@ -3,4 +3,3 @@
 *.iml
 target
 allure-results
-BaseTest.java
