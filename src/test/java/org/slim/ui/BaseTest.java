@@ -21,6 +21,7 @@ public class BaseTest {
         browser.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         return browser;*/
 
+
         Configuration.browser =  "chrome";
         Configuration.timeout =  20000;
         Configuration.reportsFolder = "target/test-result/reports";
