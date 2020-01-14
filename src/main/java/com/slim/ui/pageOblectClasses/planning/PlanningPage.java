@@ -14,10 +14,6 @@ import java.util.*;
 import java.lang.*;
 import java.util.List;
 
-import org.openqa.selenium.*;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.firefox.FirefoxDriver;
-
 import static com.codeborne.selenide.Selenide.*;
 import static com.slim.ui.dataGenerator.DataGenerator.getTime;
 
@@ -33,7 +29,7 @@ public class PlanningPage {
     ElementsCollection trailerClaimButton = $$("[class='btn mx-button mx-name-actionButton13 fa-right fas fa-chevron-right btn-default']");
     SelenideElement goToPlanningButton = $("[class='btn mx-button mx-name-actionButton1 fa-right fas fa-chevron-right btn-default']");
     ElementsCollection deleteTrailerButton = $$("[class='btn mx-button mx-name-actionButton6 buttonnonborderred-image far fa-times-square btn-danger']");
-    ElementsCollection shipmentList = $$("[class='mx-layoutgrid mx-layoutgrid-fluid mx-name-layoutGrid33 center-align-childs']");
+    ElementsCollection shipmentList = $$("[class*='mx-layoutgrid mx-layoutgrid-fluid mx-name-layoutGrid33 center-align-childs']");
     SelenideElement tripActivitiesField = $("[class='mx-name-textBox2 h6']");
     SelenideElement yesButton = $("[class*='btn btn-primary']");
     ElementsCollection removeShipmentFromTripButton = $$(" [class='btn mx-button mx-name-actionButton18 buttonnonborderred-image fa fa-times-circle btn-danger']");
@@ -44,12 +40,12 @@ public class PlanningPage {
     ElementsCollection deleteTripButtons =$$("[class*='btn mx-button mx-name-actionButton10 buttonnonborderred-image far fa-times-square btn-danger']");
     SelenideElement startAddressInputField = $("[class='mx-listview-item mx-name-index-0'] [class*='input-group'] input");
     SelenideElement startAddressSearchButton = $("[class='mx-listview-item mx-name-index-0'] [class*='btn btn-default']");
-    SelenideElement secondAddressFromAddressBook = $("[class='mx-name-index-19']");
-    SelenideElement attachingTrailerInputField = $("[class='mx-listview-item mx-name-index-1'] [class='input-group']");
+    SelenideElement secondAddressFromAddressBook = $("[class='mx-name-index-1']");
+    SelenideElement attachingTrailerInputField = $("[class='mx-listview-item mx-name-index-1'] [class*='input-group'] input");
     SelenideElement attachingTrailerSearchButton = $("[class='mx-listview-item mx-name-index-1'] [class='btn btn-default']");
-    SelenideElement detachingTrailerInputField = $("[class='mx-listview-item mx-name-index-2'] [class='input-group']");
+    SelenideElement detachingTrailerInputField = $("[class='mx-listview-item mx-name-index-2'] [class*='input-group'] input");
     SelenideElement detachingTrailerSearchButton = $("[class='mx-listview-item mx-name-index-2'] [class='btn btn-default']");
-    SelenideElement endAddressInputField = $("[class='mx-listview-item mx-name-index-3'] [class*='input-group']");
+    SelenideElement endAddressInputField = $("[class='mx-listview-item mx-name-index-3'] [class*='input-group'] input");
     SelenideElement endAddressSearchButton = $("[class='mx-listview-item mx-name-index-3'] [class*='btn btn-default']");
     SelenideElement overviewButton = $("[class*='mx-link mx-name-actionButton21 far fa-list-alt']");
     ElementsCollection fromInputListField = $$("[class='mx-name-textBox25 timefrom'] input");
@@ -306,7 +302,9 @@ public class PlanningPage {
         for (int i = size; i >= 0; i--) {
             //System.out.println(size);
             deleteTripButtons.get(i).click();
-            yesButton.waitUntil(Condition.visible,1000).click();
+                if (isInformationErrorPopUpPresent()) {
+                    yesButton.waitUntil(Condition.visible, 50).click();
+                }
         }
         return this;
     }
@@ -425,16 +423,17 @@ public class PlanningPage {
         return this;
     }
     public PlanningPage dragShipment() {
+        shipmentList.first().dragAndDropTo(tripActivitiesField);
 
-        int shipmentListSize =  shipmentList.size();
-        /*System.out.println("shipment List Size" + shipmentListSize);*/
+/*        int shipmentListSize =  shipmentList.size();
+        System.out.println("shipment List Size" + shipmentListSize);
         if (shipmentListSize > 6)
         {
             shipmentList.first().dragAndDropTo(tripActivitiesField);
         }
         else{
             shipmentList.last().dragAndDropTo(tripActivitiesField);
-        }
+        }*/
 
         return this;
     }
@@ -478,9 +477,10 @@ public class PlanningPage {
 
     public PlanningPage clickAttachingTrailerAddress() {
         try {
-            if (attachingTrailerInputField.isDisplayed()) {
+            if (attachingTrailerInputField.isDisplayed())
+            {
                 attachingTrailerSearchButton.click();
-                secondAddressFromAddressBook.doubleClick();
+                secondAddressFromAddressBook.waitUntil(Condition.visible, 1000).doubleClick();
             }
         }
         catch (java.lang.RuntimeException exception){
@@ -494,9 +494,10 @@ public class PlanningPage {
     }
     public PlanningPage clickDetachingTrailerAddress() {
         try {
-            if (detachingTrailerInputField.isDisplayed()) {
+            if (detachingTrailerInputField.isDisplayed())
+            {
                 detachingTrailerSearchButton.click();
-                secondAddressFromAddressBook.doubleClick();
+                secondAddressFromAddressBook.waitUntil(Condition.visible, 1000).doubleClick();
             }
         }
         catch (org.openqa.selenium.NoSuchElementException exception){
@@ -527,21 +528,21 @@ public class PlanningPage {
         return this;
     }
     public PlanningPage clickOKButtonOnWarningPopUp(){
-        if (isErrorNoTimeEnteredPopUpPresent()) {
+        if (isInformationErrorPopUpPresent()) {
             yesButton.waitUntil(Condition.visible,50).click();
             for (int i = 0; i <= 100; i++){
                 inputTimeToFirstFromUntilTime(getTime(10,11), getTime(14,15));
                 clickCalculateTripButton();
                 clickOKButtonOnWarningPopUp();
                 clickIUnderstandButtonOnWarningPopUp();
-                if (!isErrorNoTimeEnteredPopUpPresent()) {
+                if (!isInformationErrorPopUpPresent()) {
                     break;
                 }
             }
         }
         return this;
     }
-    public Boolean isErrorNoTimeEnteredPopUpPresent() {
+    public Boolean isInformationErrorPopUpPresent() {
         try {
             sleep(500);
             return WebDriverRunner.getWebDriver().findElement(By.cssSelector("[class*='modal-header mx-dialog-header']")).isDisplayed();

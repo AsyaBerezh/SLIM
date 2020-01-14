@@ -9,7 +9,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.element;
-import static com.codeborne.selenide.Selenide.sleep;
 import static com.slim.ui.dataGenerator.DataGenerator.getTime;
 
 public class CalculationTest extends BaseTest {
@@ -33,9 +32,15 @@ public class CalculationTest extends BaseTest {
                 .clickPlanningButton();
         planningPage
                 .chooseDateofPlansheet()
+                .clickEditPlansheetButton()
+                .deleteNewTrips()
+                .clickRandomNewTripButton()
+                .checkLicenses()
+                .clickGoToPlanningButton()
+                .clickDeleteAttachingTrailerButton()
+                .clickDeleteDetachingTrailerButton()
                 .changeAddresses()
                 .dragShipment()
-                .inputTime()
                 .clickCalculateTripButton()
                 .clickOKButtonOnWarningPopUp()
                 .clickIUnderstandButtonOnWarningPopUp();
@@ -98,7 +103,7 @@ public class CalculationTest extends BaseTest {
                 .clickOKButtonOnWarningPopUp()
                 .clickIUnderstandButtonOnWarningPopUp();
 
-            if (!planningPage.isErrorNoTimeEnteredPopUpPresent()) {
+            if (!planningPage.isInformationErrorPopUpPresent()) {
                 break;
             }
         }
