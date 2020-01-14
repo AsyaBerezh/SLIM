@@ -22,7 +22,7 @@ public class BaseTest {
         return browser;*/
 
 
-        Configuration.browser =  "chrome";
+        Configuration.browser =  "firefox";
         Configuration.timeout =  20000;
         Configuration.reportsFolder = "target/test-result/reports";
       /*     ChromeOptions options  = new ChromeOptions().addArguments("no-sandbox");
