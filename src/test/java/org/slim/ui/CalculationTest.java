@@ -24,7 +24,6 @@ public class CalculationTest extends BaseTest {
     @BeforeClass
 
     private void preClass() {
-        WebDriverManager.chromedriver().setup();
         WebDriverManager.firefoxdriver().setup();
         loginPage
                 .loginToDashboard("anastasia@fitsoft.nl", "QWEqwe123!@#");
