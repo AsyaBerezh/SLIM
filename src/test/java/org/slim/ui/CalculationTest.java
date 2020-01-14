@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.element;
+import static com.codeborne.selenide.Selenide.sleep;
 import static com.slim.ui.dataGenerator.DataGenerator.getTime;
 
 public class CalculationTest extends BaseTest {
@@ -25,7 +26,14 @@ public class CalculationTest extends BaseTest {
         loginPage
                 .loginToDashboard("anastasia@fitsoft.nl", "QWEqwe123!@#");
     }
-    @Test(enabled = true)
+    @Test
+    private void open() {
+        dashboardPage
+                .openDashBoard()
+                .clickPlanningButton();
+    }
+
+    @Test(enabled = false)
     private void checkAddress2() {
         dashboardPage
                 .openDashBoard()
