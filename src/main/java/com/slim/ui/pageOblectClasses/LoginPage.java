@@ -11,8 +11,6 @@ public class LoginPage {
     SelenideElement passwordInput = $("[id='passwordInput']");
     SelenideElement loginButton = $("[id='loginButton']");
 
-
-
     public DashboardPage loginToDashboard (String email, String password) {
         open("https://slim-accp.mendixcloud.com/admin.html");
         emailInput.setValue(email);
