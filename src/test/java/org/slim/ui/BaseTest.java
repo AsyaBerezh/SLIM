@@ -26,7 +26,7 @@ public class BaseTest {
         driver.manage().window().maximize();*/
 
         Configuration.browser =  "firefox";
-        Configuration.timeout =  20000;
+       // Configuration.timeout =  20000;
         Configuration.reportsFolder = "target/test-result/reports";
       /*     ChromeOptions options  = new ChromeOptions().addArguments("no-sandbox");
         WebDriver driver = new ChromeDriver(options);
