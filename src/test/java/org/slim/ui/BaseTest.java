@@ -33,10 +33,10 @@ public class BaseTest {
         driver.get(Configuration.browser =  "chrome");*/
     }
 
-/*    @BeforeClass
+    @BeforeClass
     private void preClass (){
         loginPage
                 .loginToDashboard("anastasia@fitsoft.nl", "QWEqwe123!@#");
-    }*/
+    }
 
 }
