@@ -22,7 +22,6 @@ public class CalculationTest extends BaseTest {
     OverviewPage overviewPage = new OverviewPage();
 
     @BeforeClass
-
     private void preClass() {
         WebDriverManager.firefoxdriver().setup();
         loginPage
