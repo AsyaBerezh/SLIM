@@ -7,6 +7,7 @@ import com.slim.ui.pageOblectClasses.office.OfficePage;
 import com.slim.ui.pageOblectClasses.planning.PlanningPage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 import static com.codeborne.selenide.Selenide.element;
 import static com.codeborne.selenide.Selenide.sleep;
@@ -23,6 +24,8 @@ public class CalculationTest extends BaseTest {
     @BeforeClass
 
     private void preClass() {
+        WebDriverManager.chromedriver().setup();
+        WebDriverManager.firefoxdriver().setup();
         loginPage
                 .loginToDashboard("anastasia@fitsoft.nl", "QWEqwe123!@#");
     }
