@@ -53,6 +53,7 @@ public class PlanningPage {
 
     SelenideElement publishTripButton = $("[class='btn mx-button mx-name-actionButton2 fa-right fas fa-road btn-success']");
     SelenideElement iUnderstandButtonOnWarningPopUp = $("[class*='btn mx-button mx-name-actionButton1 fa-right fas fa-chevron-right btn-default']");
+    SelenideElement iUnderstandButtonOnAddressWarningPopUp = $("[class*='btn mx-button mx-name-actionButton10 fa-right fas fa-chevron-right btn-default']");
     ElementsCollection tripsInPlansheet = $$("[class='mx-layoutgrid mx-layoutgrid-fluid mx-name-layoutGrid2']");
     SelenideElement tripDetailsButton = $("[class='btn mx-button mx-name-actionButton16 buttonnonborder-image fas fa-info-circle btn-info']");
     SelenideElement resultsTab = $("[class='mx-name-tabPage4']");
@@ -561,6 +562,20 @@ public class PlanningPage {
         try {
             sleep(1000);
             return WebDriverRunner.getWebDriver().findElement(By.cssSelector("[class*='btn mx-button mx-name-actionButton1 fa-right fas fa-chevron-right btn-default']")).isDisplayed();
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return false;
+        }
+    }
+    public PlanningPage clickIUnderstandButtonOnAddressWarningPopUp(){
+        if (isAddressWarningPopUpPresent()) {
+            iUnderstandButtonOnAddressWarningPopUp.waitUntil(Condition.visible,1000).click();
+        }
+        return this;
+    }
+    public Boolean isAddressWarningPopUpPresent() {
+        try {
+            sleep(1000);
+            return WebDriverRunner.getWebDriver().findElement(By.cssSelector("[class*='btn mx-button mx-name-actionButton10 fa-right fas fa-chevron-right btn-default']")).isDisplayed();
         } catch (org.openqa.selenium.NoSuchElementException e) {
             return false;
         }

@@ -43,7 +43,8 @@ public class CalculationTest extends BaseTest {
                 .dragShipment()
                 .clickCalculateTripButton()
                 .clickOKButtonOnWarningPopUp()
-                .clickIUnderstandButtonOnWarningPopUp();
+                .clickIUnderstandButtonOnWarningPopUp()
+                .clickIUnderstandButtonOnAddressWarningPopUp();
     }
     @Test(enabled = false)
     private void checkAddress() {
