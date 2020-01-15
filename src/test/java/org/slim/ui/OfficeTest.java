@@ -6,7 +6,6 @@ import com.slim.ui.pageOblectClasses.Overview.OverviewPage;
 import com.slim.ui.pageOblectClasses.office.OfficePage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import static com.codeborne.selenide.Selenide.sleep;
 
 public class OfficeTest extends BaseTest {

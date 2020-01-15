@@ -8,23 +8,19 @@ import org.testng.annotations.BeforeSuite;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
 public class BaseTest {
     LoginPage loginPage = new LoginPage();
 
     @BeforeSuite
     public void preSuite(){
-
-/*        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver-location\\chromedriver.exe");
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox");
-        WebDriver browser = new ChromeDriver(options);
-        browser.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        return browser;*/
-
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+        Configuration.browser = "chrome";
 /*        System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver.exe");
         WebDriver driver = new FirefoxDriver();
         driver.manage().window().maximize();*/
-        System.setProperty("webdriver.chrome.driver","/usr/bin/chromedriver.exe");
+
+/*        System.setProperty("webdriver.chrome.driver","/usr/bin/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized"); // open Browser in maximized mode
         options.addArguments("disable-infobars"); // disabling infobars
@@ -33,8 +29,8 @@ public class BaseTest {
         options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
         options.addArguments("--no-sandbox"); // Bypass OS security model
         options.addArguments("--headless");
-        WebDriver driver = new ChromeDriver(options);
-        driver.get("https://slim-accp.mendixcloud.com/admin.html");
+        WebDriver driver = new ChromeDriver(options);*/
+
       //  Configuration.browser =  "chrome";
        // Configuration.timeout =  20000;
         Configuration.reportsFolder = "target/test-result/reports";
