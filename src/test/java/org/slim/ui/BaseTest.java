@@ -8,15 +8,16 @@ import org.testng.annotations.BeforeSuite;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
 public class BaseTest {
     LoginPage loginPage = new LoginPage();
 
     @BeforeSuite
     public void preSuite(){
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-        Configuration.browser = "chrome";
-/*        System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver.exe");
+
+      //  Configuration.browser = "chrome";
+
+/*    System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+    System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver.exe");
         WebDriver driver = new FirefoxDriver();
         driver.manage().window().maximize();*/
 
@@ -41,6 +42,7 @@ public class BaseTest {
 
     @BeforeClass
     private void preClass (){
+        Configuration.browser = "chrome";
         loginPage
                 .loginToDashboard("anastasia@fitsoft.nl", "QWEqwe123!@#");
     }
