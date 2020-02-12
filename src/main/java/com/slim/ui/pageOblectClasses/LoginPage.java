@@ -12,7 +12,7 @@ public class LoginPage {
     SelenideElement loginButton = $("[id='loginButton']");
 
     public DashboardPage loginToDashboard (String email, String password) {
-      //  open("https://slim-accp.mendixcloud.com/admin.html");
+      open("https://slim-accp.mendixcloud.com/admin.html");
         emailInput.setValue(email);
         passwordInput.setValue(password);
         loginButton.click();

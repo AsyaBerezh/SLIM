@@ -14,28 +14,25 @@ public class BaseTest {
     @BeforeSuite
     public void preSuite(){
 
-      //  Configuration.browser = "chrome";
-
+      Configuration.browser = "chrome";
+      //Configuration.browser = "firefox"; //for local
 /*    System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
     System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver.exe");
         WebDriver driver = new FirefoxDriver();
         driver.manage().window().maximize();*/
 
-        System.setProperty("webdriver.chrome.driver","/usr/bin/chromedriver");
+/*        System.setProperty("webdriver.chrome.driver","/usr/bin/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox"); // Bypass OS security model
-        options.addArguments("window-size=1920x1080");
-        /*
         options.addArguments("start-maximized"); // open Browser in maximized mode
         options.addArguments("disable-infobars"); // disabling infobars
         options.addArguments("--disable-extensions"); // disabling extensions
         options.addArguments("--disable-gpu"); // applicable to windows os only
         options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+        options.addArguments("--no-sandbox"); // Bypass OS security model
         options.addArguments("--headless");
-        */
-        WebDriver driver = new ChromeDriver(options);
-        driver.get("https://slim-accp.mendixcloud.com/admin.html");
-        //  Configuration.browser =  "chrome";
+        WebDriver driver = new ChromeDriver(options);*/
+
+      //  Configuration.browser =  "chrome";
        // Configuration.timeout =  20000;
         Configuration.reportsFolder = "target/test-result/reports";
       /*     ChromeOptions options  = new ChromeOptions().addArguments("no-sandbox");
@@ -45,7 +42,6 @@ public class BaseTest {
 
     @BeforeClass
     private void preClass (){
-        //Configuration.browser = "chrome";
         loginPage
                 .loginToDashboard("anastasia@fitsoft.nl", "QWEqwe123!@#");
     }
