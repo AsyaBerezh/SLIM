@@ -19,7 +19,7 @@ public class CalculationTest extends BaseTest {
     PlanningPage planningPage = new PlanningPage();
     OverviewPage overviewPage = new OverviewPage();
 
-    @BeforeClass
+   @BeforeClass
     private void preClass() {
         loginPage
                 .loginToDashboard("anastasia@fitsoft.nl", "QWEqwe123!@#");

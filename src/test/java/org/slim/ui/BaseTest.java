@@ -21,7 +21,7 @@ public class BaseTest {
         WebDriver driver = new FirefoxDriver();
         driver.manage().window().maximize();*/
 
-/*        System.setProperty("webdriver.chrome.driver","/usr/bin/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","/usr/bin/chromedriver");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized"); // open Browser in maximized mode
         options.addArguments("disable-infobars"); // disabling infobars
@@ -30,9 +30,9 @@ public class BaseTest {
         options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
         options.addArguments("--no-sandbox"); // Bypass OS security model
         options.addArguments("--headless");
-        WebDriver driver = new ChromeDriver(options);*/
-
-      //  Configuration.browser =  "chrome";
+        WebDriver driver = new ChromeDriver(options);
+        driver.get("https://slim-accp.mendixcloud.com/admin.html");
+        //  Configuration.browser =  "chrome";
        // Configuration.timeout =  20000;
         Configuration.reportsFolder = "target/test-result/reports";
       /*     ChromeOptions options  = new ChromeOptions().addArguments("no-sandbox");
@@ -42,7 +42,7 @@ public class BaseTest {
 
     @BeforeClass
     private void preClass (){
-        Configuration.browser = "chrome";
+        //Configuration.browser = "chrome";
         loginPage
                 .loginToDashboard("anastasia@fitsoft.nl", "QWEqwe123!@#");
     }
