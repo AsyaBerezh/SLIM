@@ -12,6 +12,7 @@ public class DashboardPage {
     ElementsCollection overviewButton = $$("[class*='mx-link mx-name-actionButton21 far fa-list-alt']");
     ElementsCollection planningButton = $$("[class*='mx-link mx-name-actionButton20 far fa-calendar-plus']");
     public DashboardPage openDashBoard(){
+
         open("https://slim-accp.mendixcloud.com");
         return new DashboardPage();
     }

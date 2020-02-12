@@ -22,13 +22,14 @@ public class AutomaticDataInputTest extends BaseTest {
     NewOrderFromTemplatePage newOrderFromTemplatePage = new NewOrderFromTemplatePage();
     NewWorkOrderPage newWorkOrderPage = new NewWorkOrderPage();
     OfficePage officePage = new OfficePage();
-
+/*
     @BeforeClass
 
     private void preClass (){
         loginPage
                 .loginToDashboard("marharyta@fitsoft.nl", "QWEqwe123!@#");
     }
+  */
     @Test(enabled = false)
     public void generatingNewOrderWithAbbinkVriezenveenCustomerAndBakkerijproductenCargo(){
         dashboardPage
@@ -377,8 +378,4 @@ public class AutomaticDataInputTest extends BaseTest {
                 .clickPublishTripButton();
         sleep(1000);
     }
-
-
-
-
 }

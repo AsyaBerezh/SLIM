@@ -46,9 +46,9 @@ public class BaseTest {
         loginPage
                 .loginToDashboard("anastasia@fitsoft.nl", "QWEqwe123!@#");
     }
-
+/*
     @AfterSuite
     public void tearDown() {
         WebDriverRunner.getWebDriver().close();
-    }
+    }*/
 }
