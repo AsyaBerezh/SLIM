@@ -7,22 +7,15 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
 public class BaseTest {
     LoginPage loginPage = new LoginPage();
 
     @BeforeSuite
     public void preSuite(){
-        System.setProperty("webdriver.gecko.driver", "/root/.m2/repository/webdriver/geckodriver/linux64/0.26.0/geckodriver");
-        FirefoxBinary firefoxBinary = new FirefoxBinary();
-        FirefoxOptions options = new FirefoxOptions();
-        options.setBinary(firefoxBinary);
-        options.setHeadless(true);  // <-- headless set here
-        WebDriver driver = new FirefoxDriver(options);
-        driver.get("https://slim-accp.mendixcloud.com");
 
-      //Configuration.browser = "chrome";
-    //  Configuration.browser = "firefox"; //for local
+        //Configuration.browser = "chrome";
+      Configuration.browser = "firefox"; //for local
 /*    System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
     System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver.exe");
         WebDriver driver = new FirefoxDriver();
