@@ -14,8 +14,8 @@ public class BaseTest {
     @BeforeSuite
     public void preSuite(){
 
-      Configuration.browser = "chrome";
-      //Configuration.browser = "firefox"; //for local
+      //Configuration.browser = "chrome";
+      Configuration.browser = "firefox"; //for local
 /*    System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
     System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver.exe");
         WebDriver driver = new FirefoxDriver();
