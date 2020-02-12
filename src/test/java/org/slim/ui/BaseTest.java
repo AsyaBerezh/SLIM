@@ -4,10 +4,11 @@ import com.codeborne.selenide.Configuration;
 import com.slim.ui.pageOblectClasses.LoginPage;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import com.codeborne.selenide.WebDriverRunner;
 public class BaseTest {
     LoginPage loginPage = new LoginPage();
 
@@ -46,4 +47,8 @@ public class BaseTest {
                 .loginToDashboard("anastasia@fitsoft.nl", "QWEqwe123!@#");
     }
 
+    @AfterSuite
+    public void tearDown() {
+        WebDriverRunner.getWebDriver().close();
+    }
 }
