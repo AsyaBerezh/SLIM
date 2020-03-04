@@ -13,7 +13,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import com.codeborne.selenide.WebDriverRunner;
 public class BaseTest {
     LoginPage loginPage = new LoginPage();
-    EventFiringWebDriver driver;
+    WebDriver webDriver;
     @BeforeSuite
     public void preSuite(){
 
@@ -33,9 +33,8 @@ public class BaseTest {
         options.addArguments("--disable-gpu");
         options.setPageLoadStrategy(PageLoadStrategy.NONE);
         System.setProperty("webdriver.chrome.driver", getPathToDriver());
-        WebDriver webDriver = new ChromeDriver(options);
+        webDriver = new ChromeDriver(options);
         webDriver.manage().window().maximize();
-        driver = new EventFiringWebDriver(webDriver);
       //  Configuration.browser =  "chrome";
        // Configuration.timeout =  20000;
         Configuration.reportsFolder = "target/test-result/reports";
@@ -47,9 +46,6 @@ public class BaseTest {
         String osName = System.getProperty("os.name").toLowerCase();
         if(osName.contains("win")) {
             return this.getClass().getResource("/chromedriver_windows32/chromedriver.exe").getPath();
-        }
-        if(osName.contains("mac")) {
-            return this.getClass().getResource("/chromedriver_mac64/chromedriver").getPath();
         }
         if(osName.contains("nux")) {
             return "src/test/resources/chromedriver_linux64/chromedriver";
@@ -63,6 +59,6 @@ public class BaseTest {
     }
     @AfterClass
     protected void tearDown() {
-        driver.quit();
+        webDriver.quit();
     }
 }
