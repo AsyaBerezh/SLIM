@@ -47,6 +47,7 @@ public class BaseTest {
         if(osName.contains("win")) {
             return this.getClass().getResource("/chromedriver_windows32/chromedriver.exe").getPath();
         }
+
         if(osName.contains("nux")) {
             return "src/test/resources/chromedriver_linux64/chromedriver";
         }
